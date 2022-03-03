@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &180827129
 Transform:
   m_ObjectHideFlags: 0
@@ -166,24 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0eaf41c736c6942a2e8f3ab932713b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speciesname: oriole
-  foodRequirements: 1
-  foodValue: 2
-  excessFoodRequired: 1
-  waterRequirements: 0
-  reproductionChance: 0.2
-  maxReproduction: 2
-  requiresHabitat: 1
-  requiresFood: 1
-  tags:
-  - animal
-  - bird
-  - flying
-  habitats:
-  - tree
-  foods:
-  - insect
   world: {fileID: 1648223972}
+  type: {fileID: 11400000, guid: 6770f8b50c4f6bf4aae3a2683cd09eb7, type: 2}
 --- !u!1 &465069659
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,21 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0eaf41c736c6942a2e8f3ab932713b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speciesname: milkweed
-  foodRequirements: 0
-  foodValue: 1
-  excessFoodRequired: 0
-  waterRequirements: 0
-  reproductionChance: 1
-  maxReproduction: 10
-  requiresHabitat: 0
-  requiresFood: 0
-  tags:
-  - flowering
-  - milkweed
-  habitats: []
-  foods: []
   world: {fileID: 1648223972}
+  type: {fileID: 11400000, guid: 2c1d4673262ef7a4b9882f6ada48100f, type: 2}
 --- !u!1 &572666482
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,64 +296,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &697264482
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 697264483}
-  - component: {fileID: 697264484}
-  m_Layer: 0
-  m_Name: milkweed (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &697264483
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697264482}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1123154332}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &697264484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697264482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d0eaf41c736c6942a2e8f3ab932713b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speciesname: milkweed2
-  foodRequirements: 0
-  foodValue: 1
-  excessFoodRequired: 0
-  waterRequirements: 0
-  reproductionChance: 1
-  maxReproduction: 0
-  requiresHabitat: 0
-  requiresFood: 0
-  tags:
-  - flowering
-  - milkweed
-  habitats: []
-  foods: []
-  world: {fileID: 1648223972}
 --- !u!1 &791882149
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,25 +339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0eaf41c736c6942a2e8f3ab932713b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speciesname: Monarch Butterfly
-  foodRequirements: 0.1
-  foodValue: 1
-  excessFoodRequired: 1.4
-  waterRequirements: 0
-  reproductionChance: 0.5
-  maxReproduction: 200
-  requiresHabitat: 1
-  requiresFood: 1
-  tags:
-  - insect
-  - flying
-  - butterfly
-  - animal
-  habitats:
-  - flowering
-  foods:
-  - flowering
   world: {fileID: 1648223972}
+  type: {fileID: 11400000, guid: c57e5fec73af3ce4d98b76ee5de3bacb, type: 2}
 --- !u!1 &1123154331
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +372,7 @@ Transform:
   - {fileID: 465069660}
   - {fileID: 180827129}
   - {fileID: 1343430856}
-  - {fileID: 697264483}
+  - {fileID: 1659451993}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -523,22 +419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0eaf41c736c6942a2e8f3ab932713b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speciesname: oak
-  foodRequirements: 2
-  foodValue: 0
-  excessFoodRequired: 0
-  waterRequirements: 2
-  reproductionChance: 0
-  maxReproduction: 0
-  requiresHabitat: 0
-  requiresFood: 0
-  tags:
-  - plant
-  - tree
-  - tall tree
-  habitats: []
-  foods: []
   world: {fileID: 1648223972}
+  type: {fileID: 11400000, guid: 73d168520ed8f9e4694d8b55aef28c2a, type: 2}
 --- !u!1 &1648223971
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,6 +465,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1659451992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1659451993}
+  - component: {fileID: 1659451994}
+  m_Layer: 0
+  m_Name: eagle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1659451993
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659451992}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1123154332}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1659451994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659451992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0eaf41c736c6942a2e8f3ab932713b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  world: {fileID: 1648223972}
+  type: {fileID: 11400000, guid: 835ad01d665c8404b9dd62fe5627535b, type: 2}
 --- !u!1 &1743271391
 GameObject:
   m_ObjectHideFlags: 0

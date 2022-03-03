@@ -5,9 +5,14 @@ using UnityEngine;
 public class Species
 {
 
+    SpeciesType type;
+
     // species specific requirements
     public string name { get; private set; }
-    float foodRequirements;
+    HashSet<string> foods;
+    HashSet<string> habitats;
+    public HashSet<string> tags { get; private set; }
+    /*float foodRequirements;
     public float foodValue { get; private set; }
     float excessFoodRequired;
     float waterRequirements;
@@ -16,14 +21,11 @@ public class Species
     float maxReproduction;
 
     // things species is, lives in, eats, and preferred biomes
-    public HashSet<string> tags { get; private set; }
     bool requiresHabitat;
-    HashSet<string> habitats;
     bool requiresFood;
-    HashSet<string> foods;
     List<BiomeType> favoredBiomes;
 
-    Dictionary<BiomeType, float> biomeWeights;
+    Dictionary<BiomeType, float> biomeWeights;*/
 
     // list of species this species is currently interacting with
     public List<Species> outgoingFood { get; private set; }
@@ -37,29 +39,29 @@ public class Species
     int populationToLose = 0;
     int populationToGain = 0;
 
-    public Species(string name, float foodReq, float foodVal, float waterReq, float repro, List<string> tags,
-        List<string> habitats, List<string> foods, WorldSim world, bool requiresHabitat, bool requiresFood, float excessFoodRequired, float maxReproduction)
+    public Species(SpeciesType type, WorldSim world)
     {
-        this.name = name; ;
-        this.foodRequirements = foodReq;
+        this.type = type;
+        this.name = type.SpeciesName;
+        /*this.foodRequirements = foodReq;
         this.foodValue = foodVal;
         this.waterRequirements = waterReq;
-        this.reproductionChance = repro;
+        this.reproductionChance = repro;*/
         this.tags = new HashSet<string>();
-        this.tags.UnionWith(tags);
+        this.tags.UnionWith(type.Tags);
         this.habitats = new HashSet<string>();
-        this.habitats.UnionWith(habitats);
+        this.habitats.UnionWith(type.Habitats);
         this.foods = new HashSet<string>();
-        this.foods.UnionWith(foods);
+        this.foods.UnionWith(type.Foods);
         this.world = world;
 
         outgoingFood = new List<Species>();
         outgoingHabitat = new List<Species>();
         population = 2;
-        this.requiresHabitat = requiresHabitat;
+        /*this.requiresHabitat = requiresHabitat;
         this.requiresFood = requiresFood;
         this.excessFoodRequired = excessFoodRequired;
-        this.maxReproduction = maxReproduction;
+        this.maxReproduction = maxReproduction;*/
 
         var subscribeTo = new HashSet<string>();
         subscribeTo.UnionWith(habitats);
@@ -87,7 +89,7 @@ public class Species
 
     public float getTotalFoodValue()
     {
-        return foodValue * population;
+        return type.FoodValue * population;
     }
 
     public void updateDecreaseDelta(int toLose)
@@ -101,9 +103,9 @@ public class Species
         float reproductionMultiplier = 1f;
 
         // checking food
-        if (requiresFood)
+        if (type.RequiresFood)
         {
-            float reqIntake = population * foodRequirements;
+            float reqIntake = population * type.FoodRequirements;
 
             //float totalPopulation = 0;
             float totalFoodAvailable = 0;
@@ -116,7 +118,7 @@ public class Species
             // more than enough food is available
             if (totalFoodAvailable >= reqIntake)
             {
-                if (totalFoodAvailable < reqIntake * (1 + excessFoodRequired))
+                if (totalFoodAvailable < reqIntake * (1 + type.ExcessFoodRequired))
                 {
                     canReproduce = false;
                     // try to implement boom and bust cycles
@@ -129,7 +131,7 @@ public class Species
                     // a few random creatures die of age, accident, etc
                     int death = Mathf.RoundToInt(population * Random.Range(.005f, .01f));
                     updateDecreaseDelta(death);
-                    reproductionMultiplier = 1 + totalFoodAvailable / reqIntake / excessFoodRequired;
+                    reproductionMultiplier = 1 + totalFoodAvailable / reqIntake / type.ExcessFoodRequired;
                 }
 
                 foreach (Species s in outgoingFood)
@@ -139,7 +141,7 @@ public class Species
                     // food that should be taken from this species
                     float foodIntakeForSpecies = foodProportion * reqIntake;
                     // number of organisms that should be consumed
-                    int toConsume = Mathf.RoundToInt(foodIntakeForSpecies / s.foodValue);
+                    int toConsume = Mathf.RoundToInt(foodIntakeForSpecies / s.type.FoodValue);
                     s.updateDecreaseDelta(toConsume);
                 }
             }
@@ -151,27 +153,27 @@ public class Species
                 {
                     s.updateDecreaseDelta(s.population);
                 }
-                int death = Mathf.RoundToInt((reqIntake - totalFoodAvailable) / foodRequirements);
+                int death = Mathf.RoundToInt((reqIntake - totalFoodAvailable) / type.FoodRequirements);
                 updateDecreaseDelta(death);
             }
         }
         // for plants
         else
         {
-            if (population * lightRequirements >= world.availableLight) canReproduce = false;
+            if (population * type.LightRequirements >= world.availableLight) canReproduce = false;
             reproductionMultiplier = 1;
         }
 
         // checking habitat
-        if (requiresHabitat && outgoingHabitat.Count == 0)
+        if (type.RequiresHabitat && outgoingHabitat.Count == 0)
         {
             canReproduce = false;
         }
 
         if (canReproduce)
         {
-            if (requiresFood) populationToGain += Mathf.RoundToInt(Mathf.Min(maxReproduction, reproductionChance * reproductionMultiplier));
-            else if (reproductionChance != 0) populationToGain += (int) Mathf.Min(maxReproduction, population);
+            if (type.RequiresFood) populationToGain += Mathf.RoundToInt(Mathf.Min(type.MaxReproduction, type.ReproductionChance * reproductionMultiplier));
+            else if (type.ReproductionChance != 0) populationToGain += (int) Mathf.Min(type.MaxReproduction, population);
         }
 
         needsUpdate = true;
