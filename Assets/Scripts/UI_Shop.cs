@@ -9,6 +9,7 @@ public class UI_Shop : MonoBehaviour
     private Transform container;
     private Transform ItemTemplate;
     private bool active = false;
+    public float spacing = 50f;
 
 
     private void Awake()
@@ -18,10 +19,12 @@ public class UI_Shop : MonoBehaviour
         ItemTemplate.gameObject.SetActive(active);
     }
 
-    private void Start()
+    private void GenerateShopValues()
     {
-        CreateItemButton("test1", 10, 0);
-        CreateItemButton("test2", 100, 1);
+        CreateItemButton("Milkweed", 9999999, 0);
+        CreateItemButton("butterfly", 350, 1);
+        CreateItemButton("Oriole", 5, 2);
+        CreateItemButton("Eagle", 15, 3);
 
     }
 //
@@ -30,7 +33,7 @@ public class UI_Shop : MonoBehaviour
         Transform shop = Instantiate(ItemTemplate, container);
         RectTransform shopTranform = shop.GetComponent<RectTransform>();
 
-        float height = 30f;
+        float height = spacing;
         shopTranform.anchoredPosition = new Vector2(0, -height * index);
 
         shopTranform.Find("name").GetComponent<TextMeshProUGUI>().SetText(name);
@@ -69,7 +72,7 @@ public class UI_Shop : MonoBehaviour
             }
 
             ItemTemplate.gameObject.SetActive(active);
-            Start();
+            GenerateShopValues();
         }
         print(active);
         

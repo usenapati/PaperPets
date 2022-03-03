@@ -6,6 +6,8 @@ TagManager:
   tags:
   - shop
   - shop2
+  - pause
+  - pause2
   layers:
   - Default
   - TransparentFX
