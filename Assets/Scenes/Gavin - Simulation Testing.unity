@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &180827129
 Transform:
   m_ObjectHideFlags: 0
@@ -167,10 +167,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speciesname: oriole
-  foodRequirements: 2
+  foodRequirements: 1
   foodValue: 2
+  excessFoodRequired: 1
   waterRequirements: 0
-  reproductionChance: 0.05
+  reproductionChance: 0.2
+  maxReproduction: 2
+  requiresHabitat: 1
+  requiresFood: 1
   tags:
   - animal
   - bird
@@ -226,8 +230,12 @@ MonoBehaviour:
   speciesname: milkweed
   foodRequirements: 0
   foodValue: 1
+  excessFoodRequired: 0
   waterRequirements: 0
-  reproductionChance: 0.1
+  reproductionChance: 1
+  maxReproduction: 10
+  requiresHabitat: 0
+  requiresFood: 0
   tags:
   - flowering
   - milkweed
@@ -317,6 +325,64 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &697264482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 697264483}
+  - component: {fileID: 697264484}
+  m_Layer: 0
+  m_Name: milkweed (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &697264483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697264482}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1123154332}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &697264484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697264482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0eaf41c736c6942a2e8f3ab932713b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speciesname: milkweed2
+  foodRequirements: 0
+  foodValue: 1
+  excessFoodRequired: 0
+  waterRequirements: 0
+  reproductionChance: 1
+  maxReproduction: 0
+  requiresHabitat: 0
+  requiresFood: 0
+  tags:
+  - flowering
+  - milkweed
+  habitats: []
+  foods: []
+  world: {fileID: 1648223972}
 --- !u!1 &791882149
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,10 +427,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speciesname: Monarch Butterfly
-  foodRequirements: 1
+  foodRequirements: 0.1
   foodValue: 1
+  excessFoodRequired: 1.4
   waterRequirements: 0
-  reproductionChance: 1
+  reproductionChance: 0.5
+  maxReproduction: 200
+  requiresHabitat: 1
+  requiresFood: 1
   tags:
   - insect
   - flying
@@ -406,6 +476,7 @@ Transform:
   - {fileID: 465069660}
   - {fileID: 180827129}
   - {fileID: 1343430856}
+  - {fileID: 697264483}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -455,8 +526,12 @@ MonoBehaviour:
   speciesname: oak
   foodRequirements: 2
   foodValue: 0
+  excessFoodRequired: 0
   waterRequirements: 2
-  reproductionChance: 1
+  reproductionChance: 0
+  maxReproduction: 0
+  requiresHabitat: 0
+  requiresFood: 0
   tags:
   - plant
   - tree
@@ -493,6 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad3b06410bcb38745a79ede9ffe4571b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  updateSpeed: 0.1
 --- !u!4 &1648223973
 Transform:
   m_ObjectHideFlags: 0

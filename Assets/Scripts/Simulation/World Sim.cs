@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class WorldSim
@@ -13,6 +14,11 @@ public class WorldSim
     Dictionary<string, List<Species>> speciesByTag = new Dictionary<string, List<Species>>();
     // mapping from tag to species that need to be alerted of changes. helps with efficiency of building a graph
     Dictionary<string, List<Species>> tagSubscribers = new Dictionary<string, List<Species>>();
+
+    // debugging information
+    Dictionary<string, StreamWriter> files = new Dictionary<string, StreamWriter>();
+
+    public float availableLight { get; private set; } = 100;
 
     // gets all of the food organisms with any of the input tags
     public List<Species> getAllFoodByTag(List<string> tags)
@@ -70,6 +76,7 @@ public class WorldSim
     {
 
         organisms.Add(s.name, s);
+        files.Add(s.name, new StreamWriter(s.name + ".csv"));
 
         // puts this species into the correct mapping of its own tags and updates subscribers
         foreach (string tag in s.tags)
@@ -115,6 +122,40 @@ public class WorldSim
             }
         }
         return output;
+    }
+
+    public string getPopulations()
+    {
+        string output = "";
+        foreach (Species s in organisms.Values)
+        {
+            output += s.name + "\n";
+            output += "   Population: " + s.population + "\n";
+        }
+        return output;
+    }
+
+    // updates the world and all organisms within
+    public void updateWorld()
+    {
+        foreach (Species s in organisms.Values)
+        {
+            s.scheduleChanges();
+        }
+
+        foreach (Species s in organisms.Values)
+        {
+            s.update();
+            files[s.name].WriteLine(s.population);
+        }
+    }
+
+    public void closeFiles()
+    {
+        foreach (StreamWriter s in files.Values)
+        {
+            s.Close();
+        }
     }
 
 }

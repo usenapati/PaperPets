@@ -8,13 +8,18 @@ public class Species
     // species specific requirements
     public string name { get; private set; }
     float foodRequirements;
-    float foodValue;
+    public float foodValue { get; private set; }
+    float excessFoodRequired;
     float waterRequirements;
+    float lightRequirements = 1;
     float reproductionChance;
+    float maxReproduction;
 
     // things species is, lives in, eats, and preferred biomes
     public HashSet<string> tags { get; private set; }
+    bool requiresHabitat;
     HashSet<string> habitats;
+    bool requiresFood;
     HashSet<string> foods;
     List<BiomeType> favoredBiomes;
 
@@ -23,11 +28,17 @@ public class Species
     // list of species this species is currently interacting with
     public List<Species> outgoingFood { get; private set; }
     public List<Species> outgoingHabitat { get; private set; }
+    public int population { get; private set; } = 0;
 
     WorldSim world;
 
+    // things for updating the population
+    bool needsUpdate = false;
+    int populationToLose = 0;
+    int populationToGain = 0;
+
     public Species(string name, float foodReq, float foodVal, float waterReq, float repro, List<string> tags,
-        List<string> habitats, List<string> foods, WorldSim world)
+        List<string> habitats, List<string> foods, WorldSim world, bool requiresHabitat, bool requiresFood, float excessFoodRequired, float maxReproduction)
     {
         this.name = name; ;
         this.foodRequirements = foodReq;
@@ -44,6 +55,11 @@ public class Species
 
         outgoingFood = new List<Species>();
         outgoingHabitat = new List<Species>();
+        population = 2;
+        this.requiresHabitat = requiresHabitat;
+        this.requiresFood = requiresFood;
+        this.excessFoodRequired = excessFoodRequired;
+        this.maxReproduction = maxReproduction;
 
         var subscribeTo = new HashSet<string>();
         subscribeTo.UnionWith(habitats);
@@ -67,6 +83,114 @@ public class Species
         check.IntersectWith(s.tags);
         if (check.Count > 0)
             outgoingFood.Add(s);
+    }
+
+    public float getTotalFoodValue()
+    {
+        return foodValue * population;
+    }
+
+    public void updateDecreaseDelta(int toLose)
+    {
+        populationToLose += toLose;
+    }
+
+    public void scheduleChanges()
+    {
+        bool canReproduce = true;
+        float reproductionMultiplier = 1f;
+
+        // checking food
+        if (requiresFood)
+        {
+            float reqIntake = population * foodRequirements;
+
+            //float totalPopulation = 0;
+            float totalFoodAvailable = 0;
+            foreach (Species s in outgoingFood)
+            {
+                //totalPopulation += s.population;
+                totalFoodAvailable += s.getTotalFoodValue();
+            }
+
+            // more than enough food is available
+            if (totalFoodAvailable >= reqIntake)
+            {
+                if (totalFoodAvailable < reqIntake * (1 + excessFoodRequired))
+                {
+                    canReproduce = false;
+                    // try to implement boom and bust cycles
+                    int death = Mathf.RoundToInt(population * Random.Range(.1f, .2f));
+                    //Debug.Log("attempting to bust " + name);
+                    updateDecreaseDelta(death);
+                }
+                else
+                {
+                    // a few random creatures die of age, accident, etc
+                    int death = Mathf.RoundToInt(population * Random.Range(.005f, .01f));
+                    updateDecreaseDelta(death);
+                    reproductionMultiplier = 1 + totalFoodAvailable / reqIntake / excessFoodRequired;
+                }
+
+                foreach (Species s in outgoingFood)
+                {
+                    // see amount of food this organism makes up proportionally
+                    float foodProportion = s.getTotalFoodValue() / totalFoodAvailable;
+                    // food that should be taken from this species
+                    float foodIntakeForSpecies = foodProportion * reqIntake;
+                    // number of organisms that should be consumed
+                    int toConsume = Mathf.RoundToInt(foodIntakeForSpecies / s.foodValue);
+                    s.updateDecreaseDelta(toConsume);
+                }
+            }
+            // not enough food is available
+            else
+            {
+                float percentFoodAvailable = totalFoodAvailable / reqIntake;
+                foreach (Species s in outgoingFood)
+                {
+                    s.updateDecreaseDelta(s.population);
+                }
+                int death = Mathf.RoundToInt((reqIntake - totalFoodAvailable) / foodRequirements);
+                updateDecreaseDelta(death);
+            }
+        }
+        // for plants
+        else
+        {
+            if (population * lightRequirements >= world.availableLight) canReproduce = false;
+            reproductionMultiplier = 1;
+        }
+
+        // checking habitat
+        if (requiresHabitat && outgoingHabitat.Count == 0)
+        {
+            canReproduce = false;
+        }
+
+        if (canReproduce)
+        {
+            if (requiresFood) populationToGain += Mathf.RoundToInt(Mathf.Min(maxReproduction, reproductionChance * reproductionMultiplier));
+            else if (reproductionChance != 0) populationToGain += (int) Mathf.Min(maxReproduction, population);
+        }
+
+        needsUpdate = true;
+    }
+
+    public void update()
+    {
+        if (!needsUpdate) throw new System.Exception("Species '" + name + "' has no scheduled updates.");
+        needsUpdate = false;
+
+        population = Mathf.Max(0, population - populationToLose);
+        populationToLose = 0;
+        population += populationToGain;
+        populationToGain = 0;
+
+        if (population == 0)
+        {
+            // species goes extinct
+        }
     }
 
 }

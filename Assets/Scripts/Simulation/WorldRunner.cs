@@ -6,6 +6,8 @@ public class WorldRunner : MonoBehaviour
 {
 
     public WorldSim world;
+    public float updateSpeed;
+    float deltaTime;
 
     // Awake is called before the first frame update
     void Awake()
@@ -26,5 +28,24 @@ public class WorldRunner : MonoBehaviour
             // print outgoing habitat
             Debug.Log(world.getOutgoingHabitats());
         }
+        else if (Input.GetKeyDown("p"))
+        {
+            // print outgoing habitat
+            Debug.Log(world.getPopulations());
+        }
+
+        // update world
+        deltaTime += Time.deltaTime;
+        if (deltaTime >= updateSpeed)
+        {
+            deltaTime = 0;
+            world.updateWorld();
+        }
     }
+
+    private void OnApplicationQuit()
+    {
+        world.closeFiles();
+    }
+
 }
