@@ -12,7 +12,7 @@ public class WorldRunner : MonoBehaviour
     // Awake is called before the first frame update
     void Awake()
     {
-        world = new WorldSim();
+        world = new WorldSim("new world");
     }
 
     // Update is called once per frame

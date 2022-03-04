@@ -35,6 +35,18 @@ public class SpeciesType : ScriptableObject
     [SerializeField] private bool requiresFood;
     public List<string> Foods { get { return foods; } private set { foods = value; } }
     [SerializeField] private List<string> foods;
-    //List<BiomeType> favoredBiomes;
+    //List<BiomeType> favoredBiomes;s
 
+    public List<PaperCost> SpeciesCost { get { return speciesCost; } private set { speciesCost = value; } }
+    [SerializeField] private List<PaperCost> speciesCost;
+
+}
+
+[System.Serializable]
+public struct PaperCost
+{ 
+    public PaperType PaperColor { get { return paperColor; } private set { paperColor = value; } }
+    [SerializeField] PaperType paperColor;
+    public int PaperAmount { get { return paperCost;  } private set { paperCost = value; } }
+    [SerializeField] int paperCost;
 }

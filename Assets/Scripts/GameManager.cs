@@ -12,11 +12,20 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     private static readonly object padlock = new object();
 
+    // Set up the terrariums
+    // will create ID later for the terrariums
+    private Dictionary<string, WorldSim> terrariums;
+    private int nextID = 0;
+
+
     // Information being kept
     // The paper the player has available to spend
+    // Look through specific file path to find all types of paper
     private Dictionary<PaperType, int> spendablePaper;
     // The simulation time tick
     private const float dt = 0.2f;
+    public enum TIMESPEED { SLOWEST, SLOW, NORMAL, FAST, FASTEST }
+    private TIMESPEED timeSpeed;
     private float accumulator = 0f;
     private uint tick;
 
@@ -36,6 +45,7 @@ public class GameManager : MonoBehaviour
             _instance = this;
         }
         DontDestroyOnLoad(this);
+        terrariums.Add(nextID++.ToString(), new WorldSim("first world"));
     }
 
     public Dictionary<PaperType, int> GetSpendablePaper()
@@ -55,6 +65,10 @@ public class GameManager : MonoBehaviour
 
             // A new tick has passed
             // Do we want to tie animations to this tick or have it based on something else?
+            foreach (WorldSim terrarium in terrariums.Values)
+            {
+                terrarium.updateWorld();
+            }
         }
     }
 }
