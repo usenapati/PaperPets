@@ -2,74 +2,6 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Population System Controls",
-            "id": "52f9df0b-ec8c-4089-b192-8e3000a62d9c",
-            "actions": [
-                {
-                    "name": "Print Population",
-                    "type": "PassThrough",
-                    "id": "14ec164d-7f86-4676-b887-796202784547",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Print Habitats",
-                    "type": "Button",
-                    "id": "bc70a42e-227b-44d5-9e1c-80f16a4ffbe2",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Prints Foods",
-                    "type": "Button",
-                    "id": "5a1241a2-5aa8-449e-b1d5-5a41ceceaf90",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "54c12e96-33fe-4c46-a115-1720cdef75d1",
-                    "path": "<Keyboard>/p",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Print Population",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9b5da8de-38ee-4f6b-a449-997de5cab970",
-                    "path": "<Keyboard>/h",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Print Habitats",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "13bc36f7-871e-47f7-9e59-62e80baf706d",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Prints Foods",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
             "name": "Camera Controls",
             "id": "fe30986e-b327-4f35-93e3-24704b58b5b7",
             "actions": [
@@ -114,7 +46,7 @@
                 {
                     "name": "Pan  - KnM",
                     "id": "89f9461e-4441-4917-be07-310d203ebf9e",
-                    "path": "1DAxis",
+                    "path": "1DAxis(minValue=0)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -242,6 +174,74 @@
                     "action": "Change Target",
                     "isComposite": false,
                     "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Population System Controls",
+            "id": "52f9df0b-ec8c-4089-b192-8e3000a62d9c",
+            "actions": [
+                {
+                    "name": "Print Population",
+                    "type": "PassThrough",
+                    "id": "14ec164d-7f86-4676-b887-796202784547",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Print Habitats",
+                    "type": "Button",
+                    "id": "bc70a42e-227b-44d5-9e1c-80f16a4ffbe2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Prints Foods",
+                    "type": "Button",
+                    "id": "5a1241a2-5aa8-449e-b1d5-5a41ceceaf90",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "54c12e96-33fe-4c46-a115-1720cdef75d1",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Print Population",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9b5da8de-38ee-4f6b-a449-997de5cab970",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Print Habitats",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "13bc36f7-871e-47f7-9e59-62e80baf706d",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Prints Foods",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
