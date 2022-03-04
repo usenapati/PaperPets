@@ -13,7 +13,13 @@ public class GameManager : MonoBehaviour
     private static readonly object padlock = new object();
 
     // Information being kept
+    // The paper the player has available to spend
     private Dictionary<PaperType, int> spendablePaper;
+    // The simulation time tick
+    private const float dt = 0.2f;
+    private float accumulator = 0f;
+    private uint tick;
+
 
     // Get the instance of the game manager
     public static GameManager Instance { get { return _instance; } }
@@ -40,6 +46,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Hours, Days, Months, Half-year, Years
+        accumulator += Time.deltaTime;
+        if (accumulator >= dt)
+        {
+            accumulator = 0;
+            tick++;
+
+            // A new tick has passed
+            // Do we want to tie animations to this tick or have it based on something else?
+        }
     }
 }
