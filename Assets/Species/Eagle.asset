@@ -32,3 +32,6 @@ MonoBehaviour:
   foods:
   - bird
   - insect
+  speciesCost:
+  - paperColor: {fileID: 11400000, guid: 5406fc71471241d40851e07608158a00, type: 2}
+    paperCost: 10000
