@@ -48,6 +48,13 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
         // Prepare the dictionary for the paper currencies
         spendablePaper = new Dictionary<PaperType, int>();
+
+        // load the paper dictionary
+        foreach (PaperType p in Resources.FindObjectsOfTypeAll(typeof(PaperType)) as PaperType[])
+        {
+            spendablePaper.Add(p, 0);
+        }
+
         // Prepare the dictionary for terrariums
         terrariums = new Dictionary<string, WorldSim>();
         terrariums.Add(nextID++.ToString(), new WorldSim("first world"));
@@ -74,7 +81,7 @@ public class GameManager : MonoBehaviour
         {
             tick++;
             accumulator = 0;
-            Debug.Log("tick" + timeSpeed.ToString() + ":" + tick);
+            //Debug.Log("tick" + timeSpeed.ToString() + ":" + tick);
 
             // A new tick has passed
             // Do we want to tie animations to this tick or have it based on something else?

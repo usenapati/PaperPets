@@ -18,7 +18,7 @@ public class WorldRunner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("f"))
+        /*if (Input.GetKeyDown("f"))
         {
             // print outgoing food
             Debug.Log(world.getOutgoingFoods());
@@ -32,7 +32,7 @@ public class WorldRunner : MonoBehaviour
         {
             // print outgoing habitat
             Debug.Log(world.getPopulations());
-        }
+        }*/
 
         // update world
         deltaTime += Time.deltaTime;

@@ -37,16 +37,21 @@ public class SpeciesType : ScriptableObject
     [SerializeField] private List<string> foods;
     //List<BiomeType> favoredBiomes;s
 
-    public List<PaperCost> SpeciesCost { get { return speciesCost; } private set { speciesCost = value; } }
-    [SerializeField] private List<PaperCost> speciesCost;
+    // paper species costs to add
+    public List<PaperValue> SpeciesCost { get { return speciesCost; } private set { speciesCost = value; } }
+    [SerializeField] private List<PaperValue> speciesCost;
+
+    // paper species will produce
+    public List<PaperValue> SpeciesProduce { get { return speciesProduce; } private set { speciesProduce = value; } }
+    [SerializeField] private List<PaperValue> speciesProduce;
 
 }
 
 [System.Serializable]
-public struct PaperCost
+public struct PaperValue
 { 
     public PaperType PaperColor { get { return paperColor; } private set { paperColor = value; } }
     [SerializeField] PaperType paperColor;
-    public int PaperAmount { get { return paperCost;  } private set { paperCost = value; } }
-    [SerializeField] int paperCost;
+    public int PaperAmount { get { return paperValue;  } private set { paperValue = value; } }
+    [SerializeField] int paperValue;
 }
