@@ -17,9 +17,12 @@ public class WorldSim
     // mapping of organisms by name
     Dictionary<string, Species> organisms = new Dictionary<string, Species>();
     // mapping of organisms by tags
-    Dictionary<string, List<Species>> speciesByTag = new Dictionary<string, List<Species>>();
+    Dictionary<string, HashSet<Species>> speciesByTag = new Dictionary<string, HashSet<Species>>();
     // mapping from tag to species that need to be alerted of changes. helps with efficiency of building a graph
-    Dictionary<string, List<Species>> tagSubscribers = new Dictionary<string, List<Species>>();
+    Dictionary<string, HashSet<Species>> tagSubscribers = new Dictionary<string, HashSet<Species>>();
+
+    // list of species that have actively died and need to be removed
+    HashSet<Species> toBeRemoved = new HashSet<Species>();
 
     // debugging information
     Dictionary<string, StreamWriter> files = new Dictionary<string, StreamWriter>();
@@ -75,7 +78,7 @@ public class WorldSim
         foreach (string tag in tags)
         {
             if (!tagSubscribers.ContainsKey(tag))
-                tagSubscribers.Add(tag, new List<Species>());
+                tagSubscribers.Add(tag, new HashSet<Species>());
             tagSubscribers[tag].Add(s);
         }
 
@@ -105,7 +108,7 @@ public class WorldSim
         foreach (string tag in s.tags)
         {
             if (!speciesByTag.ContainsKey(tag))
-                speciesByTag.Add(tag, new List<Species>());
+                speciesByTag.Add(tag, new HashSet<Species>());
             speciesByTag[tag].Add(s);
 
             if (tagSubscribers.ContainsKey(tag))
@@ -117,6 +120,38 @@ public class WorldSim
             }
         }
 
+    }
+
+    // removes all species scheduled to be killed
+    private void killAllScheduledSpecies()
+    {
+        foreach (Species s in toBeRemoved)
+        {
+            foreach (string tag in s.tags)
+            {
+                speciesByTag[tag].Remove(s);
+                if (tagSubscribers.ContainsKey(tag))
+                {
+                    foreach (Species sub in tagSubscribers[tag])
+                    {
+                        sub.outgoingFood.Remove(s);
+                        sub.outgoingHabitat.Remove(s);
+                    }
+                }
+            }
+            foreach (HashSet<Species> h in tagSubscribers.Values)
+            {
+                h.Remove(s);
+            }
+            organisms.Remove(s.name);
+        }
+        toBeRemoved.Clear();
+    }
+
+    // species is killed and all subscribers need to be notified
+    public void killSpecies(Species s)
+    {
+        toBeRemoved.Add(s);
     }
 
     public string getOutgoingFoods()
@@ -176,6 +211,7 @@ public class WorldSim
                 GameManager.Instance.GetSpendablePaper()[p.PaperColor] += p.PaperAmount;
             }
         }
+        killAllScheduledSpecies();
     }
 
     public void closeFiles()

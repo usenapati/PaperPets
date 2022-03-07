@@ -28,8 +28,8 @@ public class Species
     Dictionary<BiomeType, float> biomeWeights;*/
 
     // list of species this species is currently interacting with
-    public List<Species> outgoingFood { get; private set; }
-    public List<Species> outgoingHabitat { get; private set; }
+    public HashSet<Species> outgoingFood { get; private set; }
+    public HashSet<Species> outgoingHabitat { get; private set; }
     public int population { get; private set; } = 0;
 
     WorldSim world;
@@ -55,8 +55,8 @@ public class Species
         this.foods.UnionWith(type.Foods);
         this.world = world;
 
-        outgoingFood = new List<Species>();
-        outgoingHabitat = new List<Species>();
+        outgoingFood = new HashSet<Species>();
+        outgoingHabitat = new HashSet<Species>();
         population = 2;
         /*this.requiresHabitat = requiresHabitat;
         this.requiresFood = requiresFood;
@@ -72,6 +72,7 @@ public class Species
 
     public void notify(Species s)
     {
+        if (s == this) return;
         HashSet<string> check = new HashSet<string>();
         // check for habitat
         check.UnionWith(habitats);
@@ -154,6 +155,7 @@ public class Species
                     s.updateDecreaseDelta(s.population);
                 }
                 int death = Mathf.RoundToInt((reqIntake - totalFoodAvailable) / type.FoodRequirements);
+                death = death == 0 ? 1 : death;
                 updateDecreaseDelta(death);
             }
         }
@@ -192,6 +194,7 @@ public class Species
         if (population == 0)
         {
             // species goes extinct
+            world.killSpecies(this);
         }
     }
 
