@@ -7,6 +7,12 @@ public class WorldSim
 {
     // current biome
     Biome biome;
+    // is the world active
+    bool isActive;
+    // name of world
+    public string name { get; private set; }
+    // id of the world that will not change
+    public string id { get; private set; }
 
     // mapping of organisms by name
     Dictionary<string, Species> organisms = new Dictionary<string, Species>();
@@ -19,6 +25,12 @@ public class WorldSim
     Dictionary<string, StreamWriter> files = new Dictionary<string, StreamWriter>();
 
     public float availableLight { get; private set; } = 100;
+
+    public WorldSim(string name)
+    {
+        this.name = name;
+        this.isActive = false;
+    }
 
     // gets all of the food organisms with any of the input tags
     public List<Species> getAllFoodByTag(List<string> tags)
@@ -76,7 +88,7 @@ public class WorldSim
     {
 
         organisms.Add(s.name, s);
-        files.Add(s.name, new StreamWriter(s.name + ".csv"));
+        //files.Add(s.name, new StreamWriter(s.name + ".csv"));
 
         // puts this species into the correct mapping of its own tags and updates subscribers
         foreach (string tag in s.tags)
@@ -146,7 +158,7 @@ public class WorldSim
         foreach (Species s in organisms.Values)
         {
             s.update();
-            files[s.name].WriteLine(s.population);
+            //files[s.name].WriteLine(s.population);
         }
     }
 
@@ -154,7 +166,7 @@ public class WorldSim
     {
         foreach (StreamWriter s in files.Values)
         {
-            s.Close();
+            //s.Close();
         }
     }
 
