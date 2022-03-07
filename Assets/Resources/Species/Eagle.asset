@@ -33,5 +33,8 @@ MonoBehaviour:
   - bird
   - insect
   speciesCost:
-  - paperColor: {fileID: 11400000, guid: 5406fc71471241d40851e07608158a00, type: 2}
-    paperCost: 10000
+  - paperColor: {fileID: 11400000, guid: b2166dd1b6743d4429202d2fb4111205, type: 2}
+    paperValue: 1
+  speciesProduce:
+  - paperColor: {fileID: 11400000, guid: b2166dd1b6743d4429202d2fb4111205, type: 2}
+    paperValue: 1

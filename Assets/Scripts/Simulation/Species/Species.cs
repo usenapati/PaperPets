@@ -67,7 +67,7 @@ public class Species
         subscribeTo.UnionWith(habitats);
         subscribeTo.UnionWith(foods);
         world.subscribeToTags(this, subscribeTo);
-        world.addSpecies(this);
+        //world.addSpecies(this);
     }
 
     public void notify(Species s)
@@ -193,6 +193,17 @@ public class Species
         {
             // species goes extinct
         }
+    }
+
+    // returns the list of paper this species produced
+    public List<PaperValue> producedPaper()
+    {
+        List<PaperValue> paper = new List<PaperValue>();
+        foreach (PaperValue pv in type.SpeciesProduce)
+        {
+            paper.Add(new PaperValue(pv.PaperColor, population * pv.PaperAmount));
+        }
+        return paper;
     }
 
 }

@@ -50,6 +50,11 @@ public class SpeciesType : ScriptableObject
 [System.Serializable]
 public struct PaperValue
 { 
+    public PaperValue(PaperType paperColor, int paperValue)
+    {
+        this.paperColor = paperColor;
+        this.paperValue = paperValue;
+    }
     public PaperType PaperColor { get { return paperColor; } private set { paperColor = value; } }
     [SerializeField] PaperType paperColor;
     public int PaperAmount { get { return paperValue;  } private set { paperValue = value; } }

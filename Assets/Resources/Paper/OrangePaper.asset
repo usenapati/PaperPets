@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e246c3e8b37bbd45b59d9b2eac09e75, type: 3}
   m_Name: OrangePaper
   m_EditorClassIdentifier: 
-  paperTexture: {fileID: 0}
+  paperName: orange
+  paperTexture: {fileID: 2800000, guid: b67578da3d4c45b43b9d1c20a90f23d0, type: 3}

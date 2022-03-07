@@ -73,6 +73,16 @@ public class GameManager : MonoBehaviour
         dt = basedt / (float)timeSpeed;
     }
 
+    public void addSpecies(SpeciesType s)
+    {
+        terrariums[(nextID - 1).ToString()].addSpecies(s);
+    }
+
+    public WorldSim getCurrentWorld()
+    {
+        return terrariums[(nextID - 1).ToString()];
+    }
+
     // Update is called once per frame
     void Update()
     {
