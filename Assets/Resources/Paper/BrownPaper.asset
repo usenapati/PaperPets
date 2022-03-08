@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e246c3e8b37bbd45b59d9b2eac09e75, type: 3}
   m_Name: BrownPaper
   m_EditorClassIdentifier: 
-  paperName: 
-  paperTexture: {fileID: 0}
+  paperName: brown
+  paperTexture: {fileID: 2800000, guid: 1d7c204d3e2e19745a7d738b284918bc, type: 3}

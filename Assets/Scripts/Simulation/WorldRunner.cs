@@ -34,14 +34,14 @@ public class WorldRunner : MonoBehaviour
             Debug.Log(world.getPopulations());
         }*/
 
-        // update world
-        deltaTime += Time.deltaTime;
-        if (deltaTime >= updateSpeed)
-        {
-            deltaTime = 0;
-            world.updateWorld();
-        }
-    }
+    //     // update world
+    //     deltaTime += Time.deltaTime;
+    //     if (deltaTime >= updateSpeed)
+    //     {
+    //         deltaTime = 0;
+    //         world.updateWorld();
+    //     }
+     }
 
     private void OnApplicationQuit()
     {

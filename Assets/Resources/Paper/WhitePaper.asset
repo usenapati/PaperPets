@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e246c3e8b37bbd45b59d9b2eac09e75, type: 3}
   m_Name: WhitePaper
   m_EditorClassIdentifier: 
-  paperName: 
-  paperTexture: {fileID: 0}
+  paperName: white
+  paperTexture: {fileID: 2800000, guid: c35c54c6cdb703e44b2df354d85ba088, type: 3}
