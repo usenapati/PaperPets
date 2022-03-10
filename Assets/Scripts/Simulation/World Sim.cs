@@ -1,8 +1,10 @@
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
+[JsonObject(MemberSerialization.Fields)]
 public class WorldSim
 {
     // current biome

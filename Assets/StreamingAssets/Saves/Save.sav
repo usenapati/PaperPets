@@ -1,0 +1,210 @@
+{
+  "$id": "1",
+  "Terrariums": {
+    "testworld": {
+      "$id": "2",
+      "biome": null,
+      "isActive": false,
+      "<name>k__BackingField": "hue",
+      "<id>k__BackingField": null,
+      "organisms": {
+        "$id": "3",
+        "Eagle": {
+          "$id": "4",
+          "<name>k__BackingField": "Eagle",
+          "foods": [
+            "bird",
+            "insect"
+          ],
+          "habitats": [
+            "tall tree"
+          ],
+          "<tags>k__BackingField": [
+            "flying",
+            "bird",
+            "animal",
+            "eagle"
+          ],
+          "<outgoingFood>k__BackingField": [
+            {
+              "$id": "5",
+              "<name>k__BackingField": "Oriole",
+              "foods": [
+                "insect"
+              ],
+              "habitats": [
+                "tree"
+              ],
+              "<tags>k__BackingField": [
+                "animal",
+                "flying",
+                "bird"
+              ],
+              "<outgoingFood>k__BackingField": [],
+              "<outgoingHabitat>k__BackingField": [],
+              "<population>k__BackingField": 2,
+              "world": {
+                "$ref": "2"
+              },
+              "needsUpdate": false,
+              "populationToLose": 0,
+              "populationToGain": 0
+            }
+          ],
+          "<outgoingHabitat>k__BackingField": [],
+          "<population>k__BackingField": 2,
+          "world": {
+            "$ref": "2"
+          },
+          "needsUpdate": false,
+          "populationToLose": 0,
+          "populationToGain": 0
+        },
+        "Milkweed": {
+          "$id": "6",
+          "<name>k__BackingField": "Milkweed",
+          "foods": [],
+          "habitats": [],
+          "<tags>k__BackingField": [
+            "flowering",
+            "milkweed"
+          ],
+          "<outgoingFood>k__BackingField": [],
+          "<outgoingHabitat>k__BackingField": [],
+          "<population>k__BackingField": 2,
+          "world": {
+            "$ref": "2"
+          },
+          "needsUpdate": false,
+          "populationToLose": 0,
+          "populationToGain": 0
+        },
+        "Oriole": {
+          "$ref": "5"
+        }
+      },
+      "speciesByTag": {
+        "$id": "7",
+        "flying": [
+          {
+            "$ref": "4"
+          },
+          {
+            "$ref": "5"
+          }
+        ],
+        "bird": [
+          {
+            "$ref": "4"
+          },
+          {
+            "$ref": "5"
+          }
+        ],
+        "animal": [
+          {
+            "$ref": "4"
+          },
+          {
+            "$ref": "5"
+          }
+        ],
+        "eagle": [
+          {
+            "$ref": "4"
+          }
+        ],
+        "flowering": [
+          {
+            "$ref": "6"
+          }
+        ],
+        "milkweed": [
+          {
+            "$ref": "6"
+          }
+        ]
+      },
+      "tagSubscribers": {
+        "$id": "8",
+        "tall tree": [
+          {
+            "$ref": "4"
+          }
+        ],
+        "bird": [
+          {
+            "$ref": "4"
+          }
+        ],
+        "insect": [
+          {
+            "$ref": "4"
+          },
+          {
+            "$ref": "5"
+          }
+        ],
+        "tree": [
+          {
+            "$ref": "5"
+          }
+        ]
+      },
+      "files": {
+        "$id": "9"
+      },
+      "<availableLight>k__BackingField": 100.0
+    },
+    "test2": {
+      "$id": "10",
+      "biome": null,
+      "isActive": false,
+      "<name>k__BackingField": "tehorld",
+      "<id>k__BackingField": null,
+      "organisms": {
+        "$id": "11",
+        "Milkweed": {
+          "$id": "12",
+          "<name>k__BackingField": "Milkweed",
+          "foods": [],
+          "habitats": [],
+          "<tags>k__BackingField": [
+            "flowering",
+            "milkweed"
+          ],
+          "<outgoingFood>k__BackingField": [],
+          "<outgoingHabitat>k__BackingField": [],
+          "<population>k__BackingField": 2,
+          "world": {
+            "$ref": "10"
+          },
+          "needsUpdate": false,
+          "populationToLose": 0,
+          "populationToGain": 0
+        }
+      },
+      "speciesByTag": {
+        "$id": "13",
+        "flowering": [
+          {
+            "$ref": "12"
+          }
+        ],
+        "milkweed": [
+          {
+            "$ref": "12"
+          }
+        ]
+      },
+      "tagSubscribers": {
+        "$id": "14"
+      },
+      "files": {
+        "$id": "15"
+      },
+      "<availableLight>k__BackingField": 100.0
+    }
+  },
+  "SpendablePaper": {}
+}
