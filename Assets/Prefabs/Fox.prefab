@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8314152571645774047}
   - component: {fileID: 8314152571645774032}
+  - component: {fileID: 1954695978}
   m_Layer: 0
   m_Name: Fox
   m_TagString: Untagged
@@ -82,3 +83,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 1
+--- !u!114 &1954695978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8314152571645774033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36186637226c5d45a023325a83c8e30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStaticBillboard: 0
