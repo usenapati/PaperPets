@@ -149,7 +149,7 @@ public class UI_Shop : MonoBehaviour
     }
 
     public void ShopClick(SpeciesType s){
-        gameManager.addSpecies(s);
+        GameManager.Instance.addSpecies(s);
         print(s.SpeciesName + " Added");
     }
 
