@@ -15,6 +15,9 @@ public class TestSave : MonoBehaviour
     WorldSim temp3;
     WorldSim temp4;
 
+    Dictionary<string, WorldSim> terrariums = new Dictionary<string, WorldSim>();
+    Dictionary<PaperType, int> papermoney = new Dictionary<PaperType, int>();
+
     public void Save()
     {
 
@@ -27,17 +30,17 @@ public class TestSave : MonoBehaviour
         //temp1.addSpecies(species1);
         //temp1.addSpecies(species2);
         //temp2.addSpecies(species2);
+        terrariums["testworld"] = temp1;
+        terrariums["test2"] = temp2;
 
-        SavesManager.StoredData.Terrariums["testworld"] = temp1;
-        SavesManager.StoredData.Terrariums["test2"] = temp2;
-        SavesManager.SaveGame(saveName);
+        SavesManager.SaveGame(saveName, new SaveData(terrariums, papermoney));
     }
 
     public void Load()
     {
         //
         SavesManager.LoadGame(saveName);
-        Dictionary<string, WorldSim> temp = SavesManager.StoredData.Terrariums;
+        Dictionary<string, WorldSim> temp = SavesManager.LoadGame(saveName).Terrariums;
 
         Debug.Log(temp.Count);
         Debug.Log(temp["testworld"].getOutgoingFoods());

@@ -7,17 +7,14 @@ using System;
 public static class SavesManager
 {
     private static string extension = ".sav";
-    //private static string metaExtension = ".atem";
     private static string savePath = "/Saves/"; // relative to streaming assets path
-    public static SaveData StoredData { get { return storedData; } }
-    private static SaveData storedData = new SaveData();
 
-    public static void SaveGame(string name)
+    public static void SaveGame(string fileName, SaveData saveData)
     {
-        string json = JsonConvert.SerializeObject(storedData, Formatting.Indented,
+        string json = JsonConvert.SerializeObject(saveData, Formatting.Indented,
             new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
 #if UNITY_EDITOR
-        var sw = new System.IO.StreamWriter(Application.streamingAssetsPath + savePath + name + extension);
+        var sw = new System.IO.StreamWriter(Application.streamingAssetsPath + savePath + fileName + extension);
 #else
         var sw = new System.IO.StreamWriter(Application.persistentDataPath + savePath + name + fileExtension);
 #endif
@@ -25,31 +22,38 @@ public static class SavesManager
         sw.Close();
     }
 
-    public static void LoadGame(string name)
+    public static SaveData LoadGame(string fileName)
     {
 #if UNITY_EDITOR
-        var sr = new System.IO.StreamReader(Application.streamingAssetsPath + savePath + name + extension);
+        var sr = new System.IO.StreamReader(Application.streamingAssetsPath + savePath + fileName + extension);
 #else
         var sr = new System.IO.StreamReader(Application.persistentDataPath + savePath + name + extension);
 #endif
-        storedData = JsonConvert.DeserializeObject<SaveData>(sr.ReadToEnd(),
+        SaveData saveData = JsonConvert.DeserializeObject<SaveData>(sr.ReadToEnd(),
             new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+        foreach (WorldSim w in saveData.Terrariums.Values)
+        {
+            w.onLoadIn();
+        }
         sr.Close();
+        return saveData;
     }
 }
 
 public class SaveData
 {
-    // World sim will need a converter -- Newtonsoft will take care of the rest
     public Dictionary<string, WorldSim> Terrariums { get { return terrariums; } private set { terrariums = value; } }
     private Dictionary<string, WorldSim> terrariums;
-    // Save just the name of the paper type
     public Dictionary<string, int> SpendablePaper { get { return spendablePaper; } private set { spendablePaper = value; } }
     private Dictionary<string, int> spendablePaper;
 
-    public SaveData()
+    public SaveData(Dictionary<string, WorldSim> terrariums, Dictionary<PaperType, int> spendablePaper)
     {
-        terrariums = new Dictionary<string, WorldSim>();
-        spendablePaper = new Dictionary<string, int>();
+        this.terrariums = terrariums;
+        this.spendablePaper = new Dictionary<string, int>();
+        foreach (KeyValuePair<PaperType, int> kv in spendablePaper)
+        {
+            this.spendablePaper[kv.Key.name] = kv.Value;
+        }
     }
 }

@@ -212,4 +212,9 @@ public class Species
         return paper;
     }
 
+    public void resetSpecies()
+    {
+        type = Resources.Load("Species/" + name) as SpeciesType;
+    }
+
 }

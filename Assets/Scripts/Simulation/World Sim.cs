@@ -180,6 +180,14 @@ public class WorldSim
         }
     }
 
+    public void onLoadIn()
+    {
+        foreach (Species s in organisms.Values)
+        {
+            s.resetSpecies();
+        }
+    }
+
     public void closeFiles()
     {
         foreach (StreamWriter s in files.Values)
