@@ -1,9 +1,8 @@
-using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Species", menuName = "Species/New Species", order = 2), JsonObject(MemberSerialization.Fields)]
+[CreateAssetMenu(fileName = "New Species", menuName = "Species/New Species", order = 2)]
 public class SpeciesType : ScriptableObject
 {
 
