@@ -21,7 +21,7 @@
           ],
           "<outgoingFood>k__BackingField": [],
           "<outgoingHabitat>k__BackingField": [],
-          "<population>k__BackingField": 66,
+          "<population>k__BackingField": 106,
           "world": {
             "$ref": "3"
           },
@@ -54,8 +54,8 @@
   },
   "spendablePaper": {
     "$id": "9",
+    "green": 2318,
     "brown": 0,
-    "green": 258,
     "orange": 0
   }
 }
