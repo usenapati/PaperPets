@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e246c3e8b37bbd45b59d9b2eac09e75, type: 3}
-  m_Name: white
+  m_Name: RedPaper
   m_EditorClassIdentifier: 
-  paperName: white
-  paperTexture: {fileID: 2800000, guid: c35c54c6cdb703e44b2df354d85ba088, type: 3}
+  paperName: red
+  paperTexture: {fileID: 2800000, guid: 18e1e881bc6dee8438afa135b9d2b433, type: 3}
