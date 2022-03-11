@@ -1,0 +1,61 @@
+{
+  "$id": "1",
+  "terrariums": {
+    "$id": "2",
+    "0": {
+      "$id": "3",
+      "biome": null,
+      "isActive": false,
+      "<name>k__BackingField": "first world",
+      "<id>k__BackingField": null,
+      "organisms": {
+        "$id": "4",
+        "Milkweed": {
+          "$id": "5",
+          "<name>k__BackingField": "Milkweed",
+          "foods": [],
+          "habitats": [],
+          "<tags>k__BackingField": [
+            "flowering",
+            "milkweed"
+          ],
+          "<outgoingFood>k__BackingField": [],
+          "<outgoingHabitat>k__BackingField": [],
+          "<population>k__BackingField": 66,
+          "world": {
+            "$ref": "3"
+          },
+          "needsUpdate": false,
+          "populationToLose": 0,
+          "populationToGain": 0
+        }
+      },
+      "speciesByTag": {
+        "$id": "6",
+        "flowering": [
+          {
+            "$ref": "5"
+          }
+        ],
+        "milkweed": [
+          {
+            "$ref": "5"
+          }
+        ]
+      },
+      "tagSubscribers": {
+        "$id": "7"
+      },
+      "files": {
+        "$id": "8"
+      },
+      "<availableLight>k__BackingField": 100.0
+    }
+  },
+  "spendablePaper": {
+    "$id": "9",
+    "brown": 0,
+    "green": 258,
+    "orange": 0
+  }
+}
