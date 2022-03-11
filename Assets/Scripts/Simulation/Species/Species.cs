@@ -1,12 +1,10 @@
-using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[JsonObject(MemberSerialization.Fields)]
 public class Species
 {
-    [JsonIgnore]
+
     SpeciesType type;
 
     // species specific requirements
@@ -37,11 +35,8 @@ public class Species
     WorldSim world;
 
     // things for updating the population
-    [JsonProperty]
     bool needsUpdate = false;
-    [JsonProperty]
     int populationToLose = 0;
-    [JsonProperty]
     int populationToGain = 0;
 
     public Species(SpeciesType type, WorldSim world)
@@ -77,7 +72,6 @@ public class Species
 
     public void notify(Species s)
     {
-        if (s == this) return;
         HashSet<string> check = new HashSet<string>();
         // check for habitat
         check.UnionWith(habitats);
@@ -210,11 +204,6 @@ public class Species
             paper.Add(new PaperValue(pv.PaperColor, population * pv.PaperAmount));
         }
         return paper;
-    }
-
-    public void resetSpecies()
-    {
-        type = Resources.Load("Species/" + name) as SpeciesType;
     }
 
 }
