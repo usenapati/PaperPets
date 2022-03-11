@@ -54,27 +54,27 @@ public class UI_Shop : MonoBehaviour
         string browntext = "";
         string whitetext = "";
         string redtext = "";
-        foreach (KeyValuePair<PaperType, int> kv in paperamounts)
+        foreach (KeyValuePair<PaperType, int> kv in GameManager.Instance.GetSpendablePaper())
         {
-            if(kv.Key.name == "GreenPaper"){
+            if(kv.Key.name == "green"){
                 greentext = kv.Value.ToString();
             }
-            if(kv.Key.name == "BluePaper"){
+            if(kv.Key.name == "blue"){
                 bluetext = kv.Value.ToString();
             }
-            if(kv.Key.name == "YellowPaper"){
+            if(kv.Key.name == "yellow"){
                 yellowtext = kv.Value.ToString();
             }
-            if(kv.Key.name == "OrangePaper"){
+            if(kv.Key.name == "orange"){
                 orangetext = kv.Value.ToString();
             }
-            if(kv.Key.name == "BrownPaper"){
+            if(kv.Key.name == "brown"){
                 browntext = kv.Value.ToString();
             }
-            if(kv.Key.name == "WhitePaper"){
+            if(kv.Key.name == "white"){
                 whitetext = kv.Value.ToString();
             }
-            if(kv.Key.name == "RedPaper"){
+            if(kv.Key.name == "red"){
                 redtext = kv.Value.ToString();
             }
         }

@@ -33,14 +33,14 @@ public class TestSave : MonoBehaviour
         terrariums["testworld"] = temp1;
         terrariums["test2"] = temp2;
 
-        SavesManager.SaveGame(saveName, new SaveData(terrariums, papermoney));
+        SaveSystem.SavesManager.SaveGame(saveName, new SaveSystem.SaveData(terrariums, papermoney));
     }
 
     public void Load()
     {
         //
-        SavesManager.LoadGame(saveName);
-        Dictionary<string, WorldSim> temp = SavesManager.LoadGame(saveName).Terrariums;
+        SaveSystem.SavesManager.LoadGame(saveName);
+        Dictionary<string, WorldSim> temp = SaveSystem.SavesManager.LoadGame(saveName).GetTerrariums();
 
         Debug.Log(temp.Count);
         Debug.Log(temp["testworld"].getOutgoingFoods());
