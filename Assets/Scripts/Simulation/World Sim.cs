@@ -32,6 +32,16 @@ public class WorldSim
         this.isActive = false;
     }
 
+    public List<KeyValuePair<string, int>> getAllSpeciesPopulation()
+    {
+        var species = new List<KeyValuePair<string, int>>();
+        foreach (Species s in organisms.Values)
+        {
+            species.Add(new KeyValuePair<string, int>(s.name, s.population));
+        }
+        return species;
+    }
+
     // gets all of the food organisms with any of the input tags
     public List<Species> getAllFoodByTag(List<string> tags)
     {
@@ -84,8 +94,9 @@ public class WorldSim
     }
 
     // adds a new organism and updates all existing organisms
-    public void addSpecies(Species s)
+    public void addSpecies(SpeciesType st)
     {
+        Species s = new Species(st, this);
 
         organisms.Add(s.name, s);
         //files.Add(s.name, new StreamWriter(s.name + ".csv"));
@@ -159,6 +170,11 @@ public class WorldSim
         {
             s.update();
             //files[s.name].WriteLine(s.population);
+            // update the paper amounts
+            foreach (PaperValue p in s.producedPaper())
+            {
+                GameManager.Instance.GetSpendablePaper()[p.PaperColor] += p.PaperAmount;
+            }
         }
     }
 
