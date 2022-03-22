@@ -29,7 +29,9 @@ public class WorldSim
     // debugging information
     Dictionary<string, StreamWriter> files = new Dictionary<string, StreamWriter>();
 
-    public float availableLight { get; private set; } = 100;
+    private int lightUpgradeLevel = 1;
+    private float baseLight = 50f;
+    public float availableLight { get { return baseLight * lightUpgradeLevel; } private set { } }
 
     public WorldSim(string name)
     {
@@ -193,6 +195,11 @@ public class WorldSim
             output += "   Population: " + s.population + "\n";
         }
         return output;
+    }
+
+    public void upgradeLightLevel()
+    {
+        lightUpgradeLevel++;
     }
 
     // updates the world and all organisms within

@@ -179,7 +179,7 @@ public class Species
         if (canReproduce)
         {
             if (type.RequiresFood) populationToGain += Mathf.RoundToInt(Mathf.Min(type.MaxReproduction, type.ReproductionChance * reproductionMultiplier));
-            else if (type.ReproductionChance != 0) populationToGain += (int) Mathf.Min(type.MaxReproduction, population);
+            else if (type.ReproductionChance != 0) populationToGain += (int) Mathf.Min((world.availableLight - population * type.LightRequirements) / type.LightRequirements, population);
         }
 
         needsUpdate = true;
@@ -191,6 +191,8 @@ public class Species
         needsUpdate = false;
 
         population = Mathf.Max(0, population - populationToLose);
+        if (population > 1 && populationToLose == 0 && Random.Range(0, 100) < 1)
+            population += 1;
         populationToLose = 0;
         population += populationToGain;
         populationToGain = 0;
