@@ -21,7 +21,7 @@
           ],
           "<outgoingFood>k__BackingField": [],
           "<outgoingHabitat>k__BackingField": [],
-          "<population>k__BackingField": 1042,
+          "<population>k__BackingField": 345,
           "world": {
             "$ref": "3"
           },
@@ -54,7 +54,7 @@
               "$ref": "5"
             }
           ],
-          "<population>k__BackingField": 81,
+          "<population>k__BackingField": 52,
           "world": {
             "$ref": "3"
           },
@@ -74,7 +74,7 @@
           ],
           "<outgoingFood>k__BackingField": [],
           "<outgoingHabitat>k__BackingField": [],
-          "<population>k__BackingField": 212,
+          "<population>k__BackingField": 53,
           "world": {
             "$ref": "3"
           },
@@ -106,7 +106,7 @@
               "$ref": "7"
             }
           ],
-          "<population>k__BackingField": 5,
+          "<population>k__BackingField": 6,
           "world": {
             "$ref": "3"
           },
@@ -143,7 +143,7 @@
               "$ref": "7"
             }
           ],
-          "<population>k__BackingField": 16,
+          "<population>k__BackingField": 8,
           "world": {
             "$ref": "3"
           },
@@ -260,14 +260,16 @@
       "files": {
         "$id": "12"
       },
-      "lightUpgradeLevel": 21,
-      "baseLight": 50.0
+      "lightUpgradeLevel": 7,
+      "baseLight": 50.0,
+      "waterUpgradeLevel": 5,
+      "baseWater": 100.0
     }
   },
   "spendablePaper": {
     "$id": "13",
-    "green": 7109,
-    "brown": 1800,
-    "orange": 513
+    "green": 9112,
+    "brown": 3422,
+    "orange": 2140
   }
 }

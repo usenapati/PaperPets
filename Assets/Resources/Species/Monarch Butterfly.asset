@@ -16,7 +16,7 @@ MonoBehaviour:
   foodRequirements: 0.1
   foodValue: 1
   excessFoodRequired: 1.4
-  waterRequirements: 0
+  waterRequirements: 0.01
   lightRequirements: 0
   reproductionChance: 0.5
   maxReproduction: 200

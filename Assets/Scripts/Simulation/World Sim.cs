@@ -29,9 +29,16 @@ public class WorldSim
     // debugging information
     Dictionary<string, StreamWriter> files = new Dictionary<string, StreamWriter>();
 
+    // light information
     private int lightUpgradeLevel = 1;
     private float baseLight = 50f;
     public float availableLight { get { return baseLight * lightUpgradeLevel; } private set { } }
+
+    // water information
+    private int waterUpgradeLevel = 1;
+    private float baseWater = 100f;
+    public float availableWaterPerSpecies { get { return baseWater * waterUpgradeLevel / organisms.Count; } private set { } }
+    public float availableTotalWater { get { return baseWater * waterUpgradeLevel; } private set { } }
 
     public WorldSim(string name)
     {
@@ -200,6 +207,11 @@ public class WorldSim
     public void upgradeLightLevel()
     {
         lightUpgradeLevel++;
+    }
+
+    public void upgradeWaterLevel()
+    {
+        waterUpgradeLevel++;
     }
 
     // updates the world and all organisms within

@@ -14,20 +14,6 @@ public class Species
     HashSet<string> foods;
     HashSet<string> habitats;
     public HashSet<string> tags { get; private set; }
-    /*float foodRequirements;
-    public float foodValue { get; private set; }
-    float excessFoodRequired;
-    float waterRequirements;
-    float lightRequirements = 1;
-    float reproductionChance;
-    float maxReproduction;
-
-    // things species is, lives in, eats, and preferred biomes
-    bool requiresHabitat;
-    bool requiresFood;
-    List<BiomeType> favoredBiomes;
-
-    Dictionary<BiomeType, float> biomeWeights;*/
 
     // list of species this species is currently interacting with
     public List<Species> outgoingFood { get; private set; }
@@ -48,10 +34,6 @@ public class Species
     {
         this.type = type;
         this.name = type.SpeciesName;
-        /*this.foodRequirements = foodReq;
-        this.foodValue = foodVal;
-        this.waterRequirements = waterReq;
-        this.reproductionChance = repro;*/
         this.tags = new HashSet<string>();
         this.tags.UnionWith(type.Tags);
         this.habitats = new HashSet<string>();
@@ -63,16 +45,11 @@ public class Species
         outgoingFood = new List<Species>();
         outgoingHabitat = new List<Species>();
         population = 2;
-        /*this.requiresHabitat = requiresHabitat;
-        this.requiresFood = requiresFood;
-        this.excessFoodRequired = excessFoodRequired;
-        this.maxReproduction = maxReproduction;*/
 
         var subscribeTo = new HashSet<string>();
         subscribeTo.UnionWith(habitats);
         subscribeTo.UnionWith(foods);
         world.subscribeToTags(this, subscribeTo);
-        //world.addSpecies(this);
     }
 
     public void notify(Species s)
@@ -113,11 +90,9 @@ public class Species
         {
             float reqIntake = population * type.FoodRequirements;
 
-            //float totalPopulation = 0;
             float totalFoodAvailable = 0;
             foreach (Species s in outgoingFood)
             {
-                //totalPopulation += s.population;
                 totalFoodAvailable += s.getTotalFoodValue();
             }
 
@@ -174,6 +149,16 @@ public class Species
         if (type.RequiresHabitat && outgoingHabitat.Count == 0)
         {
             canReproduce = false;
+        }
+
+        // checking water
+        if (population * type.WaterRequirements >= world.availableWaterPerSpecies)
+        {
+            canReproduce = false;
+            // quarter of species who have too little water die
+            int popWaterDeath = (int) (.25 * (population - (int)(world.availableWaterPerSpecies / type.WaterRequirements)));
+            if (popWaterDeath > populationToLose)
+                updateDecreaseDelta(popWaterDeath - populationToLose);
         }
 
         if (canReproduce)
