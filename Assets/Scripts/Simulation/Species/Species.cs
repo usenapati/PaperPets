@@ -198,6 +198,7 @@ public class Species
         if (population == 0)
         {
             // species goes extinct
+            world.killSpecies(this);
         }
     }
 
