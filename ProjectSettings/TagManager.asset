@@ -9,6 +9,7 @@ TagManager:
   - pause
   - pause2
   - shop3
+  - shop4
   layers:
   - Default
   - TransparentFX
