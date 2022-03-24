@@ -24,7 +24,7 @@ public class GridSpawner : MonoBehaviour
     GridList list;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         list = new GridList(initialLength, 2, initialWidth);
         lengthScale = basePlane.transform.localScale.x / initialLength;
@@ -39,6 +39,7 @@ public class GridSpawner : MonoBehaviour
                 GameObject temp = Instantiate(gridPrefab, gameObject.transform);
                 temp.transform.localPosition = new Vector3(intialPosition.x + lengthScale * j, intialPosition.y, intialPosition.z + widthScale * i);
                 temp.transform.localScale = new Vector3(lengthScale, temp.transform.localScale.y, widthScale);
+                //temp
                 list.addElement(j, 0, i, temp);
 
                 GameObject temp2 = Instantiate(gridPrefab, gameObject.transform);
@@ -48,12 +49,12 @@ public class GridSpawner : MonoBehaviour
             }
         }
     }
+    
+    public int getGridLength() { return initialLength; }
+    public int getGridWidth() { return initialWidth; }
+    public GameObject[,,] getGrid() { return list.getGridList(); }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject getGridElement(int x, int y, int z) { return list.getElement(x, y, z); }
 
     [System.Serializable]
     private class GridList
@@ -75,5 +76,7 @@ public class GridSpawner : MonoBehaviour
         {
             return elements[x, y, z];
         }
+
+        public GameObject[,,] getGridList() { return elements; }
     }
 }
