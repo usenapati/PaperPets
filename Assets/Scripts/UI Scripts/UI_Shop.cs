@@ -108,7 +108,7 @@ public class UI_Shop : MonoBehaviour
         foreach (SpeciesType p in Resources.FindObjectsOfTypeAll(typeof(SpeciesType)) as SpeciesType[])
         {
             
-            CreateItemButton(p, p.SpeciesCost[0].PaperAmount, count, p.SpeciesCost[0].PaperColor);
+            CreateItemButton(p, (int) p.SpeciesCost[0].PaperAmount, count, p.SpeciesCost[0].PaperColor);
          
             
             count++;
@@ -163,7 +163,7 @@ public class UI_Shop : MonoBehaviour
     }
 
     public void ShopClick(SpeciesType s){
-        int paperNeeded = s.SpeciesCost[0].PaperAmount;
+        int paperNeeded = (int) s.SpeciesCost[0].PaperAmount;
         int paperHad = 0;
         
         if(s.SpeciesCost[0].PaperColor.PaperName == "blue")
@@ -231,7 +231,7 @@ public class UI_Shop : MonoBehaviour
 
     }
 
-    public void enableShop()
+     public void enableShop()
     {
         
         if(active){
@@ -292,3 +292,4 @@ public class UI_Shop : MonoBehaviour
 
     
 }
+
