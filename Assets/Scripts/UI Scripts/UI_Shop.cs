@@ -24,6 +24,8 @@ public class UI_Shop : MonoBehaviour
     public Text white;
     public Text brown;
 
+    public Text test;
+
     int greentext;
     int bluetext;
     int yellowtext;
@@ -99,6 +101,8 @@ public class UI_Shop : MonoBehaviour
         brown.text = browntext.ToString();
         white.text = whitetext.ToString();
         red.text = redtext.ToString();
+
+        test.text = GameManager.Instance.getWaterCost().ToString() + "\n" + GameManager.Instance.getLightCost().ToString() + "\n" + GameManager.Instance.getCurrentWorld().getWaterLevel().ToString() + "\n" + GameManager.Instance.getCurrentWorld().getLightLevel().ToString();
 
     }
 
@@ -288,6 +292,16 @@ public class UI_Shop : MonoBehaviour
         
         
 
+    }
+
+    public void upgradeLight()
+    {
+        GameManager.Instance.lightUpgrade();
+    }
+
+    public void upgradeWater()
+    {
+        GameManager.Instance.waterUpgrade();
     }
 
     
