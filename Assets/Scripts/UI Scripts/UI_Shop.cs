@@ -46,6 +46,18 @@ public class UI_Shop : MonoBehaviour
         container = transform.Find("Container");
         ItemTemplate = container.Find("ItemTemplate");
         ItemTemplate.gameObject.SetActive(active);
+
+        GameObject[] temp;
+        temp = GameObject.FindGameObjectsWithTag("shop");
+        foreach(GameObject g in temp)
+        {
+            g.GetComponent<Image>().enabled = false;
+        }
+        temp = GameObject.FindGameObjectsWithTag("shop4");
+        foreach(GameObject g in temp)
+        {
+            g.GetComponent<TextMeshProUGUI>().enabled = false;
+        }
     }
 
     private void Start()
@@ -219,7 +231,7 @@ public class UI_Shop : MonoBehaviour
 
     }
 
-    public void enableShop()
+     public void enableShop()
     {
         
         if(active){
@@ -242,6 +254,11 @@ public class UI_Shop : MonoBehaviour
             {
                 g.GetComponent<TextMeshProUGUI>().SetText("");
             }
+             temp = GameObject.FindGameObjectsWithTag("shop4");
+            foreach(GameObject g in temp)
+            {
+                g.GetComponent<TextMeshProUGUI>().enabled = false;
+            }
         } 
         else{
             active = true;
@@ -260,6 +277,12 @@ public class UI_Shop : MonoBehaviour
 
             ItemTemplate.gameObject.SetActive(active);
             GenerateShopValues();
+
+            temp = GameObject.FindGameObjectsWithTag("shop4");
+            foreach(GameObject g in temp)
+            {
+                g.GetComponent<TextMeshProUGUI>().enabled = true;
+            }
         }
         print(active);
         
@@ -269,3 +292,4 @@ public class UI_Shop : MonoBehaviour
 
     
 }
+
