@@ -204,6 +204,16 @@ public class WorldSim
         return output;
     }
 
+    public int getWaterLevel()
+    {
+        return waterUpgradeLevel;
+    }
+
+    public int getLightLevel()
+    {
+        return lightUpgradeLevel;
+    }
+
     public void upgradeLightLevel()
     {
         lightUpgradeLevel++;

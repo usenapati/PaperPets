@@ -120,4 +120,24 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void waterUpgrade()
+    {
+        getCurrentWorld().upgradeWaterLevel();
+    }
+
+    public void lightUpgrade()
+    {
+        getCurrentWorld().upgradeLightLevel();
+    }
+
+    public int getWaterCost()
+    {
+        return (int) 50 * getCurrentWorld().getWaterLevel();
+    }
+
+    public int getLightCost()
+    {
+        return (int) 50 * getCurrentWorld().getLightLevel();
+    }
 }

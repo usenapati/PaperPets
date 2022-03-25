@@ -24,6 +24,8 @@ public class UI_Shop : MonoBehaviour
     public Text white;
     public Text brown;
 
+    public Text test;
+
     int greentext;
     int bluetext;
     int yellowtext;
@@ -46,6 +48,18 @@ public class UI_Shop : MonoBehaviour
         container = transform.Find("Container");
         ItemTemplate = container.Find("ItemTemplate");
         ItemTemplate.gameObject.SetActive(active);
+
+        GameObject[] temp;
+        temp = GameObject.FindGameObjectsWithTag("shop");
+        foreach(GameObject g in temp)
+        {
+            g.GetComponent<Image>().enabled = false;
+        }
+        temp = GameObject.FindGameObjectsWithTag("shop4");
+        foreach(GameObject g in temp)
+        {
+            g.GetComponent<TextMeshProUGUI>().enabled = false;
+        }
     }
 
     private void Start()
@@ -87,6 +101,8 @@ public class UI_Shop : MonoBehaviour
         brown.text = browntext.ToString();
         white.text = whitetext.ToString();
         red.text = redtext.ToString();
+
+        test.text = GameManager.Instance.getWaterCost().ToString() + "\n" + GameManager.Instance.getLightCost().ToString() + "\n" + GameManager.Instance.getCurrentWorld().getWaterLevel().ToString() + "\n" + GameManager.Instance.getCurrentWorld().getLightLevel().ToString();
 
     }
 
@@ -219,7 +235,7 @@ public class UI_Shop : MonoBehaviour
 
     }
 
-    public void enableShop()
+     public void enableShop()
     {
         
         if(active){
@@ -242,6 +258,11 @@ public class UI_Shop : MonoBehaviour
             {
                 g.GetComponent<TextMeshProUGUI>().SetText("");
             }
+             temp = GameObject.FindGameObjectsWithTag("shop4");
+            foreach(GameObject g in temp)
+            {
+                g.GetComponent<TextMeshProUGUI>().enabled = false;
+            }
         } 
         else{
             active = true;
@@ -260,6 +281,12 @@ public class UI_Shop : MonoBehaviour
 
             ItemTemplate.gameObject.SetActive(active);
             GenerateShopValues();
+
+            temp = GameObject.FindGameObjectsWithTag("shop4");
+            foreach(GameObject g in temp)
+            {
+                g.GetComponent<TextMeshProUGUI>().enabled = true;
+            }
         }
         print(active);
         
@@ -267,5 +294,16 @@ public class UI_Shop : MonoBehaviour
 
     }
 
+    public void upgradeLight()
+    {
+        GameManager.Instance.lightUpgrade();
+    }
+
+    public void upgradeWater()
+    {
+        GameManager.Instance.waterUpgrade();
+    }
+
     
 }
+
