@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3558473aa1060eb478fb2029690c95d3, type: 3}
-  m_Name: Milkweed
+  m_Name: MonarchButterfly
   m_EditorClassIdentifier: 
-  speciesName: Milkweed
-  sprite: {fileID: 21300000, guid: dd3972d829af03d49af0730f64b225cc, type: 3}
+  speciesName: MonarchButterfly
+  sprite: {fileID: 21300000, guid: 1fa133e0ebfbff84f9f78dd970294397, type: 3}
   scale: {x: 0.01, y: 0.01, z: 0.01}
   layerHeight: 0
-  height: -0.36
-  speciesLimit: 100
-  conversionValue: 1
+  height: 0
+  speciesLimit: 75
+  conversionValue: 0
