@@ -9,6 +9,10 @@ TagManager:
   - pause
   - pause2
   - shop3
+  - shop4
+  - Light
+  - Water
+  - light&water
   layers:
   - Default
   - TransparentFX

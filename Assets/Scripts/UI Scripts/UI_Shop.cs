@@ -24,6 +24,9 @@ public class UI_Shop : MonoBehaviour
     public Text white;
     public Text brown;
 
+    public Text light;
+    public Text water;
+
     int greentext;
     int bluetext;
     int yellowtext;
@@ -46,6 +49,33 @@ public class UI_Shop : MonoBehaviour
         container = transform.Find("Container");
         ItemTemplate = container.Find("ItemTemplate");
         ItemTemplate.gameObject.SetActive(active);
+
+        GameObject[] temp;
+        temp = GameObject.FindGameObjectsWithTag("shop");
+        foreach(GameObject g in temp)
+        {
+            g.GetComponent<Image>().enabled = false;
+        }
+        temp = GameObject.FindGameObjectsWithTag("shop4");
+        foreach(GameObject g in temp)
+        {
+            g.GetComponent<TextMeshProUGUI>().enabled = false;
+        }
+        temp = GameObject.FindGameObjectsWithTag("Light");
+        foreach(GameObject g in temp)
+        {
+            g.GetComponent<TextMeshProUGUI>().SetText("");
+        }
+        temp = GameObject.FindGameObjectsWithTag("Water");
+        foreach(GameObject g in temp)
+        {
+            g.GetComponent<TextMeshProUGUI>().SetText("");
+        }
+        temp = GameObject.FindGameObjectsWithTag("light&water");
+        foreach(GameObject g in temp)
+        {
+            g.GetComponent<RawImage>().enabled = false;
+        }
     }
 
     private void Start()
@@ -88,6 +118,24 @@ public class UI_Shop : MonoBehaviour
         white.text = whitetext.ToString();
         red.text = redtext.ToString();
 
+        light.text = GameManager.Instance.getCurrentWorld().getLightLevel().ToString();
+        water.text = GameManager.Instance.getCurrentWorld().getWaterLevel().ToString();
+
+        if(active)
+        {
+            GameObject[] temp;
+            temp = GameObject.FindGameObjectsWithTag("Light");
+            foreach(GameObject g in temp)
+            {
+                g.GetComponent<TextMeshProUGUI>().SetText(GameManager.Instance.getLightCost().ToString());
+            }
+            temp = GameObject.FindGameObjectsWithTag("Water");
+            foreach(GameObject g in temp)
+            {
+                g.GetComponent<TextMeshProUGUI>().SetText(GameManager.Instance.getWaterCost().ToString());
+            }
+        }
+        //GameManager.Instance.getWaterCost().ToString() + "\n" + GameManager.Instance.getLightCost().ToString() + "\n" 
     }
 
     private void GenerateShopValues()
@@ -96,7 +144,7 @@ public class UI_Shop : MonoBehaviour
         foreach (SpeciesType p in Resources.FindObjectsOfTypeAll(typeof(SpeciesType)) as SpeciesType[])
         {
             
-            CreateItemButton(p, p.SpeciesCost[0].PaperAmount, count, p.SpeciesCost[0].PaperColor);
+            CreateItemButton(p, (int) p.SpeciesCost[0].PaperAmount, count, p.SpeciesCost[0].PaperColor);
          
             
             count++;
@@ -151,7 +199,7 @@ public class UI_Shop : MonoBehaviour
     }
 
     public void ShopClick(SpeciesType s){
-        int paperNeeded = s.SpeciesCost[0].PaperAmount;
+        int paperNeeded = (int) s.SpeciesCost[0].PaperAmount;
         int paperHad = 0;
         
         if(s.SpeciesCost[0].PaperColor.PaperName == "blue")
@@ -219,7 +267,7 @@ public class UI_Shop : MonoBehaviour
 
     }
 
-    public void enableShop()
+     public void enableShop()
     {
         
         if(active){
@@ -242,6 +290,26 @@ public class UI_Shop : MonoBehaviour
             {
                 g.GetComponent<TextMeshProUGUI>().SetText("");
             }
+             temp = GameObject.FindGameObjectsWithTag("shop4");
+            foreach(GameObject g in temp)
+            {
+                g.GetComponent<TextMeshProUGUI>().enabled = false;
+            }
+            temp = GameObject.FindGameObjectsWithTag("Light");
+            foreach(GameObject g in temp)
+            {
+                g.GetComponent<TextMeshProUGUI>().SetText("");
+            }
+            temp = GameObject.FindGameObjectsWithTag("Water");
+            foreach(GameObject g in temp)
+            {
+                g.GetComponent<TextMeshProUGUI>().SetText("");
+            }
+            temp = GameObject.FindGameObjectsWithTag("light&water");
+            foreach(GameObject g in temp)
+            {
+                g.GetComponent<RawImage>().enabled = false;
+            }
         } 
         else{
             active = true;
@@ -260,6 +328,27 @@ public class UI_Shop : MonoBehaviour
 
             ItemTemplate.gameObject.SetActive(active);
             GenerateShopValues();
+
+            temp = GameObject.FindGameObjectsWithTag("shop4");
+            foreach(GameObject g in temp)
+            {
+                g.GetComponent<TextMeshProUGUI>().enabled = true;
+            }
+            temp = GameObject.FindGameObjectsWithTag("Light");
+            foreach(GameObject g in temp)
+            {
+                g.GetComponent<TextMeshProUGUI>().SetText(GameManager.Instance.getLightCost().ToString());
+            }
+            temp = GameObject.FindGameObjectsWithTag("Water");
+            foreach(GameObject g in temp)
+            {
+                g.GetComponent<TextMeshProUGUI>().SetText(GameManager.Instance.getWaterCost().ToString());
+            }
+            temp = GameObject.FindGameObjectsWithTag("light&water");
+            foreach(GameObject g in temp)
+            {
+                g.GetComponent<RawImage>().enabled = true;
+            }
         }
         print(active);
         
@@ -267,5 +356,20 @@ public class UI_Shop : MonoBehaviour
 
     }
 
-    
+    public void upgradeLight()
+    {
+        //if(yellowtext >= GameManager.Instance.getLightCost())
+        //{
+            GameManager.Instance.lightUpgrade();
+        //}
+    }
+
+    public void upgradeWater()
+    {
+        //if(bluetext >= GameManager.Instance.getWaterCost())
+        //{
+            GameManager.Instance.waterUpgrade();
+        //}
+    }    
 }
+
