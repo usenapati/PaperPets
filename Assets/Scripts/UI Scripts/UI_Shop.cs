@@ -358,14 +358,18 @@ public class UI_Shop : MonoBehaviour
 
     public void upgradeLight()
     {
-        GameManager.Instance.lightUpgrade();
+        //if(yellowtext >= GameManager.Instance.getLightCost())
+        //{
+            GameManager.Instance.lightUpgrade();
+        //}
     }
 
     public void upgradeWater()
     {
-        GameManager.Instance.waterUpgrade();
-    }
-
-    
+        //if(bluetext >= GameManager.Instance.getWaterCost())
+        //{
+            GameManager.Instance.waterUpgrade();
+        //}
+    }    
 }
 
