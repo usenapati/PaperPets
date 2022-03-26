@@ -6,30 +6,28 @@ using TMPro;
 
 public class SystemView : MonoBehaviour
 {    
-    public TextMeshProUGUI pop;
-    public TextMeshProUGUI species;
     private int totalPop;
+    [SerializeField] TextMeshProUGUI pop;
+    [SerializeField] Renderer rect;
     [SerializeField] GameObject SpeciesCircle;
-    [SerializeField] Canvas canvas;
+    [SerializeField] float startingScale;
 
     private void Start()
     {
-        RectTransform rect = GetComponent<RectTransform>();
-        RectTransform circleSize = SpeciesCircle.GetComponent<RectTransform>();
+        Vector3 dim = rect.bounds.size;
+        Vector3 circleSize = SpeciesCircle.GetComponent<Renderer>().bounds.size;
 
-        string newtext = "";
         totalPop = 0;
         foreach (KeyValuePair<string, int> kv in GameManager.Instance.getCurrentWorld().getAllSpeciesPopulation())
         {
-            //newtext += kv.Key + ": " + kv.Value + "\n";
             totalPop += kv.Value;
-            GameObject s = Instantiate(SpeciesCircle, new Vector3(Random.Range(circleSize.rect.width, rect.rect.width - circleSize.rect.width), Random.Range(circleSize.rect.height, rect.rect.height - circleSize.rect.height), 0), new Quaternion(), canvas.transform);
-            s.transform.localScale = new Vector3(2, 2, 1);
-            s.transform.Find("Species").GetComponent<TextMeshProUGUI>().SetText(kv.Key);
-            s.transform.Find("Population").GetComponent<TextMeshProUGUI>().SetText(kv.Value.ToString());
+            GameObject s = Instantiate(SpeciesCircle, new Vector3(Random.Range(circleSize.x, dim.x - circleSize.x), -1, Random.Range(circleSize.z, dim.z - circleSize.z)), new Quaternion(), transform);
+            s.transform.localScale = new Vector3(startingScale, startingScale, 1);
+            s.transform.position += new Vector3(dim.x / -2, 0, dim.z / -2);
+            s.transform.position += new Vector3(0, 0, 1);
+            s.transform.Find("Species").GetComponent<TextMeshPro>().SetText(kv.Key + "\n" + kv.Value);
         }
 
-        species.SetText(newtext);
         pop.SetText(totalPop.ToString());
         print("test");
     }

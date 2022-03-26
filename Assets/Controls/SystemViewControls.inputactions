@@ -1,0 +1,98 @@
+{
+    "name": "SystemViewControls",
+    "maps": [
+        {
+            "name": "CameraControls",
+            "id": "8d0d4b65-4d02-46db-a325-b5306523ecbc",
+            "actions": [
+                {
+                    "name": "Movement U/D",
+                    "type": "Value",
+                    "id": "774345a6-b6fd-4613-a9ce-d1425d0cdbb9",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Movement L/R",
+                    "type": "Value",
+                    "id": "3e56137e-3bb7-4176-9e23-cdf43da45f34",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "Up/Down",
+                    "id": "301a2401-100a-4380-a8cc-c49ef4055ccc",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement U/D",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "7620815d-b3c7-4c17-a599-a06a0d534510",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement U/D",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "3c049cc5-96e1-43e6-bb91-fadcf1a0aad6",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement U/D",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Left/Right",
+                    "id": "bd519847-e271-4319-a4f6-3092e1032771",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement L/R",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "abe45687-b2f6-4735-8f93-92e071963826",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement L/R",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "ce274984-4ce5-4d26-8ce0-ab6fc24e4551",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement L/R",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
