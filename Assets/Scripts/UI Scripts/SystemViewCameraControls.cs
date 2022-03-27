@@ -11,12 +11,16 @@ public class SystemViewCameraControls : MonoBehaviour
     float UDVal;
     float LRVal;
     float ZoomVal;
+    float camWidth;
+    float camHeight;
     Vector3 translation = new Vector3();
     Vector3 targetPos = new Vector3();
 
     private void Awake()
     {
-        
+        camWidth = Camera.main.orthographicSize * Screen.width / Screen.height;
+        camHeight = Camera.main.orthographicSize;
+        Debug.Log(camWidth + " " + camHeight);
     }
 
     private void FixedUpdate()
@@ -54,8 +58,8 @@ public class SystemViewCameraControls : MonoBehaviour
         }
 
         targetPos = transform.position + translation;
-        targetPos.x = Mathf.Clamp(targetPos.x, bounds.bounds.min.x, bounds.bounds.max.x);
-        targetPos.z = Mathf.Clamp(targetPos.z, bounds.bounds.min.z, bounds.bounds.max.z);
+        targetPos.x = Mathf.Clamp(targetPos.x, bounds.bounds.min.x + camWidth, bounds.bounds.max.x - camWidth);
+        targetPos.z = Mathf.Clamp(targetPos.z, bounds.bounds.min.z + camHeight, bounds.bounds.max.z - camHeight);
         transform.position = targetPos;
 
     }
