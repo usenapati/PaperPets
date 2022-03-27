@@ -55,6 +55,7 @@ public class SystemView : MonoBehaviour
             SpeciesVisualData sd = Resources.Load("Visuals/" + sp.name.Replace(" ", "")) as SpeciesVisualData;
             s.GetComponent<SpriteRenderer>().color = sd == null ? Color.black : sd.speciesColor;
             circles.Add(sp.name, s);
+            s.GetComponent<SystemViewCircleData>().setSpecies(sp);
         }
     }
 
