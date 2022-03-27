@@ -70,6 +70,26 @@ public class Species
             outgoingFood.Add(s);
     }
 
+    public bool requiresFood()
+    {
+        return type.RequiresFood;
+    }
+
+    public float getRequiredLight()
+    {
+        return population * type.LightRequirements;
+    }
+
+    public float getRequiredFood()
+    {
+        return population * type.FoodRequirements;
+    }
+
+    public float getRequiredWater()
+    {
+        return population * type.WaterRequirements;
+    }
+
     public float getTotalFoodValue()
     {
         return type.FoodValue * population;

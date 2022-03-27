@@ -18,4 +18,6 @@ public class SpeciesVisualData : ScriptableObject
     public int speciesLimit;
 
     public int conversionValue;
+
+    public Color speciesColor;
 }
