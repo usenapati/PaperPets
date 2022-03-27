@@ -13,6 +13,7 @@ TagManager:
   - Light
   - Water
   - light&water
+  - exit
   layers:
   - Default
   - TransparentFX

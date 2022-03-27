@@ -35,6 +35,8 @@ public class UI_Shop : MonoBehaviour
     int whitetext;
     int redtext;
 
+    private Dictionary<string, bool> isOwned = new Dictionary<string, bool>();
+
     
     
     // public SpeciesType Eagle;
@@ -185,7 +187,16 @@ public class UI_Shop : MonoBehaviour
         shopTranform.Find("maxReproduction").GetComponent<TextMeshProUGUI>().SetText(species.MaxReproduction.ToString());
         shopTranform.Find("Green").GetComponent<RawImage>().texture = paper.paperTexture;
         
-        shopTranform.GetComponent<Button>().onClick.AddListener(() => ShopClick(species));
+        shopTranform.GetComponent<Button>().onClick.AddListener(() => ShopClick(species, shopTranform));
+
+        foreach(KeyValuePair<string, bool> owned in isOwned)
+        {
+            if(species.SpeciesName == owned.Key)
+            {
+                shop.Find("background").GetComponent<Image>().color = new Color32(76,85,91,255);
+                shop.Find("Owned").GetComponent<TextMeshProUGUI>().SetText("OWNED");
+            }
+        }
 
         
 
@@ -198,7 +209,7 @@ public class UI_Shop : MonoBehaviour
         //shopTranform.Find("name").GetComponent<TextMeshProUGUI>().SetText(name);
     }
 
-    public void ShopClick(SpeciesType s){
+    public void ShopClick(SpeciesType s, RectTransform shop){
         int paperNeeded = (int) s.SpeciesCost[0].PaperAmount;
         int paperHad = 0;
         
@@ -233,37 +244,17 @@ public class UI_Shop : MonoBehaviour
 
         if(paperHad >= paperNeeded){
             GameManager.Instance.addSpecies(s);
-            print(s.SpeciesName + " Added");
 
-            // if(s.SpeciesCost[0].PaperColor.PaperName == "blue")
-            // {
-            //     bluetext = bluetext - paperNeeded;  
-            // }
-            // if(s.SpeciesCost[0].PaperColor.PaperName == "brown")
-            // {
-            //     browntext = browntext - paperNeeded;  
-            // }
-            // if(s.SpeciesCost[0].PaperColor.PaperName == "green")
-            // {
-            //     greentext = greentext - paperNeeded;  
-            // }
-            // if(s.SpeciesCost[0].PaperColor.PaperName == "orange")
-            // {
-            //     orangetext = orangetext - paperNeeded;  
-            // }
-            // if(s.SpeciesCost[0].PaperColor.PaperName == "red")
-            // {
-            //     redtext = redtext - paperNeeded;  
-            // }
-            // if(s.SpeciesCost[0].PaperColor.PaperName == "white")
-            // {
-            //     whitetext = whitetext - paperNeeded;  
-            // }
-            // if(s.SpeciesCost[0].PaperColor.PaperName == "yellow")
-            // {
-            //     yellowtext = yellowtext - paperNeeded;  
-            // }
+            isOwned.Add(s.SpeciesName, true);
+            
+            //change color of background to grey
+            shop.Find("background").GetComponent<Image>().color = new Color32(76,85,91,255);
+            shop.Find("Owned").GetComponent<TextMeshProUGUI>().SetText("OWNED");
+
+            print(s.SpeciesName + " Added");
         }
+
+        
 
     }
 
@@ -310,6 +301,11 @@ public class UI_Shop : MonoBehaviour
             {
                 g.GetComponent<RawImage>().enabled = false;
             }
+            temp = GameObject.FindGameObjectsWithTag("exit");
+            foreach(GameObject g in temp)
+            {
+                g.GetComponent<TextMeshProUGUI>().SetText("Shop");
+            }
         } 
         else{
             active = true;
@@ -348,6 +344,11 @@ public class UI_Shop : MonoBehaviour
             foreach(GameObject g in temp)
             {
                 g.GetComponent<RawImage>().enabled = true;
+            }
+            temp = GameObject.FindGameObjectsWithTag("exit");
+            foreach(GameObject g in temp)
+            {
+                g.GetComponent<TextMeshProUGUI>().SetText("Close");
             }
         }
         print(active);
