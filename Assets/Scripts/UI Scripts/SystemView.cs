@@ -59,6 +59,7 @@ public class SystemView : MonoBehaviour
         }
     }
 
+    // modified from https://www.codinblack.com/how-to-draw-lines-circles-or-anything-else-using-linerenderer/
     void DrawQuadraticBezierCurve(LineRenderer lr, Vector3 start, Vector3 mid, Vector3 end)
     {
         lr.positionCount = 200;

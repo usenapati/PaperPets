@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<progression>
+
+  <unlock id="0">
+    
+    <unlockdata type="SPECIES" value="MonarchButterfly" />
+
+    <parents />
+
+    <children>
+      <child id="1" />
+    </children>
+    
+    <task type="PaperTask">
+      <name name="GreenPaperTask" />
+      <color color="green" />
+      <amount amount="100" />
+    </task>
+    
+  </unlock>
+
+  <unlock id="1">
+
+    <unlockdata type="SPECIES" value="Oak" />
+    
+    <parents>
+      <parent id="0" />
+    </parents>
+
+    <children />
+    
+    <task type="PaperTask">
+      <name name="OrangePaperTask" />
+      <color color="orange" />
+      <amount amount="1000" />
+    </task>
+    
+  </unlock>
+  
+</progression>
