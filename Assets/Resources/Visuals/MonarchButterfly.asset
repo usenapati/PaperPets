@@ -19,3 +19,4 @@ MonoBehaviour:
   height: 0
   speciesLimit: 75
   conversionValue: 0
+  speciesColor: {r: 1, g: 0.54509807, b: 0.011764707, a: 1}
