@@ -95,16 +95,17 @@ Material:
     - Vector1_222e60bb39dd4cf6b7dafe6b0c673eed: 0.05
     - Vector1_23b982cb0f4c43188f0601cf78339f5a: 0.026
     - Vector1_3bf385bf3b324571ae9a0bfb50955506: 2.5
-    - Vector1_618ddc2484364275828471e3b8ae7e42: 2
+    - Vector1_618ddc2484364275828471e3b8ae7e42: 1
     - Vector1_63e04752d5b7467aa19f6a6903640e14: 0.25
     - Vector1_748380b947f2465a9e1081b760051595: 0
-    - Vector1_a125f79596494357851fc6231545e1f2: 0.4
+    - Vector1_a125f79596494357851fc6231545e1f2: 0.375
     - Vector1_a1b5d83523724d50ac3960f92f6cb774: 0.4
     - Vector1_a2c9bfb7931748a5b06504beaea987a3: 5
     - Vector1_ab69c59038da44b7ae08e576ee746f9a: 2
     - Vector1_c996db7c4af744d0adf18897d200b77e: 2
     - Vector1_d3e58095901a402d93b2aacb8713b5e2: 1
     - Vector1_da32528ca97b4e9ca8100dea5c373015: 5
+    - Vector1_e85e6f9d99704841842e28813c7749e3: 1
     - Vector1_e869456ce7b543d68a6727ee94cdf0d5: 0.004
     - Vector1_e90987487b9a48b0b50e9749756afced: 1.5
     - Vector1_ee4ba24304e5493a85435e08a617457a: 25
@@ -141,13 +142,17 @@ Material:
     - Color_af7c8c5a875d443a9881ca56c163e037: {r: 0.6039516, g: 0.6417887, b: 0.8490566, a: 0}
     - Color_b57e95fbefce40e8b5a097f93fe4e747: {r: 0.04581265, g: 0.03972942, b: 0.3396226, a: 0}
     - Color_ed2e5c7667a440f391acf20ec0a6c4a6: {r: 0.9015308, g: 0.9389364, b: 0.9811321, a: 0}
-    - Color_f8b63b4e69ea49ce99441bd86e45c8ba: {r: 0.056639347, g: 0.24830446, b: 0.8113208, a: 0}
+    - Color_f8b63b4e69ea49ce99441bd86e45c8ba: {r: 0.10142401, g: 0.10142401, b: 0.13207549, a: 0}
     - Vector2_b08d3deba654486cb6d2b1375942cca2: {r: 0, g: 0, b: 0, a: 0}
     - Vector2_c730fc01a1e44d74a44eb2e291873723: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _CloudOffset: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _NightSkyColor2: {r: 0.6039516, g: 0.6417887, b: 0.8490566, a: 0}
+    - _SkyColor2: {r: 0.75, g: 0.3, b: 0.17, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _StarsOffset: {r: 2, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1425329825666449275
 MonoBehaviour:
