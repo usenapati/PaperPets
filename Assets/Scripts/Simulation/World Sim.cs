@@ -164,6 +164,11 @@ public class WorldSim
     {
         toBeRemoved.Add(s);
     }
+    
+    public List<Species> getAllSpecies()
+    {
+        return new List<Species>(organisms.Values);
+    }
 
     public string getOutgoingFoods()
     {

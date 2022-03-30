@@ -45,10 +45,12 @@ namespace SaveSystem {
         private Dictionary<string, WorldSim> terrariums;
         [JsonProperty]
         private Dictionary<string, int> spendablePaper;
+        [JsonProperty]
+        private ProgressionSystem progressionSystem;
 
         public SaveData() {}
 
-        public SaveData(Dictionary<string, WorldSim> terrariums, Dictionary<PaperType, int> spendablePaper)
+        public SaveData(Dictionary<string, WorldSim> terrariums, Dictionary<PaperType, int> spendablePaper, ProgressionSystem progressionSystem)
         {
             this.terrariums = terrariums;
             
@@ -57,6 +59,8 @@ namespace SaveSystem {
             {
                 this.spendablePaper[kv.Key.PaperName] = kv.Value;
             }
+
+            this.progressionSystem = progressionSystem;
         }
 
         public Dictionary<PaperType, int> GetSpendablePaper()
@@ -76,6 +80,12 @@ namespace SaveSystem {
                 w.onLoadIn();
             }
             return terrariums;
+        }
+
+        public ProgressionSystem GetProgressionSystem()
+        {
+            progressionSystem.setup();
+            return progressionSystem;
         }
 
     }
