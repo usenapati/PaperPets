@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     // The paper the player has available to spend
     // Look through specific file path to find all types of paper
     private Dictionary<PaperType, int> spendablePaper;
+    private ProgressionSystem progressionSystem;
     private string filename;
 
     // The simulation time tick default
@@ -54,6 +55,10 @@ public class GameManager : MonoBehaviour
         // Prepare the dictionary for the paper currencies
         spendablePaper = new Dictionary<PaperType, int>();
 
+        // Prepare progression system
+        progressionSystem = new ProgressionSystem();
+        progressionSystem.setup();
+
         // load the paper dictionary
         foreach (PaperType p in Resources.FindObjectsOfTypeAll(typeof(PaperType)) as PaperType[])
         {
@@ -71,12 +76,19 @@ public class GameManager : MonoBehaviour
         SaveSystem.SaveData temp = SaveSystem.SavesManager.LoadGame(filename);
         terrariums = temp.GetTerrariums();
         spendablePaper = temp.GetSpendablePaper();
+        progressionSystem = temp.GetProgressionSystem();
+        
+        foreach (string s in progressionSystem.getUnlocks())
+        {
+            Debug.Log(s);
+        }
+
     }
 
     public void SaveGame(string filename)
     {
         SaveSystem.SavesManager.SaveGame(filename,
-            new SaveSystem.SaveData(terrariums, spendablePaper));
+            new SaveSystem.SaveData(terrariums, spendablePaper, progressionSystem));
     }
 
 
@@ -111,6 +123,9 @@ public class GameManager : MonoBehaviour
             tick++;
             accumulator = 0;
             //Debug.Log("tick" + timeSpeed.ToString() + ":" + tick);
+
+            // check progression
+            progressionSystem.checkUnlocks();
 
             // A new tick has passed
             // Do we want to tie animations to this tick or have it based on something else?

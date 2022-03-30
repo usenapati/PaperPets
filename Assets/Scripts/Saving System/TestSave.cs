@@ -18,6 +18,8 @@ public class TestSave : MonoBehaviour
     Dictionary<string, WorldSim> terrariums = new Dictionary<string, WorldSim>();
     Dictionary<PaperType, int> papermoney = new Dictionary<PaperType, int>();
 
+    ProgressionSystem p;
+
     public void Save()
     {
 
@@ -33,7 +35,9 @@ public class TestSave : MonoBehaviour
         terrariums["testworld"] = temp1;
         terrariums["test2"] = temp2;
 
-        SaveSystem.SavesManager.SaveGame(saveName, new SaveSystem.SaveData(terrariums, papermoney));
+        p = new ProgressionSystem();
+
+        SaveSystem.SavesManager.SaveGame(saveName, new SaveSystem.SaveData(terrariums, papermoney, p));
     }
 
     public void Load()
