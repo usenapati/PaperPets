@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44ab7ded98bed374591bfdb08f1d0bdd, type: 3}
-  m_Name: Milkweed
+  m_Name: Cow
   m_EditorClassIdentifier: 
-  speciesName: Milkweed
-  foodRequirements: 0
-  foodValue: 1
-  excessFoodRequired: 0
-  waterRequirements: 0.1
-  lightRequirements: 1
-  reproductionChance: 1
+  speciesName: Cow
+  foodRequirements: 1
+  foodValue: 5
+  excessFoodRequired: 1.6
+  waterRequirements: 1
+  lightRequirements: 0
+  reproductionChance: 0.5
   maxReproduction: 10
   tags:
-  - flowering
-  - milkweed
-  - plant
+  - mammal
+  - animal
   requiresHabitat: 0
   habitats: []
-  requiresFood: 0
-  foods: []
+  requiresFood: 1
+  foods:
+  - flowering
   speciesCost:
   - paperColor: {fileID: 11400000, guid: 4251dc4ca9f9c8e4ea93289881f8ca52, type: 2}
     paperValue: 0
   speciesProduce:
-  - paperColor: {fileID: 11400000, guid: 4251dc4ca9f9c8e4ea93289881f8ca52, type: 2}
-    paperValue: 0.1
+  - paperColor: {fileID: 11400000, guid: a1f420661ebcec944931b9554ab3598c, type: 2}
+    paperValue: 1
