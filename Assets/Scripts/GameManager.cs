@@ -99,6 +99,11 @@ public class GameManager : MonoBehaviour
         return spendablePaper;
     }
 
+    public void SetSpendablePaper(Dictionary<PaperType, int> s)
+    {
+        spendablePaper = s;
+    }
+
     public void SetTimeSpeed(TIMESPEED tSpeed)
     {
         accumulator *= (float)timeSpeed / (float)tSpeed;
