@@ -146,9 +146,9 @@ public class SpeciesSpawning : MonoBehaviour
 
     (int, int, int) GenerateGridPosition (int Layer)
     {
-        int x = Random.Range(0, gridSpawner.getGridLength() - 1);
+        int x = Random.Range(0, gridSpawner.getGridLength());
         int y = Layer;
-        int z = Random.Range(0, gridSpawner.getGridWidth() - 1);
+        int z = Random.Range(0, gridSpawner.getGridWidth());
         //Debug.Log("(" + x + "," + y + "," + z + ")");
         return (x, y, z);
     }
