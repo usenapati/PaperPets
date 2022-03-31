@@ -1,0 +1,73 @@
+{
+  "$id": "1",
+  "terrariums": {
+    "$id": "2",
+    "0": {
+      "$id": "3",
+      "biome": null,
+      "isActive": false,
+      "<name>k__BackingField": "first world",
+      "<id>k__BackingField": null,
+      "organisms": {
+        "$id": "4",
+        "Milkweed": {
+          "$id": "5",
+          "<name>k__BackingField": "Milkweed",
+          "foods": [],
+          "habitats": [],
+          "<tags>k__BackingField": [
+            "flowering",
+            "milkweed"
+          ],
+          "<outgoingFood>k__BackingField": [],
+          "<outgoingHabitat>k__BackingField": [],
+          "<population>k__BackingField": 51,
+          "world": {
+            "$ref": "3"
+          },
+          "needsUpdate": false,
+          "populationToLose": 0,
+          "populationToGain": 0
+        }
+      },
+      "speciesByTag": {
+        "$id": "6",
+        "flowering": [
+          {
+            "$ref": "5"
+          }
+        ],
+        "milkweed": [
+          {
+            "$ref": "5"
+          }
+        ]
+      },
+      "tagSubscribers": {
+        "$id": "7"
+      },
+      "toBeRemoved": [],
+      "files": {
+        "$id": "8"
+      },
+      "lightUpgradeLevel": 1,
+      "baseLight": 50.0,
+      "waterUpgradeLevel": 1,
+      "baseWater": 100.0
+    }
+  },
+  "spendablePaper": {
+    "$id": "9",
+    "green": 169,
+    "brown": 0,
+    "orange": 0
+  },
+  "progressionSystem": {
+    "$id": "10",
+    "nextID": 0,
+    "unlockedSpecies": [
+      "MonarchButterfly"
+    ],
+    "otherUnlocks": []
+  }
+}

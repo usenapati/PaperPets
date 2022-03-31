@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ab7ded98bed374591bfdb08f1d0bdd, type: 3}
+  m_Name: Ladybug
+  m_EditorClassIdentifier: 
+  speciesName: Ladybug
+  foodRequirements: 0.1
+  foodValue: 0.05
+  excessFoodRequired: 0.5
+  waterRequirements: 0
+  lightRequirements: 0
+  reproductionChance: 0.4
+  maxReproduction: 100
+  tags:
+  - insect
+  - animal
+  requiresHabitat: 0
+  habitats:
+  - plant
+  requiresFood: 1
+  foods:
+  - aphid
+  speciesCost:
+  - paperColor: {fileID: 11400000, guid: 4251dc4ca9f9c8e4ea93289881f8ca52, type: 2}
+    paperValue: 0
+  speciesProduce:
+  - paperColor: {fileID: 11400000, guid: 47d75d2dda4dc3e41aa45d245153cf71, type: 2}
+    paperValue: 0.01

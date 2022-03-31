@@ -16,11 +16,13 @@ public class GameManager : MonoBehaviour
     // will create ID later for the terrariums
     private Dictionary<string, WorldSim> terrariums;
     private int nextID = 0;
-
     // Information being kept
     // The paper the player has available to spend
     // Look through specific file path to find all types of paper
     private Dictionary<PaperType, int> spendablePaper;
+    private ProgressionSystem progressionSystem;
+    private string filename;
+
     // The simulation time tick default
     private float dt = 1f;
     private const float basedt = 1f;
@@ -29,6 +31,9 @@ public class GameManager : MonoBehaviour
     private TIMESPEED timeSpeed = TIMESPEED.NORMAL;
     private float accumulator = 0f;
     private uint tick = 0;
+
+    private Dictionary<string, bool> isOwned = new Dictionary<string, bool>();
+
 
 
     // Get the instance of the game manager
@@ -46,8 +51,15 @@ public class GameManager : MonoBehaviour
             _instance = this;
         }
         DontDestroyOnLoad(this);
+
+        filename = "BasicSave";
+
         // Prepare the dictionary for the paper currencies
         spendablePaper = new Dictionary<PaperType, int>();
+
+        // Prepare progression system
+        progressionSystem = new ProgressionSystem();
+        progressionSystem.setup();
 
         // load the paper dictionary
         foreach (PaperType p in Resources.FindObjectsOfTypeAll(typeof(PaperType)) as PaperType[])
@@ -60,6 +72,27 @@ public class GameManager : MonoBehaviour
         terrariums.Add(nextID++.ToString(), new WorldSim("first world"));
         SetTimeSpeed(this.timeSpeed);
     }
+
+    public void LoadGame(string filename)
+    {
+        SaveSystem.SaveData temp = SaveSystem.SavesManager.LoadGame(filename);
+        terrariums = temp.GetTerrariums();
+        spendablePaper = temp.GetSpendablePaper();
+        progressionSystem = temp.GetProgressionSystem();
+        
+        foreach (string s in progressionSystem.getUnlocks())
+        {
+            Debug.Log(s);
+        }
+
+    }
+
+    public void SaveGame(string filename)
+    {
+        SaveSystem.SavesManager.SaveGame(filename,
+            new SaveSystem.SaveData(terrariums, spendablePaper, progressionSystem));
+    }
+
 
     public Dictionary<PaperType, int> GetSpendablePaper()
     {
@@ -82,6 +115,11 @@ public class GameManager : MonoBehaviour
     {
         return terrariums[(nextID - 1).ToString()];
     }
+    
+    public ProgressionSystem getProgression()
+    {
+        return progressionSystem;
+    }
 
     // Update is called once per frame
     void Update()
@@ -93,6 +131,9 @@ public class GameManager : MonoBehaviour
             accumulator = 0;
             //Debug.Log("tick" + timeSpeed.ToString() + ":" + tick);
 
+            // check progression
+            progressionSystem.checkUnlocks();
+
             // A new tick has passed
             // Do we want to tie animations to this tick or have it based on something else?
             foreach (WorldSim terrarium in terrariums.Values)
@@ -101,4 +142,36 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void waterUpgrade()
+    {
+        getCurrentWorld().upgradeWaterLevel();
+    }
+
+    public void lightUpgrade()
+    {
+        getCurrentWorld().upgradeLightLevel();
+    }
+
+    public int getWaterCost()
+    {
+        return (int) 50 * getCurrentWorld().getWaterLevel();
+    }
+
+    public int getLightCost()
+    {
+        return (int) 50 * getCurrentWorld().getLightLevel();
+    }
+
+    public void setOwned(Dictionary<string, bool> owned)
+    {
+        isOwned = owned;
+    }
+
+    public Dictionary<string, bool> getOwned()
+    {
+        return isOwned;
+    }
+
+
 }

@@ -31,6 +31,8 @@ public class UI_Pause_Menu : MonoBehaviour
         else{
             Vector3 position = new Vector3(5000,5000,0);
             menuTransform.position = position;
+            Destroy(menuTransform.gameObject);
+            
             template.gameObject.SetActive(false);
             
             onScreen = false;

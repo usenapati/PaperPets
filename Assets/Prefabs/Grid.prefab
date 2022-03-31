@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4171887589656061345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4171887589656061351}
+  - component: {fileID: 4171887589656061350}
+  - component: {fileID: 4171887589656061348}
+  - component: {fileID: 4171887589656061349}
+  m_Layer: 0
+  m_Name: Grid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4171887589656061351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4171887589656061345}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.86832094, y: 0.15721035, z: 1.0574862}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4171887589656061350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4171887589656061345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c7619345edbd445a16ff133440f3e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intialPosition: {x: -1.2, y: 0.35, z: -2.6}
+  initialLength: 5
+  initialWidth: 4
+  gridPrefab: {fileID: 4584395507915010367, guid: 4ce6b7fc1349ffc40b74f7611e60bd33, type: 3}
+  basePlane: {fileID: 0}
+--- !u!114 &4171887589656061348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4171887589656061345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fbfadcac72a4b4ebfba60e6e0478d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  organismPrefab: {fileID: 4863455187425102837, guid: c7359bdf8985787408b66bb06b0e443e, type: 3}
+  gridElementPrefab: {fileID: 4584395507915010367, guid: 4ce6b7fc1349ffc40b74f7611e60bd33, type: 3}
+  gridSpawner: {fileID: 0}
+--- !u!114 &4171887589656061349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4171887589656061345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 2978234190fd7f746b6a81b621b56e08, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f525293a-2aa8-4c1f-8cd5-0432db5101f2
+    m_ActionName: Camera Controls/Pan[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 89b55ea2-6ca0-4407-a3ee-061c2cfb5798
+    m_ActionName: Camera Controls/Tilt[/Keyboard/s,/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7fd0042e-9c73-4f3b-9ffa-84f974227f33
+    m_ActionName: Camera Controls/Zoom[/Keyboard/q,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e0601f77-82de-47db-8dda-ced42f08e0a0
+    m_ActionName: Camera Controls/Change Target[/Keyboard/tab]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 14ec164d-7f86-4676-b887-796202784547
+    m_ActionName: Population System Controls/Print Population[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bc70a42e-227b-44d5-9e1c-80f16a4ffbe2
+    m_ActionName: Population System Controls/Print Habitats[/Keyboard/h]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5a1241a2-5aa8-449e-b1d5-5a41ceceaf90
+    m_ActionName: Population System Controls/Prints Foods[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4171887589656061348}
+        m_TargetAssemblyTypeName: SpeciesSpawning, Assembly-CSharp
+        m_MethodName: SpawnRandomOrganism
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 01c5ef41-cf1b-4bd3-8611-66d7ac0f0fda
+    m_ActionName: Testing/Spawn Random Animal[/Keyboard/z]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Testing
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

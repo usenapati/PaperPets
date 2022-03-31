@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ab7ded98bed374591bfdb08f1d0bdd, type: 3}
+  m_Name: Cow
+  m_EditorClassIdentifier: 
+  speciesName: Cow
+  foodRequirements: 1
+  foodValue: 5
+  excessFoodRequired: 1.6
+  waterRequirements: 1
+  lightRequirements: 0
+  reproductionChance: 0.5
+  maxReproduction: 10
+  tags:
+  - mammal
+  - animal
+  requiresHabitat: 0
+  habitats: []
+  requiresFood: 1
+  foods:
+  - flowering
+  speciesCost:
+  - paperColor: {fileID: 11400000, guid: 4251dc4ca9f9c8e4ea93289881f8ca52, type: 2}
+    paperValue: 0
+  speciesProduce:
+  - paperColor: {fileID: 11400000, guid: a1f420661ebcec944931b9554ab3598c, type: 2}
+    paperValue: 1
