@@ -14,6 +14,7 @@ TagManager:
   - Water
   - light&water
   - exit
+  - progress
   layers:
   - Default
   - TransparentFX

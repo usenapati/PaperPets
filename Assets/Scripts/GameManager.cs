@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     private float accumulator = 0f;
     private uint tick = 0;
 
+    private Dictionary<string, bool> isOwned = new Dictionary<string, bool>();
+
 
 
     // Get the instance of the game manager
@@ -113,6 +115,11 @@ public class GameManager : MonoBehaviour
     {
         return terrariums[(nextID - 1).ToString()];
     }
+    
+    public ProgressionSystem getProgression()
+    {
+        return progressionSystem;
+    }
 
     // Update is called once per frame
     void Update()
@@ -155,4 +162,16 @@ public class GameManager : MonoBehaviour
     {
         return (int) 50 * getCurrentWorld().getLightLevel();
     }
+
+    public void setOwned(Dictionary<string, bool> owned)
+    {
+        isOwned = owned;
+    }
+
+    public Dictionary<string, bool> getOwned()
+    {
+        return isOwned;
+    }
+
+
 }
