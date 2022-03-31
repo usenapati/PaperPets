@@ -15,6 +15,9 @@ public class SpeciesSpawning : MonoBehaviour
     [SerializeField]
     GridSpawner gridSpawner;
 
+    List<KeyValuePair<string, int>> speciesPopulation;
+    Dictionary<string, SpeciesVisualData> organisms = new Dictionary<string, SpeciesVisualData>();
+    Dictionary<string, List<GameObject>> organismsInScene = new Dictionary<string, List<GameObject>>();
     // Random Value Generation
 
     // Start is called before the first frame update
@@ -29,9 +32,63 @@ public class SpeciesSpawning : MonoBehaviour
         
     }
 
-    public void SpawnOrganism(string speciesName)
+    private void Update()
     {
-        SpeciesVisualData organism = Resources.Load("Visuals/" + speciesName) as SpeciesVisualData;
+        //Check WorldSim
+        speciesPopulation = GameManager.Instance.getCurrentWorld().getAllSpeciesPopulation();
+        Debug.Log(speciesPopulation.Count);
+        //Loop through list
+        for (int i = 0; i < speciesPopulation.Count; i++)
+        {
+            string speciesName = speciesPopulation[i].Key;
+            if (!organisms.ContainsKey(speciesName))
+            {
+                AddSpeciesToDictionary(speciesName);
+            }
+            Debug.Log("Species name: " + speciesName);
+            if (organisms[speciesName] != null)
+            {
+                int difference = organismsInScene[speciesName].Count - organisms[speciesName].conversionValue * speciesPopulation[i].Value;
+                Debug.Log("difference: " + difference);
+                // Deleting Organisms
+                if (difference > 0)
+                {
+                    for (int j = 0; j < difference; j++)
+                    {
+                        GameObject gameObject = organismsInScene[speciesName][organismsInScene[speciesName].Count - 1];
+                        organismsInScene[speciesName].Remove(gameObject);
+                        Destroy(gameObject);
+                    }
+                }
+                // Adding Organisms
+                else if (difference < 0)
+                {
+                    for (int j = 0; j < -difference; j++)
+                    {
+                        Debug.Log("Spawning " + speciesName);
+                        GameObject gameObject = SpawnOrganism(speciesName);
+                        organismsInScene[speciesName].Add(gameObject);
+                    }
+                }
+            }
+        }
+        //If species num > limit
+        //Don't spawn them
+        //Else
+        //Spawn them based on conversion val
+    }
+
+    void AddSpeciesToDictionary(string organismName)
+    {
+        string trimmed = organismName.Replace(" ", "");
+        Debug.Log("Original: " + organismName + " Trimmed: " + trimmed);
+        organisms.Add(organismName, Resources.Load("Visuals/" + trimmed) as SpeciesVisualData);
+        organismsInScene.Add(organismName, new List<GameObject>());
+    }
+
+    public GameObject SpawnOrganism(string speciesName)
+    {
+        SpeciesVisualData organism = organisms[speciesName];
         
         int layer = organism.layerHeight;
         float height = organism.height;
@@ -44,11 +101,12 @@ public class SpeciesSpawning : MonoBehaviour
         temp.transform.localPosition = spawnPosition;
         temp.GetComponent<SpriteRenderer>().sprite = organism.sprite;
         temp.transform.localScale = organism.scale;
+        return temp;
     }
 
     public void SpawnOrganismAtElement(string speciesName, int x, int z)
     {
-        SpeciesVisualData organism = Resources.Load("Visuals/" + speciesName) as SpeciesVisualData;
+        SpeciesVisualData organism = organisms[speciesName];
 
         int layer = organism.layerHeight;
         float height = organism.height;
