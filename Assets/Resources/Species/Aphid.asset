@@ -23,6 +23,7 @@ MonoBehaviour:
   tags:
   - insect
   - animal
+  - aphid
   requiresHabitat: 1
   habitats:
   - plant

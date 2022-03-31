@@ -12,26 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ab7ded98bed374591bfdb08f1d0bdd, type: 3}
   m_Name: Ladybug
   m_EditorClassIdentifier: 
-  speciesName: Aphid
-  foodRequirements: 0.01
-  foodValue: 0.01
-  excessFoodRequired: 0.1
+  speciesName: Ladybug
+  foodRequirements: 0.1
+  foodValue: 0.05
+  excessFoodRequired: 0.5
   waterRequirements: 0
   lightRequirements: 0
-  reproductionChance: 0.8
-  maxReproduction: 1000
+  reproductionChance: 0.4
+  maxReproduction: 100
   tags:
   - insect
   - animal
-  requiresHabitat: 1
+  requiresHabitat: 0
   habitats:
   - plant
   requiresFood: 1
   foods:
-  - plant
+  - aphid
   speciesCost:
   - paperColor: {fileID: 11400000, guid: 4251dc4ca9f9c8e4ea93289881f8ca52, type: 2}
     paperValue: 0
   speciesProduce:
-  - paperColor: {fileID: 11400000, guid: f7c9c4b7fec90ea42b1ef9c913bcf3dc, type: 2}
-    paperValue: 0.005
+  - paperColor: {fileID: 11400000, guid: 47d75d2dda4dc3e41aa45d245153cf71, type: 2}
+    paperValue: 0.01
