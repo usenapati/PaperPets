@@ -13,6 +13,8 @@ public class CameraController : MonoBehaviour
     public GameObject dollyCart;
     [SerializeField]
     public GameObject dollyTrack;
+    [SerializeField]
+    public GameObject target;
 
     [SerializeField]
     private float cameraSpeed = 1f;
@@ -22,6 +24,13 @@ public class CameraController : MonoBehaviour
     private float zoomSpeed = 20f;
 
     // Horizontal
+    [Header("Pan Values")]
+    [SerializeField]
+    private float panMinValue = 0f;
+
+    [SerializeField]
+    private float panMaxValue = 1f;
+
     [SerializeField, Range(0f, 1f)]
     private float panValue = 0.5f;
 
@@ -29,14 +38,31 @@ public class CameraController : MonoBehaviour
 
     private float tempPan = 0.5f;
 
+
+
     // Vertical
-    [SerializeField, Range(0f, 16f)]
+    [Header("Tilt Values")]
+    [SerializeField]
+    private float tiltMinValue = -10f;
+
+    [SerializeField]
+    private float tiltMaxValue = 30f;
+
+    [SerializeField, Range(-16f, 30f)]
     private float tiltValue;
 
     private float tilt1D;
 
     private float tempTilt = 2f;
 
+    // Zoom
+    [Header("Zoom Values")]
+    [SerializeField]
+    private float zoomMinValue = 10f;
+
+    [SerializeField]
+    private float zoomMaxValue = 60f;
+        
     [SerializeField, Range(10f, 60f)]
     private float zoomValue;
 
@@ -44,6 +70,20 @@ public class CameraController : MonoBehaviour
 
     private float tempZoom = 20f;
 
+    // Camera Movement
+    [Header("Camera Values")]
+    [SerializeField]
+    private float cameraMinYValue = 0f;
+
+    [SerializeField]
+    private float cameraMaxYValue = 3f;
+
+    [SerializeField, Range(0f, 3f)]
+    private float cameraYValue;
+
+    private float cameraY1D;
+
+    private float tempCameraY = 1.78f;
 
     [Header("Targets")]
     // Alternate Cameras
@@ -56,6 +96,7 @@ public class CameraController : MonoBehaviour
         mainCamera = FindObjectOfType<CinemachineVirtualCamera>().gameObject;
         dollyCart = FindObjectOfType<CinemachineDollyCart>().gameObject;
         dollyTrack = FindObjectOfType<CinemachineSmoothPath>().gameObject;
+        target = GameObject.FindGameObjectWithTag("target");
     }
 
     private void FixedUpdate()
@@ -101,14 +142,14 @@ public class CameraController : MonoBehaviour
     void IncrementPan()
     {
         tempPan += pan1D * Time.deltaTime * cameraSpeed;
-        panValue = Mathf.Clamp(tempPan, 0, 1);
+        panValue = Mathf.Clamp(tempPan, panMinValue, panMaxValue);
         tempPan = Mathf.Clamp(tempPan, -1, 1);
     }
     
     void DecrementPan()
     {
         tempPan += pan1D * Time.deltaTime * cameraSpeed;
-        panValue = Mathf.Clamp(tempPan, 0, 1);
+        panValue = Mathf.Clamp(tempPan, panMinValue, panMaxValue);
         tempPan = Mathf.Clamp(tempPan, -1, 1);
     }
     #endregion
@@ -131,14 +172,14 @@ public class CameraController : MonoBehaviour
     void IncrementTilt()
     {
         tempTilt += tilt1D * Time.deltaTime * tiltSpeed * cameraSpeed;
-        tiltValue = Mathf.Clamp(tempTilt, 0, 16);
+        tiltValue = Mathf.Clamp(tempTilt, tiltMinValue, tiltMaxValue);
         tempTilt = Mathf.Clamp(tempTilt, -16, 16);
     }
 
     void DecrementTilt()
     {
         tempTilt += tilt1D * Time.deltaTime * tiltSpeed * cameraSpeed;
-        tiltValue = Mathf.Clamp(tempTilt, 0, 16);
+        tiltValue = Mathf.Clamp(tempTilt, tiltMinValue, tiltMaxValue);
         tempTilt = Mathf.Clamp(tempTilt, -16, 16);
     }
     #endregion
@@ -161,14 +202,14 @@ public class CameraController : MonoBehaviour
     void IncrementZoom()
     {
         tempZoom += zoom1D * Time.deltaTime * zoomSpeed * cameraSpeed;
-        zoomValue = Mathf.Clamp(tempZoom, 10, 60);
+        zoomValue = Mathf.Clamp(tempZoom, zoomMinValue, zoomMaxValue);
         tempZoom = Mathf.Clamp(tempZoom, -60, 60);
     }
 
     void DecrementZoom()
     {
         tempZoom += zoom1D * Time.deltaTime * zoomSpeed * cameraSpeed;
-        zoomValue = Mathf.Clamp(tempZoom, 10, 60);
+        zoomValue = Mathf.Clamp(tempZoom, zoomMinValue, zoomMaxValue);
         tempZoom = Mathf.Clamp(tempZoom, -60, 60);
     }
     #endregion
@@ -187,6 +228,13 @@ public class CameraController : MonoBehaviour
     public void OnZoom(InputAction.CallbackContext context)
     {
         zoom1D = context.ReadValue<float>();
+        //Debug.Log(zoom1D);
+    }
+
+    public void OnCameraMoveUp(InputAction.CallbackContext context)
+    {
+        
+        cameraY1D = context.ReadValue<float>();
         //Debug.Log(zoom1D);
     }
 
