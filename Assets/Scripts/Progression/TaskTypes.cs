@@ -40,6 +40,6 @@ public class PaperTask : Task
     public override float progress()
     {
         if (completed) return 1;
-        return GameManager.Instance.GetSpendablePaper()[paperType] / amount;
+        return Mathf.Min(1, GameManager.Instance.GetSpendablePaper()[paperType] / amount);
     }
 }

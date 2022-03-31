@@ -23,7 +23,7 @@ public class ProgressionSystem
     [JsonProperty] HashSet<string> otherUnlocks;
 
     // in progress items
-    HashSet<Unlock> inProgress;
+    public HashSet<Unlock> inProgress;
     HashSet<Unlock> inProgressTemp;
 
     public ProgressionSystem()
@@ -83,6 +83,7 @@ public class ProgressionSystem
             }
 
         }
+        unlockedSpecies.Add("Milkweed");
     }
 
     public HashSet<string> getUnlocks()
@@ -91,6 +92,11 @@ public class ProgressionSystem
         totalUnlocks.UnionWith(unlockedSpecies);
         totalUnlocks.UnionWith(otherUnlocks);
         return totalUnlocks;
+    }
+
+    public HashSet<string> getUnlockedSpecies()
+    {
+        return new HashSet<string>(unlockedSpecies);
     }
 
     public void moveToInProgress(Unlock u)
@@ -126,7 +132,7 @@ public class ProgressionSystem
 
         foreach (Unlock u in inProgress)
         {
-            //Debug.Log(u.getTaskProgress());
+            Debug.Log(u.getTaskProgress());
             if (u.checkCompletion())
             {
                 toRemove.Add(u);
@@ -415,6 +421,11 @@ public class Unlock
         }
 
         return progress;
+    }
+
+    public List<Task> getTasks()
+    {
+        return new List<Task>(tasks);
     }
 
 }
