@@ -189,7 +189,7 @@ public class UI_Shop : MonoBehaviour
     private void GenerateShopValues()
     {
         count = 0;
-        foreach (SpeciesType p in Resources.FindObjectsOfTypeAll(typeof(SpeciesType)) as SpeciesType[])
+        /*foreach (SpeciesType p in Resources.FindObjectsOfTypeAll(typeof(SpeciesType)) as SpeciesType[])
         {
             
             CreateItemButton(p, (int) p.SpeciesCost[0].PaperAmount, count, p.SpeciesCost[0].PaperColor);
@@ -197,6 +197,12 @@ public class UI_Shop : MonoBehaviour
             
             count++;
 
+        }*/
+        foreach (string s in GameManager.Instance.getProgression().getUnlockedSpecies())
+        {
+            SpeciesType p = Resources.Load("Species/" + s) as SpeciesType;
+            CreateItemButton(p, (int)p.SpeciesCost[0].PaperAmount, count, p.SpeciesCost[0].PaperColor);
+            count++;
         }
         // CreateItemButton(Eagle, 9999999, 0);
         // CreateItemButton(Milkweed, 350, 1);

@@ -83,6 +83,7 @@ public class ProgressionSystem
             }
 
         }
+        unlockedSpecies.Add("Milkweed");
     }
 
     public HashSet<string> getUnlocks()
@@ -91,6 +92,11 @@ public class ProgressionSystem
         totalUnlocks.UnionWith(unlockedSpecies);
         totalUnlocks.UnionWith(otherUnlocks);
         return totalUnlocks;
+    }
+
+    public HashSet<string> getUnlockedSpecies()
+    {
+        return new HashSet<string>(unlockedSpecies);
     }
 
     public void moveToInProgress(Unlock u)
