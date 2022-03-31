@@ -97,4 +97,28 @@ public class SystemView : MonoBehaviour
         }
     }
 
+    private void updateCircles()
+    {
+        int totalPop = 0;
+        foreach (Species sp in organisms.Values)
+        {
+            totalPop += sp.population;
+        }
+        pop.SetText(totalPop.ToString());
+
+        foreach (Species sp in organisms.Values)
+        {
+            float finalScale = Mathf.Max(minScale, startingScale * sp.population / totalPop);
+
+            circles[sp.name].transform.localScale = new Vector3(finalScale, finalScale, 1);
+
+            circles[sp.name].transform.Find("Species").GetComponent<TextMeshPro>().SetText(sp.name + "\n" + sp.population);
+        }
+    }
+
+    private void Update()
+    {
+        updateCircles();
+    }
+
 }

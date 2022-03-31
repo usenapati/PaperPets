@@ -154,7 +154,7 @@ public class Species
                 {
                     s.updateDecreaseDelta(s.population);
                 }
-                int death = Mathf.RoundToInt((reqIntake - totalFoodAvailable) / type.FoodRequirements);
+                int death = Mathf.Max(1, Mathf.RoundToInt(.5f * (reqIntake - totalFoodAvailable) / type.FoodRequirements));
                 updateDecreaseDelta(death);
             }
         }
@@ -196,6 +196,10 @@ public class Species
         needsUpdate = false;
 
         population = Mathf.Max(0, population - populationToLose);
+
+        // overgrazed populations will start to decline
+        if (population == 0 && populationToGain > 0) populationToGain = (int) (populationToGain * .5);
+
         if (population > 1 && populationToLose == 0 && Random.Range(0, 100) < 1)
             population += 1;
         populationToLose = 0;
