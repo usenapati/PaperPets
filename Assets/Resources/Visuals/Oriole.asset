@@ -18,5 +18,5 @@ MonoBehaviour:
   layerHeight: 0
   height: 0
   speciesLimit: 10
-  conversionValue: 0
+  conversionValue: 1
   speciesColor: {r: 0.9921569, g: 0.94117653, b: 0.43529415, a: 1}
