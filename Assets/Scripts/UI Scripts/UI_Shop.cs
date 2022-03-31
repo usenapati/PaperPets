@@ -26,6 +26,8 @@ public class UI_Shop : MonoBehaviour
 
     public Text light;
     public Text water;
+    public Text task;
+    
 
     int greentext;
     int bluetext;
@@ -51,6 +53,8 @@ public class UI_Shop : MonoBehaviour
         container = transform.Find("Container");
         ItemTemplate = container.Find("ItemTemplate");
         ItemTemplate.gameObject.SetActive(active);
+
+        isOwned = GameManager.Instance.getOwned();
 
         GameObject[] temp;
         temp = GameObject.FindGameObjectsWithTag("shop");
@@ -78,6 +82,8 @@ public class UI_Shop : MonoBehaviour
         {
             g.GetComponent<RawImage>().enabled = false;
         }
+
+        
     }
 
     private void Start()
@@ -136,6 +142,46 @@ public class UI_Shop : MonoBehaviour
             {
                 g.GetComponent<TextMeshProUGUI>().SetText(GameManager.Instance.getWaterCost().ToString());
             }
+        }
+
+        //gets task and display it
+        ProgressionSystem p = GameManager.Instance.getProgression();
+        float percent = 0;
+        string returningText = "";
+        foreach(Unlock t in p.inProgress)
+        {
+            string te = t.getTaskProgress();
+            
+            foreach(Task t2 in t.getTasks())
+            {
+                percent = t2.progress();
+            }
+            
+            foreach (char c in te)
+            {
+                if(c.ToString() == "["||
+                c.ToString() == "]" ||
+                c.ToString() == "-"||
+                c.ToString() == "#")
+                {
+                    continue;
+                } 
+                else{
+                    returningText += c;
+                }
+                
+            }
+        }
+        task.text = returningText;
+
+        GameObject[] temp2;
+        temp2 = GameObject.FindGameObjectsWithTag("progress");
+        foreach(GameObject g in temp2)
+        {      
+            g.GetComponent<RectTransform>().sizeDelta = new Vector2(percent * 348f, 28f);
+            
+            // g.GetComponent<RectTransform>().localPosition = new Vector3(
+            // g.GetComponent<RectTransform>().localPosition.x + (count * 38.4f), g.GetComponent<RectTransform>().localPosition.y, 0f);
         }
         //GameManager.Instance.getWaterCost().ToString() + "\n" + GameManager.Instance.getLightCost().ToString() + "\n" 
     }
@@ -246,6 +292,7 @@ public class UI_Shop : MonoBehaviour
             GameManager.Instance.addSpecies(s);
 
             isOwned.Add(s.SpeciesName, true);
+            GameManager.Instance.setOwned(isOwned);
             
             //change color of background to grey
             shop.Find("background").GetComponent<Image>().color = new Color32(76,85,91,255);
