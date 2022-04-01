@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /**
  * Based off of the article from https://csharpindepth.com/Articles/Singleton#dcl
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour
     // Singleton
     private static GameManager _instance;
     private static readonly object padlock = new object();
+
+    // Set up a a place for other tics to be notified by game manager
+    private Dictionary<string, UnityEvent<float>> m_TickEvents;
 
     // Set up the terrariums
     // will create ID later for the terrariums
@@ -24,7 +28,7 @@ public class GameManager : MonoBehaviour
     private string filename;
 
     // The simulation time tick default
-    private float dt = 1f;
+    public float dt = 1f;
     private const float basedt = 1f;
     // Will divide dt by TIMESPEED
     public enum TIMESPEED { SLOWEST = 1, SLOW, NORMAL, FAST, FASTEST }
@@ -54,6 +58,9 @@ public class GameManager : MonoBehaviour
 
         filename = "BasicSave";
 
+        // Set up the tick events
+        m_TickEvents = new Dictionary<string, UnityEvent<float>>();
+
         // Prepare the dictionary for the paper currencies
         spendablePaper = new Dictionary<PaperType, int>();
 
@@ -70,6 +77,10 @@ public class GameManager : MonoBehaviour
         // Prepare the dictionary for terrariums
         terrariums = new Dictionary<string, WorldSim>();
         terrariums.Add(nextID++.ToString(), new WorldSim("first world"));
+    }
+
+    private void Start()
+    {
         SetTimeSpeed(this.timeSpeed);
     }
 
@@ -109,6 +120,7 @@ public class GameManager : MonoBehaviour
         accumulator *= (float)timeSpeed / (float)tSpeed;
         timeSpeed = tSpeed;
         dt = basedt / (float)timeSpeed;
+        m_TickEvents[DayNightCycle.tickEventName].Invoke(dt);
     }
 
     public void addSpecies(SpeciesType s)
@@ -124,6 +136,16 @@ public class GameManager : MonoBehaviour
     public ProgressionSystem getProgression()
     {
         return progressionSystem;
+    }
+
+    public void addUnityEvent(string name, UnityEvent<float> unityEvent)
+    {
+        m_TickEvents.Add(name, unityEvent);
+    }
+
+    public UnityEvent<float> getUnityTickEvent(string name)
+    {
+        return m_TickEvents.ContainsKey(name) ? m_TickEvents[name] : null;
     }
 
     // Update is called once per frame
@@ -146,6 +168,7 @@ public class GameManager : MonoBehaviour
                 terrarium.updateWorld();
             }
         }
+        
     }
 
     public void waterUpgrade()
