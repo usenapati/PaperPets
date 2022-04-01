@@ -62,7 +62,6 @@ public class DayNightCycle : MonoBehaviour
 
     private Light sunLight;
     private float sunAngle;
-    private float accumulator = 0f;
     private float dt = 1f;
 
     // Start is called before the first frame update
@@ -74,7 +73,8 @@ public class DayNightCycle : MonoBehaviour
         if (GameManager.Instance.getUnityTickEvent(tickEventName) == null)
         {
             UnityEvent<float> tickEvent = new UnityEvent<float>();
-            tickEvent.AddListener(StartTicksCo);
+            StartCoroutine(TicksCoroutine());
+            tickEvent.AddListener(SetSkyTickdt);
             GameManager.Instance.addUnityEvent(tickEventName, tickEvent);
         }
     }
@@ -124,12 +124,12 @@ public class DayNightCycle : MonoBehaviour
         sun.Rotate(Vector3.right * sunTimeSpeed);
     }
 
-    void StartTicksCo(float dt)
+    void SetSkyTickdt(float dt)
     {
-        StopCoroutine(TicksCoroutine(dt));
-        StartCoroutine(TicksCoroutine(dt));
+        this.dt = dt;
+ //       StartCoroutine(TicksCoroutine());
     }
-    IEnumerator TicksCoroutine(float dt)
+    IEnumerator TicksCoroutine()
     {
         while(true)
         {

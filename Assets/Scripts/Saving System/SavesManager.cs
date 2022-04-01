@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 using System;
+using System.IO;
 
 namespace SaveSystem {
     public static class SavesManager
@@ -14,10 +15,15 @@ namespace SaveSystem {
         {
             string json = JsonConvert.SerializeObject(saveData, Formatting.Indented,
                 new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+
 #if UNITY_EDITOR
-            var sw = new System.IO.StreamWriter(Application.streamingAssetsPath + savePath + fileName + extension);
+            string path = Application.streamingAssetsPath + savePath + fileName + extension;
+            var sw = new System.IO.StreamWriter(path);
 #else
-        var sw = new System.IO.StreamWriter(Application.persistentDataPath + savePath + name + fileExtension);
+            string path = Application.persistentDataPath + savePath + fileName + extension;
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            var sw = new System.IO.StreamWriter(path);
 #endif
             sw.Write(json);
             sw.Close();
@@ -26,9 +32,13 @@ namespace SaveSystem {
         public static SaveData LoadGame(string fileName)
         {
 #if UNITY_EDITOR
-            var sr = new System.IO.StreamReader(Application.streamingAssetsPath + savePath + fileName + extension);
+            string path = Application.streamingAssetsPath + savePath + fileName + extension;
+            var sr = new System.IO.StreamReader(path);
 #else
-        var sr = new System.IO.StreamReader(Application.persistentDataPath + savePath + name + extension);
+            string path = Application.persistentDataPath + savePath + fileName + extension;
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            var sr = new System.IO.StreamReader(path);
 #endif
             SaveData saveData = JsonConvert.DeserializeObject<SaveData>(sr.ReadToEnd(),
                 new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
