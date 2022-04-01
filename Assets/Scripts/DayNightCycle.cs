@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [ExecuteInEditMode]
 public class DayNightCycle : MonoBehaviour
 {
+    public static string tickEventName = "daycycle";
     public Transform sun;
     public AnimationCurve sunBrightness = new AnimationCurve(
         new Keyframe(0, 0.01f),
@@ -55,9 +57,13 @@ public class DayNightCycle : MonoBehaviour
     public float starsSpeed = 8;
     public Vector2 cloudsSpeed = new Vector2(0.1f, 0.1f);
     public float sunTimeSpeed = 0.1f;
+    [Min(2f)]
+    public float cyclesPerTick = 20f;
 
     private Light sunLight;
     private float sunAngle;
+    private float accumulator = 0f;
+    private float dt = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -65,37 +71,27 @@ public class DayNightCycle : MonoBehaviour
         sun.rotation = Quaternion.Euler(0, -90, 0);
         sunLight = sun.GetComponent<Light>();
         RenderSettings.skybox.SetVector("_CloudOffset", new Vector2(0,0));
-    }
-
-    private float accumulator = 0;
-    public float dt = 0.05f;
-    private int tick;
-    private void Update()
-    {
-        // For testing currently
-        accumulator += Time.deltaTime;
-        if (accumulator >= dt)
+        if (GameManager.Instance.getUnityTickEvent(tickEventName) == null)
         {
-            tick++;
-            accumulator = 0;
-            Tick();
+            UnityEvent<float> tickEvent = new UnityEvent<float>();
+            tickEvent.AddListener(StartTicksCo);
+            GameManager.Instance.addUnityEvent(tickEventName, tickEvent);
         }
-
     }
 
     // Update skybox a single tick
     private void Tick()
-    {
-        sunAngle = (Vector3.SignedAngle(Vector3.down, sun.forward, sun.right) / 360) + 0.5f;
-        SetSunBrightness();
-        SetSunColor();
-        SetSkyColor();
-        MoveStars();
+    {   
         if (Application.isPlaying)
         {
             RotateSun();
             MoveClouds();
         }
+        sunAngle = (Vector3.SignedAngle(Vector3.down, sun.forward, sun.right) / 360) + 0.5f;
+        SetSunBrightness();
+        SetSunColor();
+        SetSkyColor();
+        MoveStars();
     }
 
     void SetSunBrightness()
@@ -123,9 +119,22 @@ public class DayNightCycle : MonoBehaviour
     {
         RenderSettings.skybox.SetVector("_CloudOffset", (Vector2)RenderSettings.skybox.GetVector("_CloudOffset") + cloudsSpeed);
     }
-
     void RotateSun()
     {
         sun.Rotate(Vector3.right * sunTimeSpeed);
+    }
+
+    void StartTicksCo(float dt)
+    {
+        StopCoroutine(TicksCoroutine(dt));
+        StartCoroutine(TicksCoroutine(dt));
+    }
+    IEnumerator TicksCoroutine(float dt)
+    {
+        while(true)
+        {
+            Tick();
+            yield return new WaitForSeconds(dt / cyclesPerTick);
+        }
     }
 }
