@@ -57,10 +57,12 @@ namespace SaveSystem {
         private Dictionary<string, int> spendablePaper;
         [JsonProperty]
         private ProgressionSystem progressionSystem;
+        [JsonProperty]
+        private Dictionary<string, bool> isOwned;
 
         public SaveData() {}
 
-        public SaveData(Dictionary<string, WorldSim> terrariums, Dictionary<PaperType, int> spendablePaper, ProgressionSystem progressionSystem)
+        public SaveData(Dictionary<string, WorldSim> terrariums, Dictionary<PaperType, int> spendablePaper, ProgressionSystem progressionSystem, Dictionary<string, bool> isOwned)
         {
             this.terrariums = terrariums;
             
@@ -71,6 +73,7 @@ namespace SaveSystem {
             }
 
             this.progressionSystem = progressionSystem;
+            this.isOwned = isOwned;
         }
 
         public Dictionary<PaperType, int> GetSpendablePaper()
@@ -96,6 +99,11 @@ namespace SaveSystem {
         {
             progressionSystem.setup();
             return progressionSystem;
+        }
+
+        public Dictionary<string, bool> GetOwnedDictionary()
+        {
+            return isOwned;
         }
 
     }

@@ -257,7 +257,7 @@ public class UI_Shop : MonoBehaviour
         
         shopTranform.GetComponent<Button>().onClick.AddListener(() => ShopClick(species, shopTranform));
 
-        foreach(KeyValuePair<string, bool> owned in isOwned)
+        foreach(KeyValuePair<string, bool> owned in GameManager.Instance.getOwned())
         {
             if(species.SpeciesName == owned.Key)
             {
@@ -313,9 +313,10 @@ public class UI_Shop : MonoBehaviour
         if(paperHad >= paperNeeded){
             GameManager.Instance.addSpecies(s);
 
-            isOwned.Add(s.SpeciesName, true);
-            GameManager.Instance.setOwned(isOwned);
-            
+            //isOwned.Add(s.SpeciesName, true);
+            //GameManager.Instance.setOwned(isOwned);
+            GameManager.Instance.getOwned().Add(s.SpeciesName, true);
+
             //change color of background to grey
             shop.Find("background").GetComponent<Image>().color = new Color32(76,85,91,255);
             shop.Find("Owned").GetComponent<TextMeshProUGUI>().SetText("OWNED");
