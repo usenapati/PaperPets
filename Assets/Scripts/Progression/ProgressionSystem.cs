@@ -132,7 +132,7 @@ public class ProgressionSystem
 
         foreach (Unlock u in inProgress)
         {
-            //Debug.Log(u.getTaskProgress());
+            Debug.Log(u.getTaskProgress());
             if (u.checkCompletion())
             {
                 toRemove.Add(u);
@@ -162,9 +162,10 @@ public class ProgressionSystem
         return ids;
     }
 
-    private List<Task> readTasks(XmlReader reader)
+    private Task readTasks(XmlReader reader)
     {
-        List<Task> tasks = new List<Task>();
+        //List<Task> tasks = new List<Task>();
+        Task task = null;
 
         while (reader.Read())
         {
@@ -181,7 +182,7 @@ public class ProgressionSystem
                     reader.Read();
                     reader.Read();
                     float amount = float.Parse(reader.GetAttribute("amount"));
-                    tasks.Add(new PaperTask(name, Resources.Load("Paper/" + color) as PaperType, amount));
+                    task = new PaperTask(name, Resources.Load("Paper/" + color) as PaperType, amount);
                     break;
                 default:
                     Debug.LogWarning("Task type not found of type: " + reader.GetAttribute("type"));
@@ -190,7 +191,7 @@ public class ProgressionSystem
         }
 
         reader.Close();
-        return tasks;
+        return task;
     }
 
     private void readUnlock(string id, XmlReader reader)
@@ -221,7 +222,8 @@ public class ProgressionSystem
                     children = readParentsChildren(reader.ReadSubtree());
                     break;
                 case "task":
-                    tasks = readTasks(reader.ReadSubtree());
+                    Task task = readTasks(reader.ReadSubtree());
+                    if (task != null) tasks.Add(task);
                     break;
             }
         }
