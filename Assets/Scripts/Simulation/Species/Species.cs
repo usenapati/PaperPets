@@ -132,7 +132,7 @@ public class Species
                     // a few random creatures die of age, accident, etc
                     int death = Mathf.RoundToInt(population * Random.Range(.005f, .01f));
                     updateDecreaseDelta(death);
-                    reproductionMultiplier = 1 + totalFoodAvailable / reqIntake / type.ExcessFoodRequired;
+                    reproductionMultiplier = totalFoodAvailable / reqIntake / type.ExcessFoodRequired;
                 }
 
                 foreach (Species s in outgoingFood)
@@ -183,7 +183,7 @@ public class Species
 
         if (canReproduce)
         {
-            if (type.RequiresFood) populationToGain += Mathf.RoundToInt(Mathf.Min(type.MaxReproduction, type.ReproductionChance * reproductionMultiplier));
+            if (type.RequiresFood) populationToGain += Mathf.RoundToInt(Mathf.Min(type.MaxReproduction, type.ReproductionChance * reproductionMultiplier, population));
             else if (type.ReproductionChance != 0) populationToGain += (int) Mathf.Min((world.availableLight - population * type.LightRequirements) / type.LightRequirements, population);
         }
 

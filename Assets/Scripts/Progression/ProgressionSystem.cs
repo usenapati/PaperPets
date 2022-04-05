@@ -84,6 +84,7 @@ public class ProgressionSystem
 
         }
         unlockedSpecies.Add("Milkweed");
+        //unlockedSpecies.Add("Aphid");
     }
 
     public HashSet<string> getUnlocks()
