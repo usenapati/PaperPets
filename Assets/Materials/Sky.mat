@@ -152,7 +152,7 @@ Material:
     - _NightSkyColor2: {r: 0.6039516, g: 0.6417887, b: 0.8490566, a: 0}
     - _SkyColor2: {r: 0.7499722, g: 0.30061114, b: 0.17157221, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _StarsOffset: {r: 6.682223, g: 0, b: 0, a: 0}
+    - _StarsOffset: {r: 7.573331, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1425329825666449275
 MonoBehaviour:

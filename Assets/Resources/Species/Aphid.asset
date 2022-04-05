@@ -36,3 +36,13 @@ MonoBehaviour:
   speciesProduce:
   - paperColor: {fileID: 11400000, guid: f7c9c4b7fec90ea42b1ef9c913bcf3dc, type: 2}
     paperValue: 0.005
+  idealTemperature: 80
+  idealHumidity: 40
+  idealWindSpeed: 5
+  biomeWeight: 0.1
+  tempRange:
+  - 50
+  - 90
+  humidityRange:
+  - 20
+  - 100

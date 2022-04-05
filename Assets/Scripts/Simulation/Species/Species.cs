@@ -229,4 +229,9 @@ public class Species
         type = Resources.Load("Species/" + name) as SpeciesType;
     }
 
+    public (float, float, float, float) getBiomeInfo()
+    {
+        return (population * type.BiomeWeight * type.IdealTemperature, population * type.BiomeWeight * type.IdealHumidity, population * type.BiomeWeight * type.IdealWindSpeed, population * type.BiomeWeight);
+    }
+
 }

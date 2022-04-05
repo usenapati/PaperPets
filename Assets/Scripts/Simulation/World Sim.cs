@@ -8,7 +8,7 @@ using UnityEngine;
 public class WorldSim
 {
     // current biome
-    Biome biome;
+    Biome biome = new Biome(0, 0, 0);
     // is the world active
     bool isActive;
     // name of world
@@ -164,7 +164,12 @@ public class WorldSim
     {
         toBeRemoved.Add(s);
     }
-    
+
+    private (float, float, float, float) recalculateBiome(Species s)
+    {
+        return s.getBiomeInfo();
+    }
+
     public List<Species> getAllSpecies()
     {
         return new List<Species>(organisms.Values);
@@ -237,6 +242,7 @@ public class WorldSim
             s.scheduleChanges();
         }
 
+        (float, float, float, float) biomeData = (0, 0, 0, 0);
         foreach (Species s in organisms.Values)
         {
             s.update();
@@ -246,7 +252,14 @@ public class WorldSim
             {
                 GameManager.Instance.GetSpendablePaper()[p.PaperColor] += (int) p.PaperAmount;
             }
+            (float, float, float, float) speciesInfluence = recalculateBiome(s);
+            biomeData.Item1 += speciesInfluence.Item1;
+            biomeData.Item2 += speciesInfluence.Item2;
+            biomeData.Item3 += speciesInfluence.Item3;
+            biomeData.Item4 += speciesInfluence.Item4;
         }
+        biome.updateBiome(biomeData);
+        Debug.Log(biome);
         killAllScheduledSpecies();
     }
 
