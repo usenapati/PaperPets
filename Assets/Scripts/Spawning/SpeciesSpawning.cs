@@ -36,7 +36,7 @@ public class SpeciesSpawning : MonoBehaviour
     {
         //Check WorldSim
         speciesPopulation = GameManager.Instance.getCurrentWorld().getAllSpeciesPopulation();
-        Debug.Log(speciesPopulation.Count);
+        //Debug.Log(speciesPopulation.Count);
         //Loop through list
         for (int i = 0; i < speciesPopulation.Count; i++)
         {

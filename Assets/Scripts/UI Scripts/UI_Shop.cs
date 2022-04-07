@@ -90,6 +90,31 @@ public class UI_Shop : MonoBehaviour
         {
             g.GetComponent<RawImage>().enabled = false;
         }
+        temp = GameObject.FindGameObjectsWithTag("infoimage");
+        foreach(GameObject g in temp)
+        {
+            g.GetComponent<RawImage>().enabled = false;
+        }
+        temp = GameObject.FindGameObjectsWithTag("infotext");
+        foreach(GameObject g in temp)
+        {
+            g.GetComponent<TextMeshProUGUI>().enabled = false;
+        }
+         temp = GameObject.FindGameObjectsWithTag("infoimage2");
+        foreach(GameObject g in temp)
+        {
+            g.GetComponent<Image>().enabled = false;
+        }
+        temp = GameObject.FindGameObjectsWithTag("speciesunlockedtext");
+        foreach(GameObject g in temp)
+        {
+            g.GetComponent<TextMeshProUGUI>().enabled = false;
+        }
+         temp = GameObject.FindGameObjectsWithTag("speciesunlockedimage");
+        foreach(GameObject g in temp)
+        {
+            g.GetComponent<Image>().enabled = false;
+        }
 
         
     }
@@ -195,10 +220,32 @@ public class UI_Shop : MonoBehaviour
         foreach(GameObject g in temp2)
         {      
             g.GetComponent<RectTransform>().sizeDelta = new Vector2(percent * 348f, 28f);
+            if(percent >= 1)
+            {
+                GameObject[] temp3;
+                temp3 = GameObject.FindGameObjectsWithTag("alert");
+                foreach(GameObject g1 in temp3)
+                {      
+                    g1.GetComponent<TextMeshProUGUI>().SetText("!");
+                }
+                temp3 = GameObject.FindGameObjectsWithTag("speciesunlockedtext");
+                foreach(GameObject g1 in temp3)
+                {
+                    g1.GetComponent<TextMeshProUGUI>().enabled = true;
+                }
+                temp3 = GameObject.FindGameObjectsWithTag("speciesunlockedimage");
+                foreach(GameObject g1 in temp3)
+                {
+                    g1.GetComponent<Image>().enabled = true;
+                }
+                
+            }
+            
             
             // g.GetComponent<RectTransform>().localPosition = new Vector3(
             // g.GetComponent<RectTransform>().localPosition.x + (count * 38.4f), g.GetComponent<RectTransform>().localPosition.y, 0f);
         }
+       
         //GameManager.Instance.getWaterCost().ToString() + "\n" + GameManager.Instance.getLightCost().ToString() + "\n" 
     }
 
@@ -257,12 +304,33 @@ public class UI_Shop : MonoBehaviour
         
         shopTranform.GetComponent<Button>().onClick.AddListener(() => ShopClick(species, shopTranform));
 
+        int count = 0;
         foreach(KeyValuePair<string, bool> owned in isOwned)
         {
             if(species.SpeciesName == owned.Key)
             {
                 shop.Find("background").GetComponent<Image>().color = new Color32(76,85,91,255);
                 shop.Find("Owned").GetComponent<TextMeshProUGUI>().SetText("OWNED");
+                count++;
+            }
+        }
+
+        if(index > count)
+        {
+            GameObject[] temp2;
+            temp2 = GameObject.FindGameObjectsWithTag("alert");
+            foreach(GameObject g in temp2)
+            {      
+                g.GetComponent<TextMeshProUGUI>().SetText("!");
+            }
+            
+        }else
+        {
+            GameObject[] temp2;
+            temp2 = GameObject.FindGameObjectsWithTag("alert");
+            foreach(GameObject g in temp2)
+            {      
+                g.GetComponent<TextMeshProUGUI>().SetText("");
             }
         }
 
@@ -343,6 +411,13 @@ public class UI_Shop : MonoBehaviour
                 paperamounts[w] = paperHad - paperNeeded;
             }
             GameManager.Instance.SetSpendablePaper(paperamounts);
+            GameObject[] temp2;
+            temp2 = GameObject.FindGameObjectsWithTag("alert");
+            foreach(GameObject g in temp2)
+            {      
+                g.GetComponent<TextMeshProUGUI>().SetText("");
+            }
+            enableShop();
         }
     }
 
@@ -438,6 +513,19 @@ public class UI_Shop : MonoBehaviour
             {
                 g.GetComponent<TextMeshProUGUI>().SetText("Close");
             }
+            
+            GameObject[] temp3;
+            temp3 = GameObject.FindGameObjectsWithTag("speciesunlockedtext");
+            foreach(GameObject g1 in temp3)
+            {
+                g1.GetComponent<TextMeshProUGUI>().enabled = false;
+            }
+            temp3 = GameObject.FindGameObjectsWithTag("speciesunlockedimage");
+            foreach(GameObject g1 in temp3)
+            {
+                g1.GetComponent<Image>().enabled = false;
+            }
+            
         }
         print(active);
         

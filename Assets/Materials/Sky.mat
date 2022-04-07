@@ -150,9 +150,9 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _NightSkyColor2: {r: 0.6039516, g: 0.6417887, b: 0.8490566, a: 0}
-    - _SkyColor2: {r: 0.7261948, g: 0.82371426, b: 1.5173739, a: 1}
+    - _SkyColor2: {r: 0.7276114, g: 0.7925481, b: 1.437192, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _StarsOffset: {r: 2.9522223, g: 0, b: 0, a: 0}
+    - _StarsOffset: {r: 2.8955557, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1425329825666449275
 MonoBehaviour:
