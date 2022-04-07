@@ -132,7 +132,7 @@ public class ProgressionSystem
 
         foreach (Unlock u in inProgress)
         {
-            Debug.Log(u.getTaskProgress());
+            //Debug.Log(u.getTaskProgress());
             if (u.checkCompletion())
             {
                 toRemove.Add(u);

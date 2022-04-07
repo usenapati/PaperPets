@@ -17,11 +17,45 @@
           "habitats": [],
           "<tags>k__BackingField": [
             "flowering",
-            "milkweed"
+            "milkweed",
+            "plant"
           ],
           "<outgoingFood>k__BackingField": [],
           "<outgoingHabitat>k__BackingField": [],
-          "<population>k__BackingField": 51,
+          "<population>k__BackingField": 37,
+          "world": {
+            "$ref": "3"
+          },
+          "needsUpdate": false,
+          "populationToLose": 0,
+          "populationToGain": 0
+        },
+        "Monarch Butterfly": {
+          "$id": "6",
+          "<name>k__BackingField": "Monarch Butterfly",
+          "foods": [
+            "flowering"
+          ],
+          "habitats": [
+            "flowering"
+          ],
+          "<tags>k__BackingField": [
+            "insect",
+            "flying",
+            "butterfly",
+            "animal"
+          ],
+          "<outgoingFood>k__BackingField": [
+            {
+              "$ref": "5"
+            }
+          ],
+          "<outgoingHabitat>k__BackingField": [
+            {
+              "$ref": "5"
+            }
+          ],
+          "<population>k__BackingField": 133,
           "world": {
             "$ref": "3"
           },
@@ -31,7 +65,7 @@
         }
       },
       "speciesByTag": {
-        "$id": "6",
+        "$id": "7",
         "flowering": [
           {
             "$ref": "5"
@@ -41,14 +75,44 @@
           {
             "$ref": "5"
           }
+        ],
+        "plant": [
+          {
+            "$ref": "5"
+          }
+        ],
+        "insect": [
+          {
+            "$ref": "6"
+          }
+        ],
+        "flying": [
+          {
+            "$ref": "6"
+          }
+        ],
+        "butterfly": [
+          {
+            "$ref": "6"
+          }
+        ],
+        "animal": [
+          {
+            "$ref": "6"
+          }
         ]
       },
       "tagSubscribers": {
-        "$id": "7"
+        "$id": "8",
+        "flowering": [
+          {
+            "$ref": "6"
+          }
+        ]
       },
       "toBeRemoved": [],
       "files": {
-        "$id": "8"
+        "$id": "9"
       },
       "lightUpgradeLevel": 1,
       "baseLight": 50.0,
@@ -57,16 +121,18 @@
     }
   },
   "spendablePaper": {
-    "$id": "9",
-    "green": 169,
-    "brown": 0,
-    "orange": 0
+    "$id": "10",
+    "green": 275,
+    "orange": 398,
+    "brown": 0
   },
   "progressionSystem": {
-    "$id": "10",
+    "$id": "11",
     "nextID": 0,
     "unlockedSpecies": [
-      "MonarchButterfly"
+      "Milkweed",
+      "Monarch Butterfly",
+      "Oak"
     ],
     "otherUnlocks": []
   }

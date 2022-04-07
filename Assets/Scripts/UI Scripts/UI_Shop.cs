@@ -27,6 +27,14 @@ public class UI_Shop : MonoBehaviour
     public Text light;
     public Text water;
     public Text task;
+
+    public PaperType o;
+    public PaperType b;
+    public PaperType br;
+    public PaperType gr;
+    public PaperType r;
+    public PaperType w;
+    public PaperType y;
     
 
     int greentext;
@@ -88,7 +96,7 @@ public class UI_Shop : MonoBehaviour
 
     private void Start()
     {
-        paperamounts = GameManager.Instance.GetSpendablePaper();
+        
     }
 
     void Update()
@@ -98,26 +106,34 @@ public class UI_Shop : MonoBehaviour
         {
             if(kv.Key.name == "green"){
                 greentext = kv.Value;
+                gr = kv.Key;
             }
             if(kv.Key.name == "blue"){
                 bluetext = kv.Value;
+                b = kv.Key;
             }
             if(kv.Key.name == "yellow"){
                 yellowtext = kv.Value;
+                y = kv.Key;
             }
             if(kv.Key.name == "orange"){
                 orangetext = kv.Value;
+                o = kv.Key;
             }
             if(kv.Key.name == "brown"){
                 browntext = kv.Value;
+                br = kv.Key;
             }
             if(kv.Key.name == "white"){
                 whitetext = kv.Value;
+                w = kv.Key;
             }
             if(kv.Key.name == "red"){
                 redtext = kv.Value;
+                r = kv.Key;
             }
         }
+        paperamounts = GameManager.Instance.GetSpendablePaper();
         green.text = greentext.ToString();
         blue.text = bluetext.ToString();
         yellow.text = yellowtext.ToString();
@@ -304,11 +320,30 @@ public class UI_Shop : MonoBehaviour
             shop.Find("background").GetComponent<Image>().color = new Color32(76,85,91,255);
             shop.Find("Owned").GetComponent<TextMeshProUGUI>().SetText("OWNED");
 
-            print(s.SpeciesName + " Added");
+            if(s.SpeciesCost[0].PaperColor.PaperName == "green"){
+                paperamounts[gr] = paperHad - paperNeeded;
+                
+            }
+            if(s.SpeciesCost[0].PaperColor.PaperName == "blue"){
+                paperamounts[b] = paperHad - paperNeeded;
+            }
+            if(s.SpeciesCost[0].PaperColor.PaperName == "orange"){
+                paperamounts[o] = paperHad - paperNeeded;
+            }
+            if(s.SpeciesCost[0].PaperColor.PaperName == "red"){
+                paperamounts[r] = paperHad - paperNeeded;
+            }
+            if(s.SpeciesCost[0].PaperColor.PaperName == "yellow"){
+                paperamounts[y] = paperHad - paperNeeded;
+            }
+            if(s.SpeciesCost[0].PaperColor.PaperName == "brown"){
+                paperamounts[br] = paperHad - paperNeeded;
+            }
+            if(s.SpeciesCost[0].PaperColor.PaperName == "white"){
+                paperamounts[w] = paperHad - paperNeeded;
+            }
+            GameManager.Instance.SetSpendablePaper(paperamounts);
         }
-
-        
-
     }
 
      public void enableShop()
@@ -412,18 +447,26 @@ public class UI_Shop : MonoBehaviour
 
     public void upgradeLight()
     {
-        //if(yellowtext >= GameManager.Instance.getLightCost())
-        //{
+        int paperHad = yellowtext;
+        int paperNeeded = GameManager.Instance.getLightCost();
+      
+        if(yellowtext >= paperNeeded)
+        {
             GameManager.Instance.lightUpgrade();
-        //}
+            paperamounts[y] = paperHad - paperNeeded;
+        }
     }
 
     public void upgradeWater()
     {
-        //if(bluetext >= GameManager.Instance.getWaterCost())
-        //{
+        int paperHad = bluetext;
+        int paperNeeded = GameManager.Instance.getWaterCost();
+
+        if(bluetext >= paperNeeded)
+        {
             GameManager.Instance.waterUpgrade();
-        //}
+            paperamounts[b] = paperHad - paperNeeded;
+        }
     }    
 }
 
