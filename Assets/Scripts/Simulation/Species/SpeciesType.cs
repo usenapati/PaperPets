@@ -46,6 +46,20 @@ public class SpeciesType : ScriptableObject
     public List<PaperValue> SpeciesProduce { get { return speciesProduce; } private set { speciesProduce = value; } }
     [SerializeField] private List<PaperValue> speciesProduce;
 
+    // biome information
+    public float IdealTemperature { get { return idealTemperature; } private set { idealTemperature = value; } }
+    [SerializeField] private float idealTemperature;
+    public float IdealHumidity { get { return idealHumidity; } private set { idealHumidity = value; } }
+    [SerializeField] private float idealHumidity;
+    public float IdealWindSpeed { get { return idealWindSpeed; } private set { idealWindSpeed = value; } }
+    [SerializeField] private float idealWindSpeed;
+    public float BiomeWeight { get { return biomeWeight;  } private set { biomeWeight = value; } }
+    [SerializeField] private float biomeWeight;
+    public float[] TempRange {  get { return tempRange; } private set { tempRange = value; } }
+    [SerializeField] float[] tempRange;
+    public float[] HumidityRange { get { return humidityRange; } private set { humidityRange = value; } }
+    [SerializeField] private float[] humidityRange;
+
 }
 
 [System.Serializable]
