@@ -44,8 +44,8 @@ public class SystemView : MonoBehaviour
 
         foreach (Species sp in organisms.Values)
         {
-            float finalScale = Mathf.Max(minScale, startingScale * sp.population / totalPop);
-            GameObject s = Instantiate(SpeciesCircle, new Vector3(Random.Range(circleSize.x, dim.x - circleSize.x), -1, Random.Range(circleSize.z, dim.z - circleSize.z)), new Quaternion(), transform);
+            float finalScale = .5f * Mathf.Max(minScale, startingScale * sp.population / totalPop);
+            GameObject s = Instantiate(SpeciesCircle, new Vector3(Random.Range(circleSize.x + 50, dim.x - circleSize.x - 50), -1, Random.Range(circleSize.z + 50, dim.z - circleSize.z - 50)), new Quaternion(), transform);
 
             s.transform.localScale = new Vector3(finalScale, finalScale, 1);
             s.transform.position += new Vector3(dim.x / -2, 0, dim.z / -2);
