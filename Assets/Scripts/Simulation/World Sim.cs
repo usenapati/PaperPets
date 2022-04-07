@@ -259,7 +259,7 @@ public class WorldSim
             biomeData.Item4 += speciesInfluence.Item4;
         }
         biome.updateBiome(biomeData);
-        Debug.Log(biome);
+        //Debug.Log(biome);
         killAllScheduledSpecies();
     }
 

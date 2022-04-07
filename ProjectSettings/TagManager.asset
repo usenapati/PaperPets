@@ -21,6 +21,7 @@ TagManager:
   - infoimage2
   - speciesunlockedimage
   - speciesunlockedtext
+  - clone
   layers:
   - Default
   - TransparentFX

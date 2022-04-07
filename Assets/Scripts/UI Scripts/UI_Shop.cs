@@ -9,11 +9,15 @@ public class UI_Shop : MonoBehaviour
 {
     private Transform container;
     private Transform ItemTemplate;
+    //private Transform progressbar;
     private bool active = false;
     public float spacing = 50f;
     public GameManager gameManager;
     private int count;
+
     private Dictionary<PaperType, int> paperamounts;
+    Dictionary<string, Species> organisms;
+    Dictionary<RectTransform, int> shopbuttons;
 
     //texts
     public Text blue;
@@ -61,6 +65,8 @@ public class UI_Shop : MonoBehaviour
         container = transform.Find("Container");
         ItemTemplate = container.Find("ItemTemplate");
         ItemTemplate.gameObject.SetActive(active);
+
+        //progressbar = transform.Find("Progressbar Background");
 
         isOwned = GameManager.Instance.getOwned();
 
@@ -122,10 +128,25 @@ public class UI_Shop : MonoBehaviour
     private void Start()
     {
         
+        shopbuttons = new Dictionary<RectTransform, int>();
+        
+        
     }
 
     void Update()
     {
+        GameManager.Instance.getOwned().Clear();
+        organisms = new Dictionary<string, Species>();
+        foreach (Species s in GameManager.Instance.getCurrentWorld().getAllSpecies())
+        {
+            organisms.Add(s.name, s);
+        }
+        foreach (Species sp in organisms.Values)
+        {
+            
+            GameManager.Instance.getOwned().Add(sp.name, true);
+        }
+        
        
         foreach (KeyValuePair<PaperType, int> kv in GameManager.Instance.GetSpendablePaper())
         {
@@ -189,6 +210,10 @@ public class UI_Shop : MonoBehaviour
         ProgressionSystem p = GameManager.Instance.getProgression();
         float percent = 0;
         string returningText = "";
+
+        // Transform progress = Instantiate(progressbar);
+        // RectTransform progressb = progress.GetComponent<RectTransform>();
+        
         foreach(Unlock t in p.inProgress)
         {
             string te = t.getTaskProgress();
@@ -212,6 +237,7 @@ public class UI_Shop : MonoBehaviour
                 }
                 
             }
+            
         }
         task.text = returningText;
 
@@ -306,6 +332,7 @@ public class UI_Shop : MonoBehaviour
 
         foreach(KeyValuePair<string, bool> owned in GameManager.Instance.getOwned())
         {
+
             if(species.SpeciesName == owned.Key)
             {
                 shop.Find("background").GetComponent<Image>().color = new Color32(76,85,91,255);
@@ -332,13 +359,8 @@ public class UI_Shop : MonoBehaviour
                 g.GetComponent<TextMeshProUGUI>().SetText("");
             }
         }
-
-        
-
-      
-
-        
-
+        shopTranform.tag = "clone";
+        // shopbuttons.Add(shopTranform, 0); 
         
         //eventually change name to sprite.
         //shopTranform.Find("name").GetComponent<TextMeshProUGUI>().SetText(name);
@@ -469,6 +491,16 @@ public class UI_Shop : MonoBehaviour
             {
                 g.GetComponent<TextMeshProUGUI>().SetText("Shop");
             }
+            temp = GameObject.FindGameObjectsWithTag("clone");
+            foreach(GameObject g in temp)
+            {
+                Destroy(g);
+            }
+            // foreach(KeyValuePair<RectTransform, int> t in shopbuttons)
+            // {
+            //     
+            // }
+            
         } 
         else{
             active = true;
@@ -527,7 +559,7 @@ public class UI_Shop : MonoBehaviour
             }
             
         }
-        print(active);
+        //print(active);
         
         
 
