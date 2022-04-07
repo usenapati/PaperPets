@@ -37,7 +37,7 @@ public class TestSave : MonoBehaviour
 
         p = new ProgressionSystem();
 
-        SaveSystem.SavesManager.SaveGame(saveName, new SaveSystem.SaveData(terrariums, papermoney, p));
+        SaveSystem.SavesManager.SaveGame(saveName, new SaveSystem.SaveData(terrariums, papermoney, p, new Dictionary<string, bool>()));
     }
 
     public void Load()

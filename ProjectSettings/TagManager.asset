@@ -15,6 +15,13 @@ TagManager:
   - light&water
   - exit
   - progress
+  - alert
+  - infoimage
+  - infotext
+  - infoimage2
+  - speciesunlockedimage
+  - speciesunlockedtext
+  - clone
   layers:
   - Default
   - TransparentFX

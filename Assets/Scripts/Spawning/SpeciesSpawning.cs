@@ -36,7 +36,7 @@ public class SpeciesSpawning : MonoBehaviour
     {
         //Check WorldSim
         speciesPopulation = GameManager.Instance.getCurrentWorld().getAllSpeciesPopulation();
-        Debug.Log(speciesPopulation.Count);
+        //Debug.Log(speciesPopulation.Count);
         //Loop through list
         for (int i = 0; i < speciesPopulation.Count; i++)
         {
@@ -45,11 +45,11 @@ public class SpeciesSpawning : MonoBehaviour
             {
                 AddSpeciesToDictionary(speciesName);
             }
-            Debug.Log("Species name: " + speciesName);
+            //Debug.Log("Species name: " + speciesName);
             if (organisms[speciesName] != null)
             {
                 int difference = organismsInScene[speciesName].Count - organisms[speciesName].conversionValue * speciesPopulation[i].Value;
-                Debug.Log("difference: " + difference);
+                //Debug.Log("difference: " + difference);
                 // Deleting Organisms
                 if (difference > 0)
                 {
@@ -65,7 +65,7 @@ public class SpeciesSpawning : MonoBehaviour
                 {
                     for (int j = 0; j < -difference; j++)
                     {
-                        Debug.Log("Spawning " + speciesName);
+                        //Debug.Log("Spawning " + speciesName);
                         GameObject gameObject = SpawnOrganism(speciesName);
                         organismsInScene[speciesName].Add(gameObject);
                     }
@@ -81,7 +81,7 @@ public class SpeciesSpawning : MonoBehaviour
     void AddSpeciesToDictionary(string organismName)
     {
         string trimmed = organismName.Replace(" ", "");
-        Debug.Log("Original: " + organismName + " Trimmed: " + trimmed);
+        //Debug.Log("Original: " + organismName + " Trimmed: " + trimmed);
         organisms.Add(organismName, Resources.Load("Visuals/" + trimmed) as SpeciesVisualData);
         organismsInScene.Add(organismName, new List<GameObject>());
     }
@@ -124,7 +124,7 @@ public class SpeciesSpawning : MonoBehaviour
     {
 
         int x = Random.Range(0, 3);
-        Debug.Log(x);
+        //Debug.Log(x);
         switch (x)
         {
             case 0:

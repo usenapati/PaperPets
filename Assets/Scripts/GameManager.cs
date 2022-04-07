@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
         terrariums = temp.GetTerrariums();
         spendablePaper = temp.GetSpendablePaper();
         progressionSystem = temp.GetProgressionSystem();
+        isOwned = temp.GetOwnedDictionary();
         
         foreach (string s in progressionSystem.getUnlocks())
         {
@@ -101,7 +102,7 @@ public class GameManager : MonoBehaviour
     public void SaveGame(string filename)
     {
         SaveSystem.SavesManager.SaveGame(filename,
-            new SaveSystem.SaveData(terrariums, spendablePaper, progressionSystem));
+            new SaveSystem.SaveData(terrariums, spendablePaper, progressionSystem, isOwned));
     }
 
 
