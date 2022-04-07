@@ -11,6 +11,7 @@ public class UI_Shop : MonoBehaviour
     private Transform ItemTemplate;
     //private Transform progressbar;
     private bool active = false;
+    private bool on = false;
     public float spacing = 50f;
     public GameManager gameManager;
     private int count;
@@ -263,10 +264,19 @@ public class UI_Shop : MonoBehaviour
                 foreach(GameObject g1 in temp3)
                 {
                     g1.GetComponent<Image>().enabled = true;
+                    on = true;
                 }
                 
             }
-            
+            // GameObject[] colorchange = GameObject.FindGameObjectsWithTag("speciesunlockedimage");
+            // if(on)
+            // {
+            //     foreach(GameObject g1 in colorchange)
+            //     {
+            //         g1.GetComponent<Image>().color = new Color32((byte)Random.Range(0, 255),(byte)Random.Range(0, 255),(byte)Random.Range(0, 255),255);
+            //     }
+                
+            // }            
             
             // g.GetComponent<RectTransform>().localPosition = new Vector3(
             // g.GetComponent<RectTransform>().localPosition.x + (count * 38.4f), g.GetComponent<RectTransform>().localPosition.y, 0f);
