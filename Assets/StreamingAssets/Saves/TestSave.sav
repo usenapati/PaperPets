@@ -4,24 +4,30 @@
     "$id": "2",
     "0": {
       "$id": "3",
-      "biome": null,
+      "biome": {
+        "$id": "4",
+        "temp": 70.0,
+        "humidity": 50.0,
+        "windSpeed": 10.0
+      },
       "isActive": false,
       "<name>k__BackingField": "first world",
       "<id>k__BackingField": null,
       "organisms": {
-        "$id": "4",
+        "$id": "5",
         "Milkweed": {
-          "$id": "5",
+          "$id": "6",
           "<name>k__BackingField": "Milkweed",
           "foods": [],
           "habitats": [],
           "<tags>k__BackingField": [
             "flowering",
-            "milkweed"
+            "milkweed",
+            "plant"
           ],
           "<outgoingFood>k__BackingField": [],
           "<outgoingHabitat>k__BackingField": [],
-          "<population>k__BackingField": 51,
+          "<population>k__BackingField": 50,
           "world": {
             "$ref": "3"
           },
@@ -31,24 +37,29 @@
         }
       },
       "speciesByTag": {
-        "$id": "6",
+        "$id": "7",
         "flowering": [
           {
-            "$ref": "5"
+            "$ref": "6"
           }
         ],
         "milkweed": [
           {
-            "$ref": "5"
+            "$ref": "6"
+          }
+        ],
+        "plant": [
+          {
+            "$ref": "6"
           }
         ]
       },
       "tagSubscribers": {
-        "$id": "7"
+        "$id": "8"
       },
       "toBeRemoved": [],
       "files": {
-        "$id": "8"
+        "$id": "9"
       },
       "lightUpgradeLevel": 1,
       "baseLight": 50.0,
@@ -57,17 +68,25 @@
     }
   },
   "spendablePaper": {
-    "$id": "9",
-    "green": 169,
+    "$id": "10",
+    "green": 54,
+    "orange": 0,
     "brown": 0,
-    "orange": 0
+    "blue": 0,
+    "red": 0,
+    "white": 0,
+    "yellow": 0
   },
   "progressionSystem": {
-    "$id": "10",
+    "$id": "11",
     "nextID": 0,
     "unlockedSpecies": [
-      "MonarchButterfly"
+      "Milkweed"
     ],
     "otherUnlocks": []
+  },
+  "isOwned": {
+    "$id": "12",
+    "Milkweed": true
   }
 }
