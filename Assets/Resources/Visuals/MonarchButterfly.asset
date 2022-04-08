@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MonarchButterfly
   m_EditorClassIdentifier: 
   speciesName: MonarchButterfly
-  sprite: {fileID: 21300000, guid: 1fa133e0ebfbff84f9f78dd970294397, type: 3}
+  sprite: {fileID: 21300000, guid: 006852adc75e0ab47a67f9807710aba4, type: 3}
   scale: {x: 0.01, y: 0.01, z: 0.01}
   layerHeight: 0
   height: 0

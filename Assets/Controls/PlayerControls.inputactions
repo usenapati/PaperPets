@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "name": "Pan",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "f525293a-2aa8-4c1f-8cd5-0432db5101f2",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -15,8 +15,8 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Tilt",
-                    "type": "PassThrough",
+                    "name": "Tilt Follow",
+                    "type": "Button",
                     "id": "89b55ea2-6ca0-4407-a3ee-061c2cfb5798",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -25,9 +25,9 @@
                 },
                 {
                     "name": "Zoom",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "7fd0042e-9c73-4f3b-9ffa-84f974227f33",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Tilt No Follow",
+                    "type": "Button",
+                    "id": "241bcf7f-9e6d-4698-b011-332d41940f6f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -83,7 +92,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Tilt",
+                    "action": "Tilt Follow",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -94,7 +103,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Tilt",
+                    "action": "Tilt Follow",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -105,7 +114,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Tilt",
+                    "action": "Tilt Follow",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -161,6 +170,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Tilt No Follow - KnM",
+                    "id": "e5b76b07-384c-40dd-9d57-205fc4c91ea9",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tilt No Follow",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "52ade17d-acd7-44ff-b1be-9314f5857e8b",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tilt No Follow",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "23bf7883-8a75-485b-a3c3-c47f151d9f30",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tilt No Follow",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
