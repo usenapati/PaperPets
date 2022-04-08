@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
@@ -26,7 +24,7 @@ public class CameraController : MonoBehaviour
     // Horizontal
     [Header("Pan Values")]
     [SerializeField]
-    private float panMinValue = 0f;
+    private float panMinValue;
 
     [SerializeField]
     private float panMaxValue = 1f;
@@ -112,11 +110,18 @@ public class CameraController : MonoBehaviour
 
         // Tilt
         HandleTilt();
-        dollyTrack.transform.position = new Vector3(dollyTrack.transform.position.x, tiltValue, dollyTrack.transform.position.z);
+        var dollyPosition = dollyTrack.transform.position;
+        dollyPosition = new Vector3(dollyPosition.x, tiltValue, dollyPosition.z);
+        dollyTrack.transform.position = dollyPosition;
 
         // Zoom
         HandleZoom();
         mainCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = zoomValue;
+
+        HandleVerticalMovement();
+        var targetPosition = target.transform.position;
+        targetPosition = new Vector3(targetPosition.x, cameraYValue, targetPosition.z);
+        target.transform.position = targetPosition;
     }
 
     #region Pan Methods
@@ -213,31 +218,63 @@ public class CameraController : MonoBehaviour
         tempZoom = Mathf.Clamp(tempZoom, -60, 60);
     }
     #endregion
+    
+    #region Vertical Movement Methods
+    void HandleVerticalMovement()
+    {
+        if (cameraY1D > 0)
+        {
+            //Debug.Log("Incrementing Zoom");
+            IncrementYPosition();
+        }
+        else if (cameraY1D < 0)
+        {
+            //Debug.Log("Decrementing Zoom");
+            DecrementYPosition();
+        }
+    }
+
+    void IncrementYPosition()
+    {
+        tempCameraY += cameraY1D * Time.deltaTime * cameraSpeed;
+        cameraYValue = Mathf.Clamp(tempCameraY, cameraMinYValue, cameraMaxYValue);
+        tempCameraY = Mathf.Clamp(tempCameraY, 0, 3);
+    }
+
+    void DecrementYPosition()
+    {
+        tempCameraY += cameraY1D * Time.deltaTime  * cameraSpeed;
+        cameraYValue = Mathf.Clamp(tempCameraY, cameraMinYValue, cameraMaxYValue);
+        tempCameraY = Mathf.Clamp(tempCameraY, 0, 3);
+    }
+    #endregion
 
     #region Input Methods
     public void OnPan(InputAction.CallbackContext context)
     {
         pan1D = context.ReadValue<float>();
+        //Debug.Log("Pan: " + pan1D);
     }
 
     public void OnTilt(InputAction.CallbackContext context)
     {
         tilt1D = context.ReadValue<float>();
+        Debug.Log("Tilt: " + tilt1D);
     }
 
     public void OnZoom(InputAction.CallbackContext context)
     {
         zoom1D = context.ReadValue<float>();
-        //Debug.Log(zoom1D);
+        //Debug.Log("Zoom: " + zoom1D);
     }
 
-    public void OnCameraMoveUp(InputAction.CallbackContext context)
+    public void OnCameraMoveVertical(InputAction.CallbackContext context)
     {
         
         cameraY1D = context.ReadValue<float>();
-        //Debug.Log(zoom1D);
+        Debug.Log("Camera Y: " + cameraY1D);
     }
-
+    
     public void ChangeTarget(InputAction.CallbackContext context)
     {
         // Not Set Up
