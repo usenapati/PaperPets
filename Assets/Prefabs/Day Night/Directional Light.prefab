@@ -257,4 +257,5 @@ MonoBehaviour:
   starsSpeed: 8
   cloudsSpeed: {x: 0.005, y: 0.005}
   sunTimeSpeed: 0.05
-  dt: 0.05
+  cyclesPerTick: 20
+  customSkyMaterialCheck: {fileID: 2100000, guid: 781011ea8c2688b48a9ce0b4b03a6333, type: 2}

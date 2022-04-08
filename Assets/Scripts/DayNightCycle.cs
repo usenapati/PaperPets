@@ -60,6 +60,8 @@ public class DayNightCycle : MonoBehaviour
     [Min(2f)]
     public float cyclesPerTick = 20f;
 
+    public Material customSkyMaterialCheck;
+
     private Light sunLight;
     private float sunAngle;
     private float dt = 1f;
@@ -81,7 +83,9 @@ public class DayNightCycle : MonoBehaviour
 
     // Update skybox a single tick
     private void Tick()
-    {   
+    {
+        if (!(RenderSettings.skybox.ToString() == customSkyMaterialCheck.ToString()))
+            return;
         if (Application.isPlaying)
         {
             RotateSun();

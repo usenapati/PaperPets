@@ -79,11 +79,6 @@ public class GameManager : MonoBehaviour
         terrariums.Add(nextID++.ToString(), new WorldSim("first world"));
     }
 
-    private void Start()
-    {
-        SetTimeSpeed(this.timeSpeed);
-    }
-
     public void LoadGame(string filename)
     {
         SaveSystem.SaveData temp = SaveSystem.SavesManager.LoadGame(filename);
@@ -121,7 +116,6 @@ public class GameManager : MonoBehaviour
         accumulator *= (float)timeSpeed / (float)tSpeed;
         timeSpeed = tSpeed;
         dt = basedt / (float)timeSpeed;
-        m_TickEvents[DayNightCycle.tickEventName].Invoke(dt);
     }
 
     public void addSpecies(SpeciesType s)
@@ -161,6 +155,7 @@ public class GameManager : MonoBehaviour
 
             // check progression
             progressionSystem.checkUnlocks();
+            m_TickEvents[DayNightCycle.tickEventName].Invoke(dt);
 
             // A new tick has passed
             // Do we want to tie animations to this tick or have it based on something else?
