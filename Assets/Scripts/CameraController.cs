@@ -46,7 +46,7 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private float tiltMaxValue = 30f;
 
-    [SerializeField, Range(-16f, 30f)]
+    [SerializeField, Range(-2f, 30f)]
     private float tiltValue;
 
     private float tilt1D;
@@ -178,14 +178,14 @@ public class CameraController : MonoBehaviour
     {
         tempTilt += tilt1D * Time.deltaTime * tiltSpeed * cameraSpeed;
         tiltValue = Mathf.Clamp(tempTilt, tiltMinValue, tiltMaxValue);
-        tempTilt = Mathf.Clamp(tempTilt, -16, 16);
+        tempTilt = Mathf.Clamp(tempTilt, -2, 16);
     }
 
     void DecrementTilt()
     {
         tempTilt += tilt1D * Time.deltaTime * tiltSpeed * cameraSpeed;
         tiltValue = Mathf.Clamp(tempTilt, tiltMinValue, tiltMaxValue);
-        tempTilt = Mathf.Clamp(tempTilt, -16, 16);
+        tempTilt = Mathf.Clamp(tempTilt, -2, 16);
     }
     #endregion
 
@@ -259,7 +259,7 @@ public class CameraController : MonoBehaviour
     public void OnTilt(InputAction.CallbackContext context)
     {
         tilt1D = context.ReadValue<float>();
-        Debug.Log("Tilt: " + tilt1D);
+        //Debug.Log("Tilt: " + tilt1D);
     }
 
     public void OnZoom(InputAction.CallbackContext context)
@@ -272,7 +272,7 @@ public class CameraController : MonoBehaviour
     {
         
         cameraY1D = context.ReadValue<float>();
-        Debug.Log("Camera Y: " + cameraY1D);
+        //Debug.Log("Camera Y: " + cameraY1D);
     }
     
     public void ChangeTarget(InputAction.CallbackContext context)

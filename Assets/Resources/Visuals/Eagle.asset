@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3558473aa1060eb478fb2029690c95d3, type: 3}
-  m_Name: Oriole
+  m_Name: Eagle
   m_EditorClassIdentifier: 
-  speciesName: Oriole
-  sprite: {fileID: 21300000, guid: 63bc5b61d1f6c294bb805d51f0f46b2c, type: 3}
-  scale: {x: 0.015, y: 0.015, z: 0.015}
+  speciesName: Eagle
+  sprite: {fileID: 21300000, guid: c61215ae398e31d41854b636fa0cc4ce, type: 3}
+  scale: {x: 0.1, y: 0.1, z: 0.1}
   layerHeight: 0
-  height: 0
+  height: 0.2
   speciesLimit: 10
   conversionValue: 1
-  speciesColor: {r: 0.9921569, g: 0.94117653, b: 0.43529415, a: 1}
+  speciesColor: {r: 0.2830189, g: 0.1479174, b: 0.1479174, a: 1}
