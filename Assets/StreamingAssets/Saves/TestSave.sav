@@ -6,9 +6,9 @@
       "$id": "3",
       "biome": {
         "$id": "4",
-        "temp": 73.8223953,
-        "humidity": 46.1776047,
-        "windSpeed": 8.088803
+        "temp": 70.0,
+        "humidity": 50.0,
+        "windSpeed": 10.0
       },
       "isActive": false,
       "<name>k__BackingField": "first world",
@@ -27,60 +27,7 @@
           ],
           "<outgoingFood>k__BackingField": [],
           "<outgoingHabitat>k__BackingField": [],
-          "<population>k__BackingField": 40,
-          "world": {
-            "$ref": "3"
-          },
-          "needsUpdate": false,
-          "populationToLose": 0,
-          "populationToGain": 0
-        },
-        "Monarch Butterfly": {
-          "$id": "7",
-          "<name>k__BackingField": "Monarch Butterfly",
-          "foods": [
-            "flowering"
-          ],
-          "habitats": [
-            "flowering"
-          ],
-          "<tags>k__BackingField": [
-            "insect",
-            "flying",
-            "butterfly",
-            "animal"
-          ],
-          "<outgoingFood>k__BackingField": [
-            {
-              "$ref": "6"
-            }
-          ],
-          "<outgoingHabitat>k__BackingField": [
-            {
-              "$ref": "6"
-            }
-          ],
-          "<population>k__BackingField": 99,
-          "world": {
-            "$ref": "3"
-          },
-          "needsUpdate": false,
-          "populationToLose": 0,
-          "populationToGain": 0
-        },
-        "Oak": {
-          "$id": "8",
-          "<name>k__BackingField": "Oak",
-          "foods": [],
-          "habitats": [],
-          "<tags>k__BackingField": [
-            "plant",
-            "tree",
-            "tall tree"
-          ],
-          "<outgoingFood>k__BackingField": [],
-          "<outgoingHabitat>k__BackingField": [],
-          "<population>k__BackingField": 11,
+          "<population>k__BackingField": 50,
           "world": {
             "$ref": "3"
           },
@@ -90,7 +37,7 @@
         }
       },
       "speciesByTag": {
-        "$id": "9",
+        "$id": "7",
         "flowering": [
           {
             "$ref": "6"
@@ -104,53 +51,15 @@
         "plant": [
           {
             "$ref": "6"
-          },
-          {
-            "$ref": "8"
-          }
-        ],
-        "insect": [
-          {
-            "$ref": "7"
-          }
-        ],
-        "flying": [
-          {
-            "$ref": "7"
-          }
-        ],
-        "butterfly": [
-          {
-            "$ref": "7"
-          }
-        ],
-        "animal": [
-          {
-            "$ref": "7"
-          }
-        ],
-        "tree": [
-          {
-            "$ref": "8"
-          }
-        ],
-        "tall tree": [
-          {
-            "$ref": "8"
           }
         ]
       },
       "tagSubscribers": {
-        "$id": "10",
-        "flowering": [
-          {
-            "$ref": "7"
-          }
-        ]
+        "$id": "8"
       },
       "toBeRemoved": [],
       "files": {
-        "$id": "11"
+        "$id": "9"
       },
       "lightUpgradeLevel": 1,
       "baseLight": 50.0,
@@ -159,30 +68,25 @@
     }
   },
   "spendablePaper": {
-    "$id": "12",
+    "$id": "10",
+    "green": 54,
+    "orange": 0,
+    "brown": 0,
     "blue": 0,
-    "green": 906,
-    "orange": 715,
     "red": 0,
     "white": 0,
-    "yellow": 0,
-    "brown": 108
+    "yellow": 0
   },
   "progressionSystem": {
-    "$id": "13",
+    "$id": "11",
     "nextID": 0,
     "unlockedSpecies": [
-      "Milkweed",
-      "Monarch Butterfly",
-      "Oak",
-      "Eagle"
+      "Milkweed"
     ],
     "otherUnlocks": []
   },
   "isOwned": {
-    "$id": "14",
-    "Milkweed": true,
-    "Monarch Butterfly": true,
-    "Oak": true
+    "$id": "12",
+    "Milkweed": true
   }
 }
