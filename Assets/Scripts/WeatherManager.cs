@@ -18,7 +18,7 @@ public class WeatherManager : MonoBehaviour
     [SerializeField] Gradient snowGradient;
     [SerializeField] Gradient rainGradient;
 
-    float timeToWait = 0;
+    [SerializeField] float timeToWait;
     float accumulator = 0;
     bool raining = false;
     Gradient g;
