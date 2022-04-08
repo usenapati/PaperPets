@@ -27,7 +27,7 @@ public class UI_Infobox : MonoBehaviour
             g.GetComponent<Image>().enabled = true;
         }
         
-        print("enter");
+        //print("enter");
     }
 
     public void OnPointerExit()
@@ -48,6 +48,6 @@ public class UI_Infobox : MonoBehaviour
         {
             g.GetComponent<Image>().enabled = false;
         }
-        print("exit");
+        //print("exit");
     }
 }

@@ -12,7 +12,7 @@ public class UI_Shop : MonoBehaviour
     //private Transform progressbar;
     private bool active = false;
     private bool on = false;
-    public float spacing = 50f;
+    public float spacing; //= 50f;
     public GameManager gameManager;
     private int count;
 
@@ -62,6 +62,12 @@ public class UI_Shop : MonoBehaviour
 
 
     private void Awake()
+    {
+       
+        
+    }
+
+    private void Start()
     {
         container = transform.Find("Container");
         ItemTemplate = container.Find("ItemTemplate");
@@ -123,14 +129,6 @@ public class UI_Shop : MonoBehaviour
             g.GetComponent<Image>().enabled = false;
         }
 
-        
-    }
-
-    private void Start()
-    {
-        
-        shopbuttons = new Dictionary<RectTransform, int>();
-        
         
     }
 
@@ -287,7 +285,7 @@ public class UI_Shop : MonoBehaviour
 
     private void GenerateShopValues()
     {
-        count = 0;
+        int count = 0;
         /*foreach (SpeciesType p in Resources.FindObjectsOfTypeAll(typeof(SpeciesType)) as SpeciesType[])
         {
             
@@ -466,7 +464,7 @@ public class UI_Shop : MonoBehaviour
                 g.GetComponent<Image>().enabled = false;
             }
 
-             temp = GameObject.FindGameObjectsWithTag("shop3");
+            temp = GameObject.FindGameObjectsWithTag("shop3");
             foreach(GameObject g in temp)
             {
                 g.GetComponent<RawImage>().enabled = false;
