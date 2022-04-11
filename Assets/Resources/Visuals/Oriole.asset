@@ -14,6 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speciesName: Oriole
   sprite: {fileID: 21300000, guid: 63bc5b61d1f6c294bb805d51f0f46b2c, type: 3}
+  sprite2: {fileID: 21300000, guid: 63bc5b61d1f6c294bb805d51f0f46b2c, type: 3}
+  pathType: 100
+  pathTimeSeconds: 1
+  radius: 0.1
+  pathRandomnessX: 0.02
+  pathRandomnessY: 0.05
+  pathRandomnessZ: 0.02
   scale: {x: 0.015, y: 0.015, z: 0.015}
   layerHeight: 0
   height: 0

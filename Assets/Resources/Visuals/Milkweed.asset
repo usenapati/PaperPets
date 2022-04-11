@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speciesName: Milkweed
   sprite: {fileID: 21300000, guid: dd3972d829af03d49af0730f64b225cc, type: 3}
+  sprite2: {fileID: 21300000, guid: dd3972d829af03d49af0730f64b225cc, type: 3}
   scale: {x: 0.01, y: 0.01, z: 0.01}
   layerHeight: 0
   height: -0.36

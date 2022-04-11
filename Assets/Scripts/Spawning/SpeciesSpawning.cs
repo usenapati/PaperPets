@@ -98,6 +98,7 @@ public class SpeciesSpawning : MonoBehaviour
         (int, int, int) gridPosition = GenerateGridPosition(layer);
         GameObject gridElement = gridSpawner.getGridElement(gridPosition.Item1, gridPosition.Item2, gridPosition.Item3);
         GameObject temp = Instantiate(organismPrefab, gridElement.transform);
+        temp.GetComponent<SpeciesAnimator>().sv = organism;
         temp.transform.localPosition = spawnPosition;
         temp.GetComponent<SpriteRenderer>().sprite = organism.sprite;
         temp.transform.localScale = organism.scale;
@@ -115,6 +116,7 @@ public class SpeciesSpawning : MonoBehaviour
         Vector3 spawnPosition = new Vector3(spawnPlanePosition.Item1, height, spawnPlanePosition.Item2);
         GameObject gridElement = gridSpawner.getGridElement(x, layer, z);
         GameObject temp = Instantiate(organismPrefab, gridElement.transform);
+        temp.GetComponent<SpeciesAnimator>().sv = organism;
         temp.transform.localPosition = spawnPosition;
         temp.GetComponent<SpriteRenderer>().sprite = organism.sprite;
         temp.transform.localScale = organism.scale;

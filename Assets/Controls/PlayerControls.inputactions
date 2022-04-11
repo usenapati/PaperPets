@@ -25,9 +25,9 @@
                 },
                 {
                     "name": "Zoom",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "7fd0042e-9c73-4f3b-9ffa-84f974227f33",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -172,6 +172,17 @@
                     "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "8cd3dc62-05e2-4a04-93b9-f0827e95f701",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "Tilt No Follow - KnM",

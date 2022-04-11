@@ -46,6 +46,7 @@ public class WorldSim
         this.isActive = false;
     }
 
+    #region Statistic Getters
     public List<KeyValuePair<string, int>> getAllSpeciesPopulation()
     {
         var species = new List<KeyValuePair<string, int>>();
@@ -80,6 +81,57 @@ public class WorldSim
         return habitatOrganisms;
     }
 
+    public List<Species> getAllSpecies()
+    {
+        return new List<Species>(organisms.Values);
+    }
+
+    public string getOutgoingFoods()
+    {
+        string output = "";
+        foreach (Species s in organisms.Values)
+        {
+            output += s.name + "\n";
+            foreach (Species f in s.outgoingFood)
+            {
+                output += "   " + f.name + "\n";
+            }
+        }
+        return output;
+    }
+
+    public string getOutgoingHabitats()
+    {
+        string output = "";
+        foreach (Species s in organisms.Values)
+        {
+            output += s.name + "\n";
+            foreach (Species f in s.outgoingHabitat)
+            {
+                output += "   " + f.name + "\n";
+            }
+        }
+        return output;
+    }
+
+    public string getPopulations()
+    {
+        string output = "";
+        foreach (Species s in organisms.Values)
+        {
+            output += s.name + "\n";
+            output += "   Population: " + s.population + "\n";
+        }
+        return output;
+    }
+
+    public Biome getBiome()
+    {
+        return biome;
+    }
+    #endregion
+
+    #region Species Manipulation
     // sets up a species to listen for other types of species being added
     public void subscribeToTags(Species s, IEnumerable<string> tags)
     {
@@ -164,54 +216,12 @@ public class WorldSim
     {
         toBeRemoved.Add(s);
     }
+    #endregion
 
+    #region Other Manipulators
     private (float, float, float, float) recalculateBiome(Species s)
     {
         return s.getBiomeInfo();
-    }
-
-    public List<Species> getAllSpecies()
-    {
-        return new List<Species>(organisms.Values);
-    }
-
-    public string getOutgoingFoods()
-    {
-        string output = "";
-        foreach (Species s in organisms.Values)
-        {
-            output += s.name + "\n";
-            foreach (Species f in s.outgoingFood)
-            {
-                output += "   " + f.name + "\n";
-            }
-        }
-        return output;
-    }
-
-    public string getOutgoingHabitats()
-    {
-        string output = "";
-        foreach (Species s in organisms.Values)
-        {
-            output += s.name + "\n";
-            foreach (Species f in s.outgoingHabitat)
-            {
-                output += "   " + f.name + "\n";
-            }
-        }
-        return output;
-    }
-
-    public string getPopulations()
-    {
-        string output = "";
-        foreach (Species s in organisms.Values)
-        {
-            output += s.name + "\n";
-            output += "   Population: " + s.population + "\n";
-        }
-        return output;
     }
 
     public int getWaterLevel()
@@ -233,6 +243,7 @@ public class WorldSim
     {
         waterUpgradeLevel++;
     }
+    #endregion
 
     // updates the world and all organisms within
     public void updateWorld()
