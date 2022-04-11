@@ -97,6 +97,7 @@ public class SpeciesAnimator : MonoBehaviour
         switch (sv.pathType)
         {
             case SpeciesPathType.NONE:
+                path = new List<Vector3>();
                 return;
             case SpeciesPathType.CIRCULAR:
                 GenerateCircularPath();

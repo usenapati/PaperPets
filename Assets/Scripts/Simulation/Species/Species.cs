@@ -95,6 +95,13 @@ public class Species
         return type.FoodValue * population;
     }
 
+    public HashSet<Species> getTotalOutgoing()
+    {
+        HashSet<Species> outgoing = new HashSet<Species>(outgoingFood);
+        outgoing.UnionWith(outgoingHabitat);
+        return outgoing;
+    }
+
     public void updateDecreaseDelta(int toLose)
     {
         populationToLose += toLose;
