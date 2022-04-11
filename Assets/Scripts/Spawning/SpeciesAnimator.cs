@@ -21,6 +21,8 @@ public class SpeciesAnimator : MonoBehaviour
     List<Vector3> path;
     int pathIndex;
     float pathElapsed;
+    float pathTimeSeconds;
+    bool regeneratePath = false;
     bool debugOn = false;
 
     private void Start()
@@ -55,6 +57,7 @@ public class SpeciesAnimator : MonoBehaviour
 
     void GenerateCircularPath()
     {
+        path = new List<Vector3>();
         Vector3 scale = new Vector3(sv.radius, sv.radius, sv.radius);
         path.Add(RandomVector() + startPoint + Vector3.Scale(Vector3.left, scale));
         path.Add(RandomVector() + startPoint + Vector3.Scale((Vector3.left + Vector3.forward).normalized, scale));
@@ -66,9 +69,31 @@ public class SpeciesAnimator : MonoBehaviour
         path.Add(RandomVector() + startPoint + Vector3.Scale((Vector3.back + Vector3.left).normalized, scale));
     }
 
+    void GenerateErraticPath()
+    {
+
+        if (path == null)
+        {
+            GenerateCircularPath();
+            return;
+        }
+
+        Vector3 initPoint = path[0];
+        Vector3 scale = new Vector3(sv.radius, sv.radius, sv.radius);
+        path.Add(initPoint);
+        path.Add(RandomVector() + startPoint + Vector3.Scale((Vector3.left + Vector3.forward).normalized, scale));
+        path.Add(RandomVector() + startPoint + Vector3.Scale(Vector3.forward, scale));
+        path.Add(RandomVector() + startPoint + Vector3.Scale((Vector3.forward + Vector3.right).normalized, scale));
+        path.Add(RandomVector() + startPoint + Vector3.Scale(Vector3.right, scale));
+        path.Add(RandomVector() + startPoint + Vector3.Scale((Vector3.right + Vector3.back).normalized, scale));
+        path.Add(RandomVector() + startPoint + Vector3.Scale(Vector3.back, scale));
+        path.Add(RandomVector() + startPoint + Vector3.Scale((Vector3.back + Vector3.left).normalized, scale));
+
+    }
+
     void GeneratePath()
     {
-        path = new List<Vector3>();
+        pathTimeSeconds = sv.pathTimeSeconds * Random.Range(.9f, 1.1f);
         switch (sv.pathType)
         {
             case SpeciesPathType.NONE:
@@ -77,6 +102,8 @@ public class SpeciesAnimator : MonoBehaviour
                 GenerateCircularPath();
                 break;
             case SpeciesPathType.ERRATIC:
+                GenerateErraticPath();
+                regeneratePath = true;
                 break;
             default:
                 break;
@@ -99,14 +126,15 @@ public class SpeciesAnimator : MonoBehaviour
         pathElapsed += Time.deltaTime;
         if (path.Count != 0)
         {
-            gameObject.transform.position = CatmullInterpolation(path[pathIndex], path[(pathIndex + 1) % path.Count], path[(pathIndex + 2) % path.Count], path[(pathIndex + 3) % path.Count], pathElapsed / sv.pathTimeSeconds);
+            gameObject.transform.position = CatmullInterpolation(path[pathIndex], path[(pathIndex + 1) % path.Count], path[(pathIndex + 2) % path.Count], path[(pathIndex + 3) % path.Count], pathElapsed / pathTimeSeconds);
             if (debugOn) Instantiate(debug, transform.position, new Quaternion());
         }
-        if (path.Count != 0 && pathElapsed >= sv.pathTimeSeconds)
+        if (path.Count != 0 && pathElapsed >= pathTimeSeconds)
         {
             pathElapsed = 0;
             pathIndex++;
             pathIndex %= path.Count;
+            if (regeneratePath) GeneratePath();
             if (pathIndex == 0) debugOn = false;
         }
 

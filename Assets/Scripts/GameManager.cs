@@ -187,6 +187,11 @@ public class GameManager : MonoBehaviour
         return (int) 50 * getCurrentWorld().getLightLevel();
     }
 
+    public Biome getCurrentBiome()
+    {
+        return getCurrentWorld().getBiome();
+    }
+
     public void setOwned(Dictionary<string, bool> owned)
     {
         isOwned = owned;

@@ -206,14 +206,15 @@ public class CameraController : MonoBehaviour
 
     void IncrementZoom()
     {
-        tempZoom += zoom1D * Time.deltaTime * zoomSpeed * cameraSpeed;
+        //tempZoom += zoom1D * Time.deltaTime * zoomSpeed * cameraSpeed;
+        tempZoom += 1 * Time.deltaTime * zoomSpeed * cameraSpeed;
         zoomValue = Mathf.Clamp(tempZoom, zoomMinValue, zoomMaxValue);
         tempZoom = Mathf.Clamp(tempZoom, -60, 60);
     }
 
     void DecrementZoom()
     {
-        tempZoom += zoom1D * Time.deltaTime * zoomSpeed * cameraSpeed;
+        tempZoom += -1 * Time.deltaTime * zoomSpeed * cameraSpeed;
         zoomValue = Mathf.Clamp(tempZoom, zoomMinValue, zoomMaxValue);
         tempZoom = Mathf.Clamp(tempZoom, -60, 60);
     }

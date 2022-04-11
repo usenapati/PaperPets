@@ -23,6 +23,14 @@ public class WeatherManager : MonoBehaviour
     bool raining = false;
     Gradient g;
 
+    void updateBiomeInfo()
+    {
+        Biome b = GameManager.Instance.getCurrentBiome();
+        temp = b.getTemp();
+        humidity = b.getHumidity();
+        windSpeed = b.getWindSpeed();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,10 +44,11 @@ public class WeatherManager : MonoBehaviour
         accumulator += Time.deltaTime;
         if (accumulator > timeToWait)
         {
+            updateBiomeInfo();
             if (raining)
             {
                 raining = false;
-                timeToWait = (1 - humidity) * maxWeatherDuration;
+                timeToWait = (1 - humidity / 100) * maxWeatherDuration;
                 weather.Stop();
             }
             else
@@ -48,7 +57,7 @@ public class WeatherManager : MonoBehaviour
                 var main = weather.main;
 
                 raining = true;
-                timeToWait = humidity * maxWeatherDuration;
+                timeToWait = humidity / 100 * maxWeatherDuration;
 
                 if (temp < 32)
                 {
