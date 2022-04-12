@@ -9,16 +9,22 @@ public class UI_Shop : MonoBehaviour
 {
     private Transform container;
     private Transform ItemTemplate;
+    private Transform taskContainer;
+    private Transform taskTemplate;
+    RectTransform tempTransform;
+    
     //private Transform progressbar;
     private bool active = false;
     private bool on = false;
+    private bool reset = true;
     public float spacing; //= 50f;
     public GameManager gameManager;
     private int count;
+    private int tempCount = 1;
 
     private Dictionary<PaperType, int> paperamounts;
     Dictionary<string, Species> organisms;
-    Dictionary<RectTransform, int> shopbuttons;
+    Dictionary<RectTransform, int> taskIndex;
 
     //texts
     public Text blue;
@@ -49,6 +55,7 @@ public class UI_Shop : MonoBehaviour
     int browntext;
     int whitetext;
     int redtext;
+    int taskCount = 0;
 
     private Dictionary<string, bool> isOwned = new Dictionary<string, bool>();
 
@@ -63,7 +70,7 @@ public class UI_Shop : MonoBehaviour
 
     private void Awake()
     {
-       
+      
         
     }
 
@@ -73,6 +80,11 @@ public class UI_Shop : MonoBehaviour
         ItemTemplate = container.Find("ItemTemplate");
         ItemTemplate.gameObject.SetActive(active);
 
+        taskContainer = transform.Find("taskContainer");
+        taskTemplate = taskContainer.Find("taskTemplate");
+        //taskTemplate.gameObject.SetActive(false);
+
+        taskIndex = new Dictionary<RectTransform, int>(); 
         //progressbar = transform.Find("Progressbar Background");
 
         isOwned = GameManager.Instance.getOwned();
@@ -135,7 +147,9 @@ public class UI_Shop : MonoBehaviour
     void Update()
     {
         GameManager.Instance.getOwned().Clear();
+    
         organisms = new Dictionary<string, Species>();
+        
         foreach (Species s in GameManager.Instance.getCurrentWorld().getAllSpecies())
         {
             organisms.Add(s.name, s);
@@ -212,15 +226,10 @@ public class UI_Shop : MonoBehaviour
 
         // Transform progress = Instantiate(progressbar);
         // RectTransform progressb = progress.GetComponent<RectTransform>();
-        
+        print(taskIndex.Count);
         foreach(Unlock t in p.inProgress)
         {
             string te = t.getTaskProgress();
-            
-            foreach(Task t2 in t.getTasks())
-            {
-                percent = t2.progress();
-            }
             
             foreach (char c in te)
             {
@@ -236,36 +245,46 @@ public class UI_Shop : MonoBehaviour
                 }
                 
             }
-            
-        }
-        task.text = returningText;
-
-        GameObject[] temp2;
-        temp2 = GameObject.FindGameObjectsWithTag("progress");
-        foreach(GameObject g in temp2)
-        {      
-            g.GetComponent<RectTransform>().sizeDelta = new Vector2(percent * 348f, 28f);
-            if(percent >= 1)
+            foreach(Task t2 in t.getTasks())
             {
-                GameObject[] temp3;
-                temp3 = GameObject.FindGameObjectsWithTag("alert");
-                foreach(GameObject g1 in temp3)
-                {      
-                    g1.GetComponent<TextMeshProUGUI>().SetText("!");
-                }
-                temp3 = GameObject.FindGameObjectsWithTag("speciesunlockedtext");
-                foreach(GameObject g1 in temp3)
-                {
-                    g1.GetComponent<TextMeshProUGUI>().enabled = true;
-                }
-                temp3 = GameObject.FindGameObjectsWithTag("speciesunlockedimage");
-                foreach(GameObject g1 in temp3)
-                {
-                    g1.GetComponent<Image>().enabled = true;
-                    on = true;
-                }
+                taskCount++;
+                percent = t2.progress();
+                CreateTaskList(t2.getName(), percent);
                 
             }
+            
+            
+        }
+        taskCount = 0;
+        //print("0");
+        // task.text = returningText;
+
+        // GameObject[] temp2;
+        // temp2 = GameObject.FindGameObjectsWithTag("progress");
+        // foreach(GameObject g in temp2)
+        // {      
+        //     g.GetComponent<RectTransform>().sizeDelta = new Vector2(percent * 348f, 28f);
+        //     if(percent >= 1)
+        //     {
+        //         GameObject[] temp3;
+        //         temp3 = GameObject.FindGameObjectsWithTag("alert");
+        //         foreach(GameObject g1 in temp3)
+        //         {      
+        //             g1.GetComponent<TextMeshProUGUI>().SetText("!");
+        //         }
+        //         temp3 = GameObject.FindGameObjectsWithTag("speciesunlockedtext");
+        //         foreach(GameObject g1 in temp3)
+        //         {
+        //             g1.GetComponent<TextMeshProUGUI>().enabled = true;
+        //         }
+        //         temp3 = GameObject.FindGameObjectsWithTag("speciesunlockedimage");
+        //         foreach(GameObject g1 in temp3)
+        //         {
+        //             g1.GetComponent<Image>().enabled = true;
+        //             on = true;
+        //         }
+                
+        //     }
             // GameObject[] colorchange = GameObject.FindGameObjectsWithTag("speciesunlockedimage");
             // if(on)
             // {
@@ -278,7 +297,7 @@ public class UI_Shop : MonoBehaviour
             
             // g.GetComponent<RectTransform>().localPosition = new Vector3(
             // g.GetComponent<RectTransform>().localPosition.x + (count * 38.4f), g.GetComponent<RectTransform>().localPosition.y, 0f);
-        }
+        //}
        
         //GameManager.Instance.getWaterCost().ToString() + "\n" + GameManager.Instance.getLightCost().ToString() + "\n" 
     }
@@ -372,6 +391,76 @@ public class UI_Shop : MonoBehaviour
         
         //eventually change name to sprite.
         //shopTranform.Find("name").GetComponent<TextMeshProUGUI>().SetText(name);
+    }
+
+    private void CreateTaskList(string taskText, float percent){
+        
+        GameObject[] temp2;
+        temp2 = GameObject.FindGameObjectsWithTag("task");
+        //print(taskCount);
+        if(temp2.Length < taskCount || reset)
+        {
+            
+            Transform task1 = Instantiate(taskTemplate, taskContainer);
+            RectTransform taskTransform = task1.GetComponent<RectTransform>();
+            taskIndex.Add(taskTransform, taskCount);
+            taskTransform.tag = "task";
+
+            float height = 100;
+            taskTransform.anchoredPosition = new Vector2(0, -height * (taskCount - 1));
+
+            taskTransform.Find("TaskText").GetComponent<TextMeshProUGUI>().SetText(taskText);
+            reset = false;
+            
+            
+        }
+        
+        foreach (KeyValuePair<RectTransform, int> kv in taskIndex)
+        {
+            if(kv.Value == taskCount)
+            {
+                tempTransform = kv.Key;
+                if(tempTransform != null)
+                { 
+                    tempTransform.Find("Progressbar").GetComponent<RectTransform>().sizeDelta = new Vector2(percent * 348f, 28f);
+                }
+            }
+        }
+        
+        
+        
+        if(percent >= 1)
+        {
+            taskIndex.Remove(tempTransform);
+            GameObject[] temp3;
+            temp3 = GameObject.FindGameObjectsWithTag("alert");
+            foreach(GameObject g1 in temp3)
+            {      
+                g1.GetComponent<TextMeshProUGUI>().SetText("!");
+            }
+            temp3 = GameObject.FindGameObjectsWithTag("speciesunlockedtext");
+            foreach(GameObject g1 in temp3)
+            {
+                g1.GetComponent<TextMeshProUGUI>().enabled = true;
+            }
+            temp3 = GameObject.FindGameObjectsWithTag("speciesunlockedimage");
+            foreach(GameObject g1 in temp3)
+            {
+                g1.GetComponent<Image>().enabled = true;
+                on = true;
+            }
+            foreach(GameObject g in temp2)
+            {
+                Destroy(g);
+            }
+            
+            reset = true;
+                
+        }
+        
+    
+        // 
+    
     }
 
     public void ShopClick(SpeciesType s, RectTransform shop){
