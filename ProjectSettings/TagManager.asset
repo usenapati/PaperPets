@@ -23,6 +23,7 @@ TagManager:
   - speciesunlockedtext
   - clone
   - target
+  - task
   layers:
   - Default
   - TransparentFX
