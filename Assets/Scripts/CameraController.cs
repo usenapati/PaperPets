@@ -34,7 +34,7 @@ public class CameraController : MonoBehaviour
 
     private float pan1D;
 
-    private float tempPan = 0.5f;
+    private float tempPan;
 
 
 
@@ -51,7 +51,7 @@ public class CameraController : MonoBehaviour
 
     private float tilt1D;
 
-    private float tempTilt = 2f;
+    private float tempTilt;
 
     // Zoom
     [Header("Zoom Values")]
@@ -66,7 +66,7 @@ public class CameraController : MonoBehaviour
 
     private float zoom1D;
 
-    private float tempZoom = 20f;
+    private float tempZoom;
 
     // Camera Movement
     [Header("Camera Values")]
@@ -81,7 +81,7 @@ public class CameraController : MonoBehaviour
 
     private float cameraY1D;
 
-    private float tempCameraY = 1.78f;
+    private float tempCameraY;
 
     [Header("Targets")]
     // Alternate Cameras
@@ -95,6 +95,10 @@ public class CameraController : MonoBehaviour
         dollyCart = FindObjectOfType<CinemachineDollyCart>().gameObject;
         dollyTrack = FindObjectOfType<CinemachineSmoothPath>().gameObject;
         target = GameObject.FindGameObjectWithTag("target");
+        panValue = 0.6599998f;
+        tiltValue = 7.600001f;
+        zoomValue = 20.4f;
+        cameraYValue = 0.8800008f;
     }
 
     private void FixedUpdate()
