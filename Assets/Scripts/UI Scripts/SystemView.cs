@@ -51,9 +51,11 @@ public class SystemView : MonoBehaviour
         s.transform.position += new Vector3(0, 10, 0);
 
         s.transform.Find("Species").GetComponent<TextMeshPro>().SetText(sp.name + "\n" + sp.population);
-        //s.transform.Find("image").GetComponent<SpriteRenderer>().sprite = sp.sprite;
+        
         SpeciesVisualData sd = Resources.Load("Visuals/" + sp.name.Replace(" ", "")) as SpeciesVisualData;
+        s.transform.Find("image").GetComponent<SpriteRenderer>().sprite = sd == null ? null : sd.sprite;
         s.GetComponent<SpriteRenderer>().color = sd == null ? Color.black : sd.speciesColor;
+        s.transform.Find("Circle Background").GetComponent<SpriteRenderer>().color = sd == null ? Color.black : sd.speciesColor;
         circles.Add(sp.name, s);
         s.GetComponent<SystemViewCircleData>().setSpecies(sp);
 
