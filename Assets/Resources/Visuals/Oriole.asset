@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Oriole
   m_EditorClassIdentifier: 
   speciesName: Oriole
-  sprite: {fileID: 21300000, guid: 1a8e8dd6d4efd69459be26750e1793a8, type: 3}
+  sprite: {fileID: 21300000, guid: a617ce2244ad82440b0dcb29e572abe6, type: 3}
   sprite2: {fileID: 21300000, guid: 1a8e8dd6d4efd69459be26750e1793a8, type: 3}
   animationTime: 0.5
   pathType: 100
@@ -22,7 +22,7 @@ MonoBehaviour:
   pathRandomnessX: 0.02
   pathRandomnessY: 0.05
   pathRandomnessZ: 0.02
-  scale: {x: 0.015, y: 0.015, z: 0.015}
+  scale: {x: 0.045, y: 0.045, z: 0.045}
   layerHeight: 0
   height: 0
   speciesLimit: 10

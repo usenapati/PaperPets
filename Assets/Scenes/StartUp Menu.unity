@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2528028, g: 0.14049375, b: 0.292186, a: 1}
+  m_IndirectSpecularColor: {r: 0.25988808, g: 0.14412603, b: 0.29324988, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1146,6 +1146,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1286899298}
   - component: {fileID: 1286899297}
+  - component: {fileID: 1286899300}
+  - component: {fileID: 1286899299}
   m_Layer: 0
   m_Name: MonarchButterfly_Open
   m_TagString: Untagged
@@ -1218,6 +1220,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1286899299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286899296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f503fd702659e4684cee951f293553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sr: {fileID: 1286899297}
+  animSwitch: 0.5
+  randomRange: 0.2
+  debug: {fileID: 8193403181195765687, guid: 60d5282a4be93384eb8464be063b7573, type: 3}
+  sv: {fileID: 11400000, guid: 9397b575465479948b5c9e752929c7bc, type: 2}
+--- !u!114 &1286899300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286899296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36186637226c5d45a023325a83c8e30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStaticBillboard: 0
+  sr: {fileID: 1286899297}
 --- !u!1 &1293525195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,6 +1400,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1370259889}
   - component: {fileID: 1370259888}
+  - component: {fileID: 1370259890}
   m_Layer: 0
   m_Name: Oriole_Close
   m_TagString: Untagged
@@ -1439,6 +1473,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1370259890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370259887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f503fd702659e4684cee951f293553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sr: {fileID: 1370259888}
+  animSwitch: 0.5
+  randomRange: 0.2
+  debug: {fileID: 8193403181195765687, guid: 60d5282a4be93384eb8464be063b7573, type: 3}
+  sv: {fileID: 11400000, guid: 91b60ad3e56486144a3f8c43ea5ecfd6, type: 2}
 --- !u!1 &1453729366
 GameObject:
   m_ObjectHideFlags: 0
