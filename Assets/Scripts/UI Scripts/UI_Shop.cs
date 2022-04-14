@@ -9,7 +9,7 @@ public class UI_Shop : MonoBehaviour
 {
     private Transform container;
     private Transform ItemTemplate;
-    private Transform taskContainer;
+    [SerializeField] Transform taskContainer;
     [SerializeField] GameObject taskTemplate;
     [SerializeField] GameObject unlockTemplate;
     RectTransform tempTransform;
@@ -86,7 +86,7 @@ public class UI_Shop : MonoBehaviour
         ItemTemplate = container.Find("ItemTemplate");
         ItemTemplate.gameObject.SetActive(active);
 
-        taskContainer = transform.Find("taskContainer");
+        //taskContainer = transform.Find("taskContainer");
         //taskTemplate = taskContainer.Find("taskTemplate");
         //taskTemplate.gameObject.SetActive(false);
 
@@ -272,6 +272,24 @@ public class UI_Shop : MonoBehaviour
                 // destroy unlock
                 keysToRemove.Add(kv.Key);
                 Destroy(kv.Value);
+
+                GameObject[] temp3;
+                temp3 = GameObject.FindGameObjectsWithTag("alert");
+                foreach(GameObject g1 in temp3)
+                {      
+                    g1.GetComponent<TextMeshProUGUI>().SetText("!");
+                }
+                temp3 = GameObject.FindGameObjectsWithTag("speciesunlockedtext");
+                foreach(GameObject g1 in temp3)
+                {
+                    g1.GetComponent<TextMeshProUGUI>().enabled = true;
+                }
+                temp3 = GameObject.FindGameObjectsWithTag("speciesunlockedimage");
+                foreach(GameObject g1 in temp3)
+                {
+                    g1.GetComponent<Image>().enabled = true;
+                    on = true;
+                }
             }
         }
         foreach (string s in keysToRemove)
