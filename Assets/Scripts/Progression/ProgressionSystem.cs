@@ -25,6 +25,7 @@ public class ProgressionSystem
     // in progress items
     public HashSet<Unlock> inProgress;
     HashSet<Unlock> inProgressTemp;
+    HashSet<string> inProgressIDs;
 
     public ProgressionSystem()
     {
@@ -38,6 +39,7 @@ public class ProgressionSystem
         idToParents = new Dictionary<string, List<string>>();
         idToChildren = new Dictionary<string, List<string>>();
         unlockIgnores = new HashSet<string>();
+        inProgressIDs = new HashSet<string>();
     }
 
     public void setup()
@@ -73,6 +75,7 @@ public class ProgressionSystem
             if (kv.Value.parentCount() == 0)
             {
                 inProgress.Add(kv.Value);
+                inProgressIDs.Add(kv.Value.getID());
             }
 
             // set up children
@@ -84,7 +87,7 @@ public class ProgressionSystem
 
         }
         unlockedSpecies.Add("Milkweed");
-        //unlockAll();
+        unlockAll();
     }
 
     public HashSet<string> getUnlocks()
@@ -100,9 +103,15 @@ public class ProgressionSystem
         return new HashSet<string>(unlockedSpecies);
     }
 
+    public bool isIDComplete(string id)
+    {
+        return inProgressIDs.Contains(id);
+    }
+
     public void moveToInProgress(Unlock u)
     {
         inProgressTemp.Add(u);
+        inProgressIDs.Add(u.getID());
     }
 
     // unlocks a specific item when it is ready
@@ -139,6 +148,7 @@ public class ProgressionSystem
                 toRemove.Add(u);
                 unlock(u.getValue());
                 newUnlocks.Add(u.getID());
+                inProgressIDs.Remove(u.getID());
             }
         }
 

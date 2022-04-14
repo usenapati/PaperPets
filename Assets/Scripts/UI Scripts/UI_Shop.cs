@@ -10,7 +10,8 @@ public class UI_Shop : MonoBehaviour
     private Transform container;
     private Transform ItemTemplate;
     private Transform taskContainer;
-    private Transform taskTemplate;
+    [SerializeField] GameObject taskTemplate;
+    [SerializeField] GameObject unlockTemplate;
     RectTransform tempTransform;
     
     //private Transform progressbar;
@@ -24,7 +25,7 @@ public class UI_Shop : MonoBehaviour
 
     private Dictionary<PaperType, int> paperamounts;
     Dictionary<string, Species> organisms;
-    Dictionary<RectTransform, int> taskIndex;
+    Dictionary<string, GameObject> unlockIndex;
 
     //texts
     public Text blue;
@@ -86,10 +87,10 @@ public class UI_Shop : MonoBehaviour
         ItemTemplate.gameObject.SetActive(active);
 
         taskContainer = transform.Find("taskContainer");
-        taskTemplate = taskContainer.Find("taskTemplate");
+        //taskTemplate = taskContainer.Find("taskTemplate");
         //taskTemplate.gameObject.SetActive(false);
 
-        taskIndex = new Dictionary<RectTransform, int>(); 
+        unlockIndex = new Dictionary<string, GameObject>(); 
         //progressbar = transform.Find("Progressbar Background");
 
         isOwned = GameManager.Instance.getOwned();
@@ -231,7 +232,7 @@ public class UI_Shop : MonoBehaviour
 
         // Transform progress = Instantiate(progressbar);
         // RectTransform progressb = progress.GetComponent<RectTransform>();
-        print(taskIndex.Count);
+        print(unlockIndex.Count);
         foreach(Unlock t in p.inProgress)
         {
             string te = t.getTaskProgress();
@@ -250,17 +251,34 @@ public class UI_Shop : MonoBehaviour
                 }
                 
             }
-            foreach(Task t2 in t.getTasks())
+            /*foreach(Task t2 in t.getTasks())
             {
                 taskCount++;
                 percent = t2.progress();
-                CreateTaskList(t2.getName(), percent);
+                CreateTaskList(t, t2.getName(), percent);
                 
-            }
-            
+            }*/
+
+            CreateTaskList(t, "", 0);
             
         }
         taskCount = 0;
+
+        List<string> keysToRemove = new List<string>();
+        foreach (KeyValuePair<string, GameObject> kv in unlockIndex)
+        {
+            if (!GameManager.Instance.getProgression().isIDComplete(kv.Key))
+            {
+                // destroy unlock
+                keysToRemove.Add(kv.Key);
+                Destroy(kv.Value);
+            }
+        }
+        foreach (string s in keysToRemove)
+        {
+            unlockIndex.Remove(s);
+        }
+
         //print("0");
         // task.text = returningText;
 
@@ -398,17 +416,17 @@ public class UI_Shop : MonoBehaviour
         //shopTranform.Find("name").GetComponent<TextMeshProUGUI>().SetText(name);
     }
 
-    private void CreateTaskList(string taskText, float percent){
+    private void CreateTaskList(Unlock u, string taskText, float percent){
         
         GameObject[] temp2;
         temp2 = GameObject.FindGameObjectsWithTag("task");
         //print(taskCount);
-        if(temp2.Length < taskCount || reset)
+        /*if(temp2.Length < taskCount || reset)
         {
             
             Transform task1 = Instantiate(taskTemplate, taskContainer);
             RectTransform taskTransform = task1.GetComponent<RectTransform>();
-            taskIndex.Add(taskTransform, taskCount);
+            unlockIndex.Add(taskTransform, taskCount);
             taskTransform.tag = "task";
 
             float height = 100;
@@ -418,9 +436,25 @@ public class UI_Shop : MonoBehaviour
             reset = false;
             
             
+        }*/
+        if (!unlockIndex.ContainsKey(u.getID()))
+        {
+            GameObject newUnlock = Instantiate(unlockTemplate, taskContainer);
+            newUnlock.GetComponentInChildren<TextMeshProUGUI>().SetText("Unlock: " + u.getValue().getValue());
+            unlockIndex.Add(u.getID(), newUnlock);
+            int i = 0;
+            float height = -100;
+            float initOffset = -35;
+            foreach (Task t in u.getTasks())
+            {
+                Transform task1 = Instantiate(taskTemplate, newUnlock.transform).transform;
+                task1.Translate(new Vector3(0, initOffset + height * i++));
+                RectTransform taskTransform = task1.GetComponent<RectTransform>();
+                taskTransform.Find("TaskText").GetComponent<TextMeshProUGUI>().SetText(t.getName());
+            }
         }
-        
-        foreach (KeyValuePair<RectTransform, int> kv in taskIndex)
+
+        /*foreach (KeyValuePair<RectTransform, int> kv in unlockIndex)
         {
             if(kv.Value == taskCount)
             {
@@ -430,13 +464,18 @@ public class UI_Shop : MonoBehaviour
                     tempTransform.Find("Progressbar").GetComponent<RectTransform>().sizeDelta = new Vector2(percent * 348f, 28f);
                 }
             }
+        }*/
+        GameObject unlock = unlockIndex[u.getID()];
+        for (int i = 0; i < u.getTasks().Count; i++)
+        {
+            unlock.transform.GetChild(i + 1).Find("Progressbar").GetComponent<RectTransform>().sizeDelta = new Vector2(u.getTasks()[i].progress() * 348f, 28f);
         }
         
         
         
-        if(percent >= 1)
+        /*if(percent >= 1)
         {
-            taskIndex.Remove(tempTransform);
+            unlockIndex.Remove(tempTransform);
             GameObject[] temp3;
             temp3 = GameObject.FindGameObjectsWithTag("alert");
             foreach(GameObject g1 in temp3)
@@ -461,10 +500,8 @@ public class UI_Shop : MonoBehaviour
             
             reset = true;
                 
-        }
-        
-    
-        // 
+        }*/
+        //if (u.checkCompletion)
     
     }
 
