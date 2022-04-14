@@ -60,9 +60,9 @@ public class SpeciesType : ScriptableObject
     public float[] HumidityRange { get { return humidityRange; } private set { humidityRange = value; } }
     [SerializeField] private float[] humidityRange;
 
-    //species sprite
+    /*species sprite
     public Sprite sprite { get { return speciesSprite; } private set { speciesSprite = value; } }
-    [SerializeField] private Sprite speciesSprite;
+    [SerializeField] private Sprite speciesSprite;*/
 
 }
 
