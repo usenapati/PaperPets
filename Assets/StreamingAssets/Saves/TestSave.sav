@@ -6,9 +6,9 @@
       "$id": "3",
       "biome": {
         "$id": "4",
-        "temp": 73.6186752,
-        "humidity": 46.3813248,
-        "windSpeed": 8.190661
+        "temp": 72.45166,
+        "humidity": 47.130703,
+        "windSpeed": 9.617169
       },
       "isActive": false,
       "<name>k__BackingField": "first world",
@@ -27,7 +27,7 @@
           ],
           "<outgoingFood>k__BackingField": [],
           "<outgoingHabitat>k__BackingField": [],
-          "<population>k__BackingField": 41,
+          "<population>k__BackingField": 42,
           "world": {
             "$ref": "3"
           },
@@ -60,7 +60,61 @@
               "$ref": "6"
             }
           ],
-          "<population>k__BackingField": 93,
+          "<population>k__BackingField": 67,
+          "world": {
+            "$ref": "3"
+          },
+          "needsUpdate": false,
+          "populationToLose": 0,
+          "populationToGain": 0
+        },
+        "Oak": {
+          "$id": "8",
+          "<name>k__BackingField": "Oak",
+          "foods": [],
+          "habitats": [],
+          "<tags>k__BackingField": [
+            "plant",
+            "tree",
+            "tall tree"
+          ],
+          "<outgoingFood>k__BackingField": [],
+          "<outgoingHabitat>k__BackingField": [],
+          "<population>k__BackingField": 10,
+          "world": {
+            "$ref": "3"
+          },
+          "needsUpdate": false,
+          "populationToLose": 0,
+          "populationToGain": 0
+        },
+        "Eagle": {
+          "$id": "9",
+          "<name>k__BackingField": "Eagle",
+          "foods": [
+            "bird",
+            "insect"
+          ],
+          "habitats": [
+            "tall tree"
+          ],
+          "<tags>k__BackingField": [
+            "flying",
+            "bird",
+            "animal",
+            "eagle"
+          ],
+          "<outgoingFood>k__BackingField": [
+            {
+              "$ref": "7"
+            }
+          ],
+          "<outgoingHabitat>k__BackingField": [
+            {
+              "$ref": "8"
+            }
+          ],
+          "<population>k__BackingField": 6,
           "world": {
             "$ref": "3"
           },
@@ -70,7 +124,7 @@
         }
       },
       "speciesByTag": {
-        "$id": "8",
+        "$id": "10",
         "flowering": [
           {
             "$ref": "6"
@@ -84,6 +138,9 @@
         "plant": [
           {
             "$ref": "6"
+          },
+          {
+            "$ref": "8"
           }
         ],
         "insect": [
@@ -94,6 +151,9 @@
         "flying": [
           {
             "$ref": "7"
+          },
+          {
+            "$ref": "9"
           }
         ],
         "butterfly": [
@@ -104,20 +164,58 @@
         "animal": [
           {
             "$ref": "7"
+          },
+          {
+            "$ref": "9"
+          }
+        ],
+        "tree": [
+          {
+            "$ref": "8"
+          }
+        ],
+        "tall tree": [
+          {
+            "$ref": "8"
+          }
+        ],
+        "bird": [
+          {
+            "$ref": "9"
+          }
+        ],
+        "eagle": [
+          {
+            "$ref": "9"
           }
         ]
       },
       "tagSubscribers": {
-        "$id": "9",
+        "$id": "11",
         "flowering": [
           {
             "$ref": "7"
+          }
+        ],
+        "tall tree": [
+          {
+            "$ref": "9"
+          }
+        ],
+        "bird": [
+          {
+            "$ref": "9"
+          }
+        ],
+        "insect": [
+          {
+            "$ref": "9"
           }
         ]
       },
       "toBeRemoved": [],
       "files": {
-        "$id": "10"
+        "$id": "12"
       },
       "lightUpgradeLevel": 1,
       "baseLight": 50.0,
@@ -126,28 +224,36 @@
     }
   },
   "spendablePaper": {
-    "$id": "11",
-    "green": 187,
+    "$id": "13",
+    "green": 443,
     "yellow": 0,
     "red": 0,
-    "brown": 0,
+    "brown": 71,
     "blue": 0,
-    "orange": 109,
+    "orange": 264,
     "white": 0
   },
   "progressionSystem": {
-    "$id": "12",
+    "$id": "14",
     "nextID": 0,
     "unlockedSpecies": [
       "Milkweed",
       "Monarch Butterfly",
-      "Oak"
+      "Oak",
+      "Aphid",
+      "Cow",
+      "Eagle",
+      "Ladybug",
+      "Oriole",
+      "Rabbit"
     ],
     "otherUnlocks": []
   },
   "isOwned": {
-    "$id": "13",
+    "$id": "15",
     "Milkweed": true,
-    "Monarch Butterfly": true
+    "Monarch Butterfly": true,
+    "Oak": true,
+    "Eagle": true
   }
 }

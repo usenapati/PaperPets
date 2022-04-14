@@ -43,7 +43,7 @@ public class SpeciesAnimator : MonoBehaviour
         if (elapsed >= maxTime)
         {
             elapsed = 0;
-            maxTime = animSwitch + Random.Range(-randomRange, randomRange);
+            maxTime = sv.animationTime + Random.Range(-randomRange * sv.animationTime, randomRange * sv.animationTime);
             frame = !frame;
             sr.sprite = frame ? sv.sprite2 : sv.sprite;
         }

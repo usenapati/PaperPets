@@ -15,6 +15,7 @@ MonoBehaviour:
   speciesName: Eagle
   sprite: {fileID: 21300000, guid: c61215ae398e31d41854b636fa0cc4ce, type: 3}
   sprite2: {fileID: 21300000, guid: feec311138ded4040aeb9295459df429, type: 3}
+  animationTime: 0.5
   pathType: 100
   pathTimeSeconds: 3
   radius: 0.5

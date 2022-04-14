@@ -9,6 +9,7 @@ public class SpeciesVisualData : ScriptableObject
     
     public Sprite sprite;
     public Sprite sprite2;
+    public float animationTime;
 
     public SpeciesPathType pathType;
     public float pathTimeSeconds;

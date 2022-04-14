@@ -112,6 +112,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 5695529653271870229}
   animSwitch: 0.5
-  randomRange: 0.1
+  randomRange: 0.2
   debug: {fileID: 8193403181195765687, guid: 60d5282a4be93384eb8464be063b7573, type: 3}
   sv: {fileID: 0}
