@@ -16,6 +16,7 @@ public class SystemView : MonoBehaviour
     [SerializeField] float maxScale;
     [SerializeField] float startingScale;
     [SerializeField] float positionChange;
+    public Sprite sprite;
 
     Dictionary<string, Species> organisms;
     Dictionary<string, GameObject> circles;
@@ -50,6 +51,7 @@ public class SystemView : MonoBehaviour
         s.transform.position += new Vector3(0, 10, 0);
 
         s.transform.Find("Species").GetComponent<TextMeshPro>().SetText(sp.name + "\n" + sp.population);
+        //s.transform.Find("image").GetComponent<SpriteRenderer>().sprite = sp.sprite;
         SpeciesVisualData sd = Resources.Load("Visuals/" + sp.name.Replace(" ", "")) as SpeciesVisualData;
         s.GetComponent<SpriteRenderer>().color = sd == null ? Color.black : sd.speciesColor;
         circles.Add(sp.name, s);
@@ -168,6 +170,7 @@ public class SystemView : MonoBehaviour
             circles[sp.name].transform.localScale = new Vector3(finalScale, finalScale, 1);
 
             circles[sp.name].transform.Find("Species").GetComponent<TextMeshPro>().SetText(sp.name + "\n" + sp.population);
+            //circles[sp.name].transform.Find("image").GetComponent<SpriteRenderer>().sprite = sp.sprite;
         }
     }
 

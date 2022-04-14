@@ -8,10 +8,13 @@ public class SystemViewDrawer : MonoBehaviour
     [SerializeField] GameObject button;
     [SerializeField] GameObject minimap;
     [SerializeField] GameObject arrow;
+    public AudioClip openShop;
+    public AudioSource UIAudio;
     bool expanded = true;
 
     public void Toggle()
     {
+        UIAudio.PlayOneShot(openShop);
         if (expanded)
         {
             minimap.SetActive(false);

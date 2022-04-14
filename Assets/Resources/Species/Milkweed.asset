@@ -44,3 +44,4 @@ MonoBehaviour:
   humidityRange:
   - 10
   - 80
+  speciesSprite: {fileID: 21300000, guid: dd3972d829af03d49af0730f64b225cc, type: 3}
