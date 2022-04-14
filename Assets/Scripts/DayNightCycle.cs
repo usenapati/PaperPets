@@ -69,16 +69,17 @@ public class DayNightCycle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sun.rotation = Quaternion.Euler(0, -90, 0);
         sunLight = sun.GetComponent<Light>();
-        RenderSettings.skybox.SetVector("_CloudOffset", new Vector2(0,0));
+        StopCoroutine(TicksCoroutine());
         if (GameManager.Instance.getUnityTickEvent(tickEventName) == null)
         {
+            sun.rotation = Quaternion.Euler(0, -90, 0);
+            RenderSettings.skybox.SetVector("_CloudOffset", new Vector2(0, 0));
             UnityEvent<float> tickEvent = new UnityEvent<float>();
-            StartCoroutine(TicksCoroutine());
             tickEvent.AddListener(SetSkyTickdt);
             GameManager.Instance.addUnityEvent(tickEventName, tickEvent);
         }
+        StartCoroutine(TicksCoroutine());
     }
 
     // Update skybox a single tick
