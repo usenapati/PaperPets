@@ -96,3 +96,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStaticBillboard: 0
+  sr: {fileID: 8314152571645774032}
