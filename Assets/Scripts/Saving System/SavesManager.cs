@@ -20,10 +20,10 @@ namespace SaveSystem {
             string path = Application.streamingAssetsPath + savePath + fileName + extension;
             var sw = new System.IO.StreamWriter(path);
 #else
-            string path = Application.persistentDataPath + savePath + fileName + extension;
+            string path = Application.persistentDataPath + savePath;
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
-            var sw = new System.IO.StreamWriter(path);
+            var sw = new System.IO.StreamWriter(path + fileName + extension);
 #endif
             sw.Write(json);
             sw.Close();
@@ -35,10 +35,10 @@ namespace SaveSystem {
             string path = Application.streamingAssetsPath + savePath + fileName + extension;
             var sr = new System.IO.StreamReader(path);
 #else
-            string path = Application.persistentDataPath + savePath + fileName + extension;
+            string path = Application.persistentDataPath + savePath;
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
-            var sr = new System.IO.StreamReader(path);
+            var sr = new System.IO.StreamReader(path + fileName + extension);
 #endif
             SaveData saveData = JsonConvert.DeserializeObject<SaveData>(sr.ReadToEnd(),
                 new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/updatedCanvas.unity
     guid: 85f29fe82ab88d949bec397bb6a00473
   - enabled: 1
+    path: Assets/Scenes/StartUp Menu.unity
+    guid: a87580dd6da1fb04eb8119a451cf7a5f
+  - enabled: 1
     path: Assets/Scenes/TestScene.unity
     guid: 7339e3e14594608478b00a0771fbbdb5
   - enabled: 1
