@@ -14,6 +14,7 @@ public class Species
     HashSet<string> foods;
     HashSet<string> habitats;
     public HashSet<string> tags { get; private set; }
+    public Sprite sprite;
 
     // list of species this species is currently interacting with
     public List<Species> outgoingFood { get; private set; }
@@ -41,6 +42,7 @@ public class Species
         this.foods = new HashSet<string>();
         this.foods.UnionWith(type.Foods);
         this.world = world;
+        this.sprite = type.sprite;
 
         outgoingFood = new List<Species>();
         outgoingHabitat = new List<Species>();

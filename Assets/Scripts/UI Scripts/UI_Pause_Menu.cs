@@ -8,6 +8,8 @@ public class UI_Pause_Menu : MonoBehaviour
     private Transform container;
     private Transform template;
     private bool onScreen = false;
+    public AudioClip openShop;
+    public AudioSource UIAudio;
 
     // Start is called before the first frame update
     private void Awake()
@@ -21,6 +23,7 @@ public class UI_Pause_Menu : MonoBehaviour
     {
         Transform menu = Instantiate(template, container);
         RectTransform menuTransform = menu.GetComponent<RectTransform>();
+        UIAudio.PlayOneShot(openShop);
         if(!onScreen)
         {
             Vector3 position = new Vector3(900,600,0);

@@ -59,6 +59,11 @@ public class UI_Shop : MonoBehaviour
 
     private Dictionary<string, bool> isOwned = new Dictionary<string, bool>();
 
+    public AudioClip bought1;
+    public AudioClip bought2;
+    public AudioClip openShop;
+    public AudioSource UIAudio;
+
     
     
     // public SpeciesType Eagle;
@@ -537,12 +542,14 @@ public class UI_Shop : MonoBehaviour
                 g.GetComponent<TextMeshProUGUI>().SetText("");
             }
             enableShop();
+            //UIAudio.PlayOneShot(bought1);
+            UIAudio.PlayOneShot(bought2);
         }
     }
 
      public void enableShop()
     {
-        
+        UIAudio.PlayOneShot(openShop);
         if(active){
             active = false;
             
