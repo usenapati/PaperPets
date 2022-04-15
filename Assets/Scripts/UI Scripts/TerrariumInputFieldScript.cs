@@ -23,12 +23,16 @@ public class TerrariumInputFieldScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (update)
+        if (update && input.text != "")
         {
             update = false;
             tcm.CreateTerrarium(input.text);
             input.text = "";
             toDisable.SetActive(false);
+        }
+        else
+        {
+            update = false;
         }
     }
 
