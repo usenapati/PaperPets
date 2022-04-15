@@ -68,6 +68,7 @@ public class SpeciesSpawning : MonoBehaviour
                 {
                     for (int j = 0; j < -difference; j++)
                     {
+                        if (organisms.ContainsKey(speciesName) && organismsInScene[speciesName].Count >= organisms[speciesName].speciesLimit) break;
                         //Debug.Log("Spawning " + speciesName);
                         GameObject gameObject = SpawnOrganism(speciesName);
                         organismsInScene[speciesName].Add(gameObject);
