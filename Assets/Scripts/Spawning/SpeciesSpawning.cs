@@ -8,7 +8,7 @@ public class SpeciesSpawning : MonoBehaviour
     [Tooltip("References to Species Prefabs")]
     [SerializeField]
     GameObject organismPrefab;
-
+    
     [SerializeField]
     GameObject gridElementPrefab;
 
@@ -162,4 +162,6 @@ public class SpeciesSpawning : MonoBehaviour
         //Debug.Log("(" + x + "," + 0 + "," + z + ")");
         return (x, z);
     }
+
+    
 }

@@ -8,6 +8,8 @@ public class SpeciesAnimator : MonoBehaviour
     [SerializeField] float animSwitch;
     [SerializeField] float randomRange;
     [SerializeField] GameObject debug;
+    [SerializeField] GameObject deathParticles;
+    // Death Sound Here
 
     public SpeciesVisualData sv;
 
@@ -141,5 +143,10 @@ public class SpeciesAnimator : MonoBehaviour
 
         yield return null;
     }
-
+    private void OnDestroy()
+    {
+        Instantiate(deathParticles, transform.position, transform.rotation);
+        // Play Death Sound
+        //GUI Text shader for particles
+    }
 }
