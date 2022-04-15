@@ -14,6 +14,8 @@ public class SpeciesSpawning : MonoBehaviour
 
     [SerializeField]
     GridSpawner gridSpawner;
+    [SerializeField] GameObject deathParticles;
+    // Death Sound Here
 
     List<KeyValuePair<string, int>> speciesPopulation;
     Dictionary<string, SpeciesVisualData> organisms = new Dictionary<string, SpeciesVisualData>();
@@ -58,6 +60,7 @@ public class SpeciesSpawning : MonoBehaviour
                         GameObject gameObject = organismsInScene[speciesName][organismsInScene[speciesName].Count - 1];
                         organismsInScene[speciesName].Remove(gameObject);
                         Destroy(gameObject);
+                        Instantiate(deathParticles, gameObject.transform.position, gameObject.transform.rotation);
                     }
                 }
                 // Adding Organisms
