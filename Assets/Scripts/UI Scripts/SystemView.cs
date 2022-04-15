@@ -55,9 +55,15 @@ public class SystemView : MonoBehaviour
         SpeciesVisualData sd = Resources.Load("Visuals/" + sp.name.Replace(" ", "")) as SpeciesVisualData;
         s.transform.Find("image").GetComponent<SpriteRenderer>().sprite = sd == null ? null : sd.sprite;
         s.GetComponent<SpriteRenderer>().color = sd == null ? Color.black : sd.speciesColor;
+        
+        // Color temp5 = new Color(50, Random.Range(1f, 255f), 50, 255);
+        // temp5 = sd.speciesColor + temp5;
+        //temp5 = temp5 + new Color(0, 0, 0, 255);
         s.transform.Find("Circle Background").GetComponent<SpriteRenderer>().color = sd == null ? Color.black : sd.speciesColor;
         circles.Add(sp.name, s);
         s.GetComponent<SystemViewCircleData>().setSpecies(sp);
+        // //192,74, 122 
+        // 255, 148, 191
 
         //closed.Add(mainSpecies);
         if (closed.Count == organisms.Count) return;
