@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     // will create ID later for the terrariums
     private Dictionary<string, WorldSim> terrariums;
     private int nextID = 0;
+    private string mainWorld;
     // Information being kept
     // The paper the player has available to spend
     // Look through specific file path to find all types of paper
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
     private TIMESPEED timeSpeed = TIMESPEED.NORMAL;
     private float accumulator = 0f;
     private uint tick = 0;
+    private bool paused = false;
 
     private Dictionary<string, bool> isOwned = new Dictionary<string, bool>();
 
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
         if (_instance != null && _instance != this)
         {
             Destroy(this);
+            _instance.paused = false;
             return;
         }
         else
@@ -76,7 +79,8 @@ public class GameManager : MonoBehaviour
 
         // Prepare the dictionary for terrariums
         terrariums = new Dictionary<string, WorldSim>();
-        terrariums.Add(nextID++.ToString(), new WorldSim("first world"));
+        mainWorld = nextID++.ToString();
+        terrariums.Add(mainWorld, new WorldSim("First World"));
     }
 
     public void LoadGame(string filename)
@@ -86,6 +90,7 @@ public class GameManager : MonoBehaviour
         spendablePaper = temp.GetSpendablePaper();
         progressionSystem = temp.GetProgressionSystem();
         isOwned = temp.GetOwnedDictionary();
+        nextID = terrariums.Count;
         
         foreach (string s in progressionSystem.getUnlocks())
         {
@@ -120,14 +125,44 @@ public class GameManager : MonoBehaviour
 
     public void addSpecies(SpeciesType s)
     {
-        terrariums[(nextID - 1).ToString()].addSpecies(s);
+        terrariums[mainWorld].addSpecies(s);
     }
 
     public WorldSim getCurrentWorld()
     {
-        return terrariums[(nextID - 1).ToString()];
+        return terrariums[mainWorld];
     }
     
+    public void SwitchCurrentWorld(string id)
+    {
+        if (terrariums.ContainsKey(id))
+        {
+            mainWorld = id;
+        }
+        else
+        {
+            Debug.LogWarning("Attempted to switch current world to non existant world with key: " + id);
+        }
+    }
+
+    public string CreateWorld(string name)
+    {
+        if (terrariums.ContainsKey((nextID).ToString())) return null;
+        string newID = nextID++.ToString();
+        terrariums.Add(newID, new WorldSim(name));
+        return newID;
+    }
+
+    public Dictionary<string, string> GetWorldIDs()
+    {
+        Dictionary<string, string> ids = new Dictionary<string, string>();
+        foreach (KeyValuePair<string, WorldSim> kv in terrariums)
+        {
+            ids.Add(kv.Key, kv.Value.name);
+        }
+        return ids;
+    }
+
     public ProgressionSystem getProgression()
     {
         return progressionSystem;
@@ -146,6 +181,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (paused) return;
         accumulator += Time.deltaTime;
         if (accumulator >= dt)
         {
@@ -202,5 +238,9 @@ public class GameManager : MonoBehaviour
         return isOwned;
     }
 
+    public void pause()
+    {
+        paused = true;
+    }
 
 }

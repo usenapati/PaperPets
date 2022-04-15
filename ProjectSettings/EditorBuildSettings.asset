@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SystemView.unity
     guid: 162e8dd34ff7f874db9023637157c739
+  - enabled: 1
+    path: Assets/Scenes/Terrarium Select.unity
+    guid: 12b7f24bb9ddf6d469702470f5794f33
   m_configObjects: {}
