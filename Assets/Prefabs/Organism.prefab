@@ -114,4 +114,5 @@ MonoBehaviour:
   animSwitch: 0.5
   randomRange: 0.2
   debug: {fileID: 8193403181195765687, guid: 60d5282a4be93384eb8464be063b7573, type: 3}
+  deathParticles: {fileID: 2865596709888829631, guid: 2d1fc6f5435d7bb4892c23192871834c, type: 3}
   sv: {fileID: 0}

@@ -8,12 +8,14 @@ public class SpeciesSpawning : MonoBehaviour
     [Tooltip("References to Species Prefabs")]
     [SerializeField]
     GameObject organismPrefab;
-
+    
     [SerializeField]
     GameObject gridElementPrefab;
 
     [SerializeField]
     GridSpawner gridSpawner;
+    [SerializeField] GameObject deathParticles;
+    // Death Sound Here
 
     List<KeyValuePair<string, int>> speciesPopulation;
     Dictionary<string, SpeciesVisualData> organisms = new Dictionary<string, SpeciesVisualData>();
@@ -58,6 +60,7 @@ public class SpeciesSpawning : MonoBehaviour
                         GameObject gameObject = organismsInScene[speciesName][organismsInScene[speciesName].Count - 1];
                         organismsInScene[speciesName].Remove(gameObject);
                         Destroy(gameObject);
+                        Instantiate(deathParticles, gameObject.transform.position, gameObject.transform.rotation);
                     }
                 }
                 // Adding Organisms
@@ -65,6 +68,7 @@ public class SpeciesSpawning : MonoBehaviour
                 {
                     for (int j = 0; j < -difference; j++)
                     {
+                        if (organisms.ContainsKey(speciesName) && organismsInScene[speciesName].Count >= organisms[speciesName].speciesLimit) break;
                         //Debug.Log("Spawning " + speciesName);
                         GameObject gameObject = SpawnOrganism(speciesName);
                         organismsInScene[speciesName].Add(gameObject);
@@ -162,4 +166,6 @@ public class SpeciesSpawning : MonoBehaviour
         //Debug.Log("(" + x + "," + 0 + "," + z + ")");
         return (x, z);
     }
+
+    
 }

@@ -141,5 +141,4 @@ public class SpeciesAnimator : MonoBehaviour
 
         yield return null;
     }
-
 }

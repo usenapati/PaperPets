@@ -65,6 +65,7 @@ MonoBehaviour:
   organismPrefab: {fileID: 4863455187425102837, guid: c7359bdf8985787408b66bb06b0e443e, type: 3}
   gridElementPrefab: {fileID: 4584395507915010367, guid: 4ce6b7fc1349ffc40b74f7611e60bd33, type: 3}
   gridSpawner: {fileID: 0}
+  deathParticles: {fileID: 2865596709888829631, guid: 2d1fc6f5435d7bb4892c23192871834c, type: 3}
 --- !u!114 &4171887589656061349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +135,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 01c5ef41-cf1b-4bd3-8611-66d7ac0f0fda
     m_ActionName: Testing/Spawn Random Animal[/Keyboard/z]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 241bcf7f-9e6d-4698-b011-332d41940f6f
+    m_ActionName: Camera Controls/Tilt No Follow[/Keyboard/1,/Keyboard/2]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: abf8dd69-6486-4f8c-a180-3cb4add24451
+    m_ActionName: Testing/Move Light[/Keyboard/downArrow,/Keyboard/upArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Testing
