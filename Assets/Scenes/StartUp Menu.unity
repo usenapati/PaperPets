@@ -1479,10 +1479,6 @@ PrefabInstance:
       propertyPath: sunTimeSpeed
       value: 0.59
       objectReference: {fileID: 0}
-    - target: {fileID: 7339996870322397823, guid: edb28eea52b81ce4dbf60c75467a32a4, type: 3}
-      propertyPath: customSkyMaterialCheck
-      value: 
-      objectReference: {fileID: 2100000, guid: 475ec890572b3a248a6b78ff7f9bf21f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edb28eea52b81ce4dbf60c75467a32a4, type: 3}
 --- !u!1 &1110988589
