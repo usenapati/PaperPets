@@ -290,7 +290,10 @@ public class UI_Shop : MonoBehaviour
                     g1.GetComponent<Image>().enabled = true;
                     on = true;
                 }
-                GenerateShopValues();
+                if(active)
+                {
+                    GenerateShopValues();
+                }
             }
         }
         foreach (string s in keysToRemove)

@@ -22,9 +22,9 @@ MonoBehaviour:
   pathRandomnessX: 0
   pathRandomnessY: 0
   pathRandomnessZ: 0
-  scale: {x: 0.05, y: 0.05, z: 0.05}
+  scale: {x: 0.15, y: 0.15, z: 0.15}
   layerHeight: 0
-  height: 0
-  speciesLimit: 20
+  height: 0.23
+  speciesLimit: 5
   conversionValue: 1
   speciesColor: {r: 0.6132076, g: 0.2901961, b: 0, a: 1}
