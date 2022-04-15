@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
         spendablePaper = temp.GetSpendablePaper();
         progressionSystem = temp.GetProgressionSystem();
         isOwned = temp.GetOwnedDictionary();
+        nextID = terrariums.Count;
         
         foreach (string s in progressionSystem.getUnlocks())
         {

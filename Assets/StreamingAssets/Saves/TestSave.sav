@@ -226,9 +226,9 @@
       "$id": "13",
       "biome": {
         "$id": "14",
-        "temp": 73.49823,
-        "humidity": 46.5017662,
-        "windSpeed": 9.09894
+        "temp": 73.5211258,
+        "humidity": 46.4788742,
+        "windSpeed": 9.084507
       },
       "isActive": false,
       "<name>k__BackingField": "Super Secret World",
@@ -280,7 +280,7 @@
               "$ref": "16"
             }
           ],
-          "<population>k__BackingField": 99,
+          "<population>k__BackingField": 100,
           "world": {
             "$ref": "13"
           },
@@ -381,9 +381,9 @@
       "$id": "22",
       "biome": {
         "$id": "23",
-        "temp": 70.92437,
-        "humidity": 49.07563,
-        "windSpeed": 10.5042019
+        "temp": 70.8092,
+        "humidity": 49.1908,
+        "windSpeed": 10.5706987
       },
       "isActive": false,
       "<name>k__BackingField": "W",
@@ -455,7 +455,7 @@
               "$ref": "25"
             }
           ],
-          "<population>k__BackingField": 22,
+          "<population>k__BackingField": 19,
           "world": {
             "$ref": "22"
           },
@@ -487,7 +487,7 @@
               "$ref": "26"
             }
           ],
-          "<population>k__BackingField": 10,
+          "<population>k__BackingField": 9,
           "world": {
             "$ref": "22"
           },
@@ -804,20 +804,84 @@
       "baseLight": 50.0,
       "waterUpgradeLevel": 1,
       "baseWater": 100.0
+    },
+    "4": {
+      "$id": "42",
+      "biome": {
+        "$id": "43",
+        "temp": 70.0,
+        "humidity": 50.0,
+        "windSpeed": 10.0
+      },
+      "isActive": false,
+      "<name>k__BackingField": "Milkweed Only",
+      "<id>k__BackingField": null,
+      "organisms": {
+        "$id": "44",
+        "Milkweed": {
+          "$id": "45",
+          "<name>k__BackingField": "Milkweed",
+          "foods": [],
+          "habitats": [],
+          "<tags>k__BackingField": [
+            "flowering",
+            "milkweed",
+            "plant"
+          ],
+          "<outgoingFood>k__BackingField": [],
+          "<outgoingHabitat>k__BackingField": [],
+          "<population>k__BackingField": 50,
+          "world": {
+            "$ref": "42"
+          },
+          "needsUpdate": false,
+          "populationToLose": 0,
+          "populationToGain": 0
+        }
+      },
+      "speciesByTag": {
+        "$id": "46",
+        "flowering": [
+          {
+            "$ref": "45"
+          }
+        ],
+        "milkweed": [
+          {
+            "$ref": "45"
+          }
+        ],
+        "plant": [
+          {
+            "$ref": "45"
+          }
+        ]
+      },
+      "tagSubscribers": {
+        "$id": "47"
+      },
+      "toBeRemoved": [],
+      "files": {
+        "$id": "48"
+      },
+      "lightUpgradeLevel": 1,
+      "baseLight": 50.0,
+      "waterUpgradeLevel": 1,
+      "baseWater": 100.0
     }
   },
   "spendablePaper": {
-    "$id": "42",
-    "green": 2164,
+    "$id": "49",
+    "green": 2849,
     "yellow": 0,
     "red": 0,
-    "brown": 828,
+    "brown": 1238,
     "blue": 0,
-    "orange": 665,
+    "orange": 909,
     "white": 0
   },
   "progressionSystem": {
-    "$id": "43",
+    "$id": "50",
     "nextID": 0,
     "unlockedSpecies": [
       "Milkweed",
@@ -829,10 +893,7 @@
     "otherUnlocks": []
   },
   "isOwned": {
-    "$id": "44",
-    "Milkweed": true,
-    "Oak": true,
-    "Monarch Butterfly": true,
-    "Oriole": true
+    "$id": "51",
+    "Milkweed": true
   }
 }
