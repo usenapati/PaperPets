@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1889075323278336598}
   - component: {fileID: 7768612064295951752}
   m_Layer: 0
-  m_Name: Confetti
+  m_Name: Death Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -65,7 +65,8 @@ public class UI_Shop : MonoBehaviour
     public AudioClip openShop;
     public AudioSource UIAudio;
 
-    
+    // Birth effect
+    public ParticleSystem birthEffect;
     
     // public SpeciesType Eagle;
     // public SpeciesType Milkweed;
@@ -562,6 +563,8 @@ public class UI_Shop : MonoBehaviour
 
         if(paperHad >= paperNeeded){
             GameManager.Instance.addSpecies(s);
+            Debug.Log("birthed");
+            birthEffect.Play(true);
 
             //isOwned.Add(s.SpeciesName, true);
             //GameManager.Instance.setOwned(isOwned);
