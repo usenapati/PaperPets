@@ -8381,6 +8381,11 @@ MonoBehaviour:
   bought2: {fileID: 8300000, guid: 000e20a8163858849bba991c852c7006, type: 3}
   openShop: {fileID: 8300000, guid: 94404acf252fbc747b739bbaf5aaa52d, type: 3}
   UIAudio: {fileID: 5942131077962091813}
+  birthEffect: {fileID: 0}
+  birthSounds:
+  - {fileID: 8300000, guid: a9553776bacdfc849a489d99cab87cef, type: 3}
+  - {fileID: 8300000, guid: 94a73bef609cee140b2ca6e9fa1c9cea, type: 3}
+  - {fileID: 8300000, guid: 2c9f2243858852341bf047d9ad19c3d7, type: 3}
 --- !u!82 &5942131077962091813
 AudioSource:
   m_ObjectHideFlags: 0
