@@ -372,10 +372,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid
       objectReference: {fileID: 0}
-    - target: {fileID: 4171887589656061348, guid: 55f7f49011e218947a6be91e0b3312e2, type: 3}
-      propertyPath: deathParticles
-      value: 
-      objectReference: {fileID: 2865596709888829631, guid: 2d1fc6f5435d7bb4892c23192871834c, type: 3}
     - target: {fileID: 4171887589656061349, guid: 55f7f49011e218947a6be91e0b3312e2, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -555,14 +551,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 768332483531177251, guid: f082bc5bde015604386ccf189f3d011c, type: 3}
-      propertyPath: stopAction
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 768332483531177251, guid: f082bc5bde015604386ccf189f3d011c, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3988597914300676042, guid: f082bc5bde015604386ccf189f3d011c, type: 3}
       propertyPath: m_Name
       value: Birth Effect
@@ -570,18 +558,6 @@ PrefabInstance:
     - target: {fileID: 4078901105779274258, guid: f082bc5bde015604386ccf189f3d011c, type: 3}
       propertyPath: m_RootOrder
       value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078901105779274258, guid: f082bc5bde015604386ccf189f3d011c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078901105779274258, guid: f082bc5bde015604386ccf189f3d011c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078901105779274258, guid: f082bc5bde015604386ccf189f3d011c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4078901105779274258, guid: f082bc5bde015604386ccf189f3d011c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -622,26 +598,6 @@ PrefabInstance:
     - target: {fileID: 4078901105779274258, guid: f082bc5bde015604386ccf189f3d011c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4423978310140512638, guid: f082bc5bde015604386ccf189f3d011c, type: 3}
-      propertyPath: stopAction
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4423978310140512638, guid: f082bc5bde015604386ccf189f3d011c, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7899810499758189368, guid: f082bc5bde015604386ccf189f3d011c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7899810499758189368, guid: f082bc5bde015604386ccf189f3d011c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7899810499758189368, guid: f082bc5bde015604386ccf189f3d011c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f082bc5bde015604386ccf189f3d011c, type: 3}
@@ -813,11 +769,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1318870692573113909, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0000014069363
+      value: 0.0000014413515
       objectReference: {fileID: 0}
     - target: {fileID: 1318870692573113909, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.000000004502151
+      value: 0.0000000046122506
       objectReference: {fileID: 0}
     - target: {fileID: 1318870692573113909, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: m_LocalRotation.y
@@ -825,7 +781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1318870692573113909, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0031999515
+      value: -0.0031999317
       objectReference: {fileID: 0}
     - target: {fileID: 1318870692666559296, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: target
@@ -1009,11 +965,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1318870693005612081, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0000014069363
+      value: 0.0000014413515
       objectReference: {fileID: 0}
     - target: {fileID: 1318870693005612081, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.000000004502151
+      value: 0.0000000046122506
       objectReference: {fileID: 0}
     - target: {fileID: 1318870693005612081, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1021,7 +977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1318870693005612081, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0031999515
+      value: -0.0031999317
       objectReference: {fileID: 0}
     - target: {fileID: 1318870693214377491, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1549,6 +1505,18 @@ PrefabInstance:
       propertyPath: birthEffect
       value: 
       objectReference: {fileID: 875163688}
+    - target: {fileID: 3515385364635187695, guid: 1e9388c8f7319a543abf1ec433cf72ce, type: 3}
+      propertyPath: birthSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3515385364635187695, guid: 1e9388c8f7319a543abf1ec433cf72ce, type: 3}
+      propertyPath: birthSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 21d010ae9e5a5ff4ab001addfbc16f24, type: 3}
+    - target: {fileID: 3515385364635187695, guid: 1e9388c8f7319a543abf1ec433cf72ce, type: 3}
+      propertyPath: birthSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c9f2243858852341bf047d9ad19c3d7, type: 3}
     - target: {fileID: 3515385365676060246, guid: 1e9388c8f7319a543abf1ec433cf72ce, type: 3}
       propertyPath: m_Pivot.x
       value: 0

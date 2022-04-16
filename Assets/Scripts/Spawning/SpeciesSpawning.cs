@@ -15,6 +15,8 @@ public class SpeciesSpawning : MonoBehaviour
     [SerializeField]
     GridSpawner gridSpawner;
     [SerializeField] GameObject deathParticles;
+    public AudioSource deathSound;
+    [SerializeField] AudioClip[] deathSounds;
     // Death Sound Here
 
     List<KeyValuePair<string, int>> speciesPopulation;
@@ -59,6 +61,7 @@ public class SpeciesSpawning : MonoBehaviour
                     {
                         GameObject gameObject = organismsInScene[speciesName][organismsInScene[speciesName].Count - 1];
                         organismsInScene[speciesName].Remove(gameObject);
+                        deathSound.PlayOneShot(deathSounds[Random.Range(0, deathSounds.Length)]);
                         Destroy(gameObject);
                         Instantiate(deathParticles, gameObject.transform.position, gameObject.transform.rotation);
                     }

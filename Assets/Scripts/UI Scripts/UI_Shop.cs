@@ -67,7 +67,8 @@ public class UI_Shop : MonoBehaviour
 
     // Birth effect
     public ParticleSystem birthEffect;
-    
+    [SerializeField] AudioClip[] birthSounds;
+
     // public SpeciesType Eagle;
     // public SpeciesType Milkweed;
     // public SpeciesType Monarch_Butterfly;
@@ -605,7 +606,7 @@ public class UI_Shop : MonoBehaviour
             }
             enableShop();
             //UIAudio.PlayOneShot(bought1);
-            UIAudio.PlayOneShot(bought2);
+            UIAudio.PlayOneShot(birthSounds[Random.Range(0, birthSounds.Length)]);
         }
     }
 
