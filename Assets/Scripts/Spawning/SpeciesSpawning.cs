@@ -19,7 +19,7 @@ public class SpeciesSpawning : MonoBehaviour
     [SerializeField] AudioClip[] deathSounds;
     // Death Sound Here
 
-    List<KeyValuePair<string, int>> speciesPopulation;
+    List<Species> speciesPopulation;
     Dictionary<string, SpeciesVisualData> organisms = new Dictionary<string, SpeciesVisualData>();
     Dictionary<string, List<GameObject>> organismsInScene = new Dictionary<string, List<GameObject>>();
     // Random Value Generation
@@ -39,12 +39,12 @@ public class SpeciesSpawning : MonoBehaviour
     private void Update()
     {
         //Check WorldSim
-        speciesPopulation = GameManager.Instance.getCurrentWorld().getAllSpeciesPopulation();
+        speciesPopulation = GameManager.Instance.getCurrentWorld().getAllSpecies();
         //Debug.Log(speciesPopulation.Count);
         //Loop through list
         for (int i = 0; i < speciesPopulation.Count; i++)
         {
-            string speciesName = speciesPopulation[i].Key;
+            string speciesName = speciesPopulation[i].name;
             if (!organisms.ContainsKey(speciesName))
             {
                 AddSpeciesToDictionary(speciesName);
@@ -52,8 +52,8 @@ public class SpeciesSpawning : MonoBehaviour
             //Debug.Log("Species name: " + speciesName);
             if (organisms[speciesName] != null)
             {
-                int difference = organismsInScene[speciesName].Count - organisms[speciesName].conversionValue * speciesPopulation[i].Value;
-                //Debug.Log("difference: " + difference);
+                int difference = organismsInScene[speciesName].Count - organisms[speciesName].conversionValue * speciesPopulation[i].population;
+                Debug.Log("difference: " + difference);
                 // Deleting Organisms
                 if (difference > 0)
                 {
@@ -64,6 +64,12 @@ public class SpeciesSpawning : MonoBehaviour
                         deathSound.PlayOneShot(deathSounds[Random.Range(0, deathSounds.Length)]);
                         Destroy(gameObject);
                         Instantiate(deathParticles, gameObject.transform.position, gameObject.transform.rotation);
+                    }
+                    if (speciesPopulation[i].population == 0)
+                    {
+                        // species goes extinct
+                        Debug.Log("EXTINCTION");
+                        GameManager.Instance.getCurrentWorld().killSpecies(speciesPopulation[i]);
                     }
                 }
                 // Adding Organisms
