@@ -38,9 +38,9 @@ public class Biome
 
     public void updateBiome((float, float, float, float) newData)
     {
-        temp = newData.Item1 / newData.Item4;
-        humidity = newData.Item2 / newData.Item4;
-        windSpeed = newData.Item3 / newData.Item4;
+        temp = newData.Item1 / newData.Item4 == 0 ? 1 : newData.Item4;
+        humidity = newData.Item2 / newData.Item4 == 0 ? 1 : newData.Item4;
+        windSpeed = newData.Item3 / newData.Item4 == 0 ? 1 : newData.Item4;
     }
 
     public override string ToString()

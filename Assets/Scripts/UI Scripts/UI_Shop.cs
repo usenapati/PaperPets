@@ -564,7 +564,6 @@ public class UI_Shop : MonoBehaviour
 
         if(paperHad >= paperNeeded){
             GameManager.Instance.addSpecies(s);
-            Debug.Log("birthed");
             birthEffect.Play(true);
 
             //isOwned.Add(s.SpeciesName, true);

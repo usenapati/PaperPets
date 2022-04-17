@@ -253,7 +253,7 @@ public class WorldSim
             s.scheduleChanges();
         }
 
-        (float, float, float, float) biomeData = (0, 0, 0, 0);
+        (float, float, float, float) biomeData = (0, 0, 0, 1);
         foreach (Species s in organisms.Values)
         {
             s.update();

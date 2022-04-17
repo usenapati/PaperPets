@@ -31,11 +31,6 @@ public class WeatherManager : MonoBehaviour
         windSpeed = b.getWindSpeed();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
