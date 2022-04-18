@@ -170,6 +170,7 @@ public class ProgressionSystem
         }
 
         reader.Close();
+        Debug.Log("IDs in list: " + ids);
         return ids;
     }
 
@@ -207,7 +208,7 @@ public class ProgressionSystem
 
     private void readUnlock(string id, XmlReader reader)
     {
-        
+        Debug.Log("New unlock with id: " + id);
         string type = "";
         string value = "";
         List<string> parents = new List<string>();

@@ -31,6 +31,8 @@
     <children>
       <child id="2" />
       <child id="3" />
+      <child id="4" />
+      <child id="5" />
     </children>
     
     <task type="PaperTask">
@@ -54,7 +56,7 @@
     <task type="PaperTask">
       <name name="BrownPaperTask" />
       <color color="brown" />
-      <amount amount="50" />
+      <amount amount="100" />
     </task>
     
   </unlock>
@@ -78,9 +80,45 @@
     <task type="PaperTask">
       <name name="GreenPaperTask" />
       <color color="green" />
-      <amount amount="2000" />
+      <amount amount="1000" />
     </task>
     
   </unlock>
   
+  <unlock id="4">
+
+    <unlockdata type="SPECIES" value="Pig" />
+    
+    <parents>
+      <parent id="1" />
+    </parents>
+
+    <children />
+    
+    <task type="PaperTask">
+      <name name="BrownPaperTask" />
+      <color color="brown" />
+      <amount amount="50" />
+    </task>
+    
+  </unlock>
+    
+  <unlock id="5">
+
+    <unlockdata type="SPECIES" value="Rabbit" />
+    
+    <parents>
+      <parent id="1" />
+    </parents>
+
+    <children />
+    
+    <task type="PaperTask">
+      <name name="BrownPaperTask" />
+      <color color="brown" />
+      <amount amount="20" />
+    </task>
+    
+  </unlock>
+
 </progression>
