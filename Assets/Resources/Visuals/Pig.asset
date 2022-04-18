@@ -19,9 +19,9 @@ MonoBehaviour:
   pathType: 100
   pathTimeSeconds: 0.5
   radius: 0.2
-  pathRandomnessX: 0.1
+  pathRandomnessX: 0.05
   pathRandomnessY: 0
-  pathRandomnessZ: 0.1
+  pathRandomnessZ: 0.05
   scale: {x: 0.02, y: 0.02, z: 0.02}
   layerHeight: 0
   height: -0.3

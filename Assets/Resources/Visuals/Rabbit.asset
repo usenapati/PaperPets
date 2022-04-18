@@ -15,9 +15,9 @@ MonoBehaviour:
   speciesName: Rabbit
   sprite: {fileID: 21300000, guid: 2002734f758f2474d9af6d66fc501f8f, type: 3}
   sprite2: {fileID: 21300000, guid: c5748b298d2f9be41be1adae8a27e972, type: 3}
-  animationTime: 0.1
+  animationTime: 0.15
   pathType: 200
-  pathTimeSeconds: 0.1
+  pathTimeSeconds: 0.25
   radius: 0.1
   pathRandomnessX: 0.2
   pathRandomnessY: 0

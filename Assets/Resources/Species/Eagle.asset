@@ -34,7 +34,7 @@ MonoBehaviour:
   - insect
   speciesCost:
   - paperColor: {fileID: 11400000, guid: b2166dd1b6743d4429202d2fb4111205, type: 2}
-    paperValue: 1
+    paperValue: 100
   speciesProduce:
   - paperColor: {fileID: 11400000, guid: b2166dd1b6743d4429202d2fb4111205, type: 2}
     paperValue: 1
@@ -48,4 +48,3 @@ MonoBehaviour:
   humidityRange:
   - 0
   - 100
-  speciesSprite: {fileID: 21300000, guid: c61215ae398e31d41854b636fa0cc4ce, type: 3}

@@ -29,8 +29,8 @@ MonoBehaviour:
   foods:
   - plant
   speciesCost:
-  - paperColor: {fileID: 11400000, guid: 47d75d2dda4dc3e41aa45d245153cf71, type: 2}
-    paperValue: 0
+  - paperColor: {fileID: 11400000, guid: b2166dd1b6743d4429202d2fb4111205, type: 2}
+    paperValue: 50
   speciesProduce:
   - paperColor: {fileID: 11400000, guid: 47d75d2dda4dc3e41aa45d245153cf71, type: 2}
     paperValue: 1
