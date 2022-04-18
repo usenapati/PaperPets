@@ -216,11 +216,11 @@ public class Species
         populationToGain = 0;
 
         // THIS HAS BEEN MOVED TO SpeciesSpawning.cs
-/*        if (population == 0)
+        if (population == 0)
         {
             // species goes extinct
             world.killSpecies(this);
-        }*/
+        }
     }
 
     // returns the list of paper this species produced

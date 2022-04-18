@@ -40,6 +40,27 @@ public class SpeciesSpawning : MonoBehaviour
     {
         //Check WorldSim
         speciesPopulation = GameManager.Instance.getCurrentWorld().getAllSpecies();
+
+        // check to see if there are excess creatures
+        if (speciesPopulation.Count < organismsInScene.Count)
+        {
+
+            // something died
+            foreach (string s in organismsInScene.Keys)
+            {
+                if (!GameManager.Instance.getCurrentWorld().hasSpecies(s))
+                {
+                    organisms.Remove(s);
+                    foreach (GameObject g in organismsInScene[s])
+                    {
+                        Destroy(g);
+                    }
+                    organismsInScene.Remove(s);
+                }
+            }
+
+        }
+
         //Debug.Log(speciesPopulation.Count);
         //Loop through list
         for (int i = 0; i < speciesPopulation.Count; i++)
@@ -65,12 +86,12 @@ public class SpeciesSpawning : MonoBehaviour
                         Destroy(gameObject);
                         Instantiate(deathParticles, gameObject.transform.position, gameObject.transform.rotation);
                     }
-                    if (speciesPopulation[i].population == 0)
+                    /*if (speciesPopulation[i].population == 0)
                     {
                         // species goes extinct
                         Debug.Log("EXTINCTION");
                         GameManager.Instance.getCurrentWorld().killSpecies(speciesPopulation[i]);
-                    }
+                    }*/
                 }
                 // Adding Organisms
                 else if (difference < 0)

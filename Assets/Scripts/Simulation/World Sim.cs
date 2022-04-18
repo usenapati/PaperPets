@@ -129,6 +129,11 @@ public class WorldSim
     {
         return biome;
     }
+
+    public bool hasSpecies(string s)
+    {
+        return organisms.ContainsKey(s);
+    }
     #endregion
 
     #region Species Manipulation
