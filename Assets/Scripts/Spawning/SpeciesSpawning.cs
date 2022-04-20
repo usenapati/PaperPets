@@ -46,6 +46,7 @@ public class SpeciesSpawning : MonoBehaviour
         {
 
             // something died
+            List<string> toRemove = new List<string>();
             foreach (string s in organismsInScene.Keys)
             {
                 if (!GameManager.Instance.getCurrentWorld().hasSpecies(s))
@@ -55,8 +56,12 @@ public class SpeciesSpawning : MonoBehaviour
                     {
                         Destroy(g);
                     }
-                    organismsInScene.Remove(s);
+                    toRemove.Add(s);
                 }
+            }
+            foreach (string s in toRemove)
+            {
+                organismsInScene.Remove(s);
             }
 
         }
