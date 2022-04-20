@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class AudioManager : MonoBehaviour
     AudioSource track1;
     AudioSource track2;
     AudioSource track3;
+    [SerializeReference] bool stemsCanPlay = true;
     [SerializeField] float[,] stemIntervals = {
         { 18.300f, 36.891f, 55.187f, 0 },
         { 8.969f, 45.511f, 54.953f, 0 },
@@ -48,6 +50,9 @@ public class AudioManager : MonoBehaviour
         stemIntervals[1, 3] = loopTimeSec;
         stemIntervals[2, 3] = loopTimeSec;
 
+        // scene change
+        SceneManager.activeSceneChanged += SceneChanged;
+
         track1 = gameObject.AddComponent<AudioSource>();
         track1.clip = loopStem1;
         track2 = gameObject.AddComponent<AudioSource>();
@@ -57,6 +62,7 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(ManageClip(track1, 0));
         StartCoroutine(ManageClip(track2, 1));
         StartCoroutine(ManageClip(track3, 2));
+        StartCoroutine(ManagePlayingStems());
     }
 
     IEnumerator ManageClip(AudioSource clip, int track)
@@ -87,6 +93,45 @@ public class AudioManager : MonoBehaviour
             }
         }
         
+    }
+
+    IEnumerator ManagePlayingStems()
+    {
+        for (; ; )
+        {
+            if (!stemsCanPlay)
+            {
+                yield return new WaitForSeconds(1);
+                continue;
+            }
+
+            if (GameManager.Instance.getCurrentWorld().GetAllSpeciesWithTag("bird").Count > 0) stemsPlaying[1] = true;
+
+            int pop = 0;
+            foreach (Species s in GameManager.Instance.getCurrentWorld().GetAllSpeciesWithTag("animal"))
+            {
+                pop += s.population;
+            }
+            if (pop > 50) stemsPlaying[2] = true;
+            else stemsPlaying[2] = false;
+
+            yield return new WaitForSeconds(1);
+        }
+    }
+
+    void SceneChanged(Scene current, Scene next)
+    {
+        if (next.name != "TestScene")
+        {
+            stemsPlaying[0] = false;
+            stemsPlaying[1] = false;
+            stemsPlaying[2] = false;
+            stemsCanPlay = false;
+        }
+        else
+        {
+            stemsCanPlay = true;
+        }
     }
 
     // Update is called once per frame

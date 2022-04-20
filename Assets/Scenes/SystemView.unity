@@ -700,6 +700,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 67ed1cab-3c66-4a21-8f71-692e2b02724c
     m_ActionName: CameraControls/Zoom[/Mouse/scroll/y]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7c8f373b-0e50-4054-b38c-094db93f2770
+    m_ActionName: CameraControls/Accept[/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: CameraControls
@@ -1421,7 +1425,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1397288223}
   - component: {fileID: 1397288226}
-  - component: {fileID: 1397288225}
   - component: {fileID: 1397288224}
   m_Layer: 0
   m_Name: Render Texture Camera
@@ -1477,14 +1480,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!81 &1397288225
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1397288222}
-  m_Enabled: 1
 --- !u!20 &1397288226
 Camera:
   m_ObjectHideFlags: 0
