@@ -81,6 +81,14 @@ public class WorldSim
         return habitatOrganisms;
     }
 
+    // gets all organisms with tag
+    public List<Species> GetAllSpeciesWithTag(string tag)
+    {
+        List<Species> creatures = new List<Species>();
+        if (speciesByTag.ContainsKey(tag)) creatures.AddRange(speciesByTag[tag]);
+        return creatures;
+    }
+
     public List<Species> getAllSpecies()
     {
         return new List<Species>(organisms.Values);

@@ -23,6 +23,7 @@ MonoBehaviour:
   tags:
   - animal
   - mammal
+  - ground
   requiresHabitat: 0
   habitats: []
   requiresFood: 1
