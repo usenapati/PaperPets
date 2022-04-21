@@ -18,8 +18,12 @@ public class WeatherManager : MonoBehaviour
     [SerializeField] Gradient snowGradient;
     [SerializeField] Gradient rainGradient;
 
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip rainClip;
+    [SerializeField] AudioClip snowClip;
+
     [SerializeField] float timeToWait;
-    float accumulator = 0;
+    [SerializeReference] float accumulator = 0;
     bool raining = false;
     Gradient g;
 
@@ -45,6 +49,8 @@ public class WeatherManager : MonoBehaviour
                 raining = false;
                 timeToWait = (1 - humidity / 100) * maxWeatherDuration;
                 weather.Stop();
+                audioSource.Stop();
+                audioSource.time = 0;
             }
             else
             {
@@ -63,6 +69,7 @@ public class WeatherManager : MonoBehaviour
                     noise.frequency = .1f;
                     var color = weather.colorOverLifetime;
                     color.color = snowGradient;
+                    //audioSource.clip = snowClip;
                 }
                 else
                 {
@@ -72,10 +79,12 @@ public class WeatherManager : MonoBehaviour
                     noise.enabled = false;
                     var color = weather.colorOverLifetime;
                     color.color = rainGradient;
+                    audioSource.clip = rainClip;
                 }
 
                 main.duration = timeToWait;
                 weather.Play();
+                audioSource.Play();
 
             }
             accumulator = 0;

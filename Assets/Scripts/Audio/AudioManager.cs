@@ -20,10 +20,10 @@ public class AudioManager : MonoBehaviour
     AudioSource track2;
     AudioSource track3;
     [SerializeReference] bool stemsCanPlay = true;
-    [SerializeField] float[,] stemIntervals = {
-        { 18.300f, 36.891f, 55.187f, 0 },
-        { 8.969f, 45.511f, 54.953f, 0 },
-        { 18.199f, 36.528f, 54.722f, 0 } };
+    [SerializeField] List<float>[] stemIntervals = {
+        new List<float>(new float[] { 9.056f, 18.300f, 27.124f, 36.891f, 45.800f, 55.187f, 0 }),
+        new List<float>(new float[] { 8.969f, 27.266f, 45.311f, 54.753f, 0 }),
+        new List<float>(new float[] { 8.969f, 18.199f, 27.269f, 36.528f, 45.455f, 54.722f, 0 }) };
     [SerializeField] bool[] stemsPlaying = new bool[3];
 
     private static AudioManager _instance;
@@ -46,9 +46,9 @@ public class AudioManager : MonoBehaviour
         //baseAudioPlayer.time = 60;
         baseAudioPlayer.Play();
 
-        stemIntervals[0, 3] = loopTimeSec;
-        stemIntervals[1, 3] = loopTimeSec;
-        stemIntervals[2, 3] = loopTimeSec;
+        stemIntervals[0][stemIntervals[0].Count - 1] = loopTimeSec;
+        stemIntervals[1][stemIntervals[1].Count - 1] = loopTimeSec;
+        stemIntervals[2][stemIntervals[2].Count - 1] = loopTimeSec;
 
         // scene change
         SceneManager.activeSceneChanged += SceneChanged;
@@ -68,10 +68,8 @@ public class AudioManager : MonoBehaviour
     IEnumerator ManageClip(AudioSource clip, int track)
     {
 
-        for (int i = 0; true; i = (i + 1) % 4)
+        for (int i = 0; true; i = (i + 1) % stemIntervals[track].Count)
         {
-            //i = Mathf.Clamp(i, 0, loopTimeSec);
-            if (i >= loopTimeSec) i = 0;
             if (stemsPlaying[track])
             {
                 if (!clip.isPlaying)
@@ -82,14 +80,16 @@ public class AudioManager : MonoBehaviour
                 }
                 /*if (i == 0)
                 {
-                    clip.time = 0; yield return new WaitForSeconds(stemIntervals[track, i] - .1f);
+                    clip.time = stemIntervals[track][i];
+                    yield return new WaitForSeconds(stemIntervals[track][i] - .1f);
+                    continue;
                 }*/
-                yield return new WaitForSeconds(stemIntervals[track, i] - baseAudioPlayer.time - .1f);
+                yield return new WaitForSeconds(stemIntervals[track][i] - baseAudioPlayer.time - .1f);
             }
             else
             {
                 clip.Stop();
-                yield return new WaitForSeconds(stemIntervals[track, i] - baseAudioPlayer.time - .1f);
+                yield return new WaitForSeconds(stemIntervals[track][i] - baseAudioPlayer.time - .1f);
             }
         }
         
@@ -105,7 +105,10 @@ public class AudioManager : MonoBehaviour
                 continue;
             }
 
+            if (GameManager.Instance.getCurrentWorld().GetAllSpeciesWithTag("ground").Count > 0) stemsPlaying[0] = true;
+            else stemsPlaying[0] = false;
             if (GameManager.Instance.getCurrentWorld().GetAllSpeciesWithTag("bird").Count > 0) stemsPlaying[1] = true;
+            else stemsPlaying[1] = false;
 
             int pop = 0;
             foreach (Species s in GameManager.Instance.getCurrentWorld().GetAllSpeciesWithTag("animal"))
