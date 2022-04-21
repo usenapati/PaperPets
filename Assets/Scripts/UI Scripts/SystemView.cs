@@ -54,7 +54,7 @@ public class SystemView : MonoBehaviour
         
         SpeciesVisualData sd = Resources.Load("Visuals/" + sp.name.Replace(" ", "")) as SpeciesVisualData;
         s.transform.Find("image").GetComponent<SpriteRenderer>().sprite = sd == null ? null : sd.sprite;
-        s.GetComponent<SpriteRenderer>().color = sd == null ? Color.black : sd.speciesColor;
+        s.GetComponent<SpriteRenderer>().color = sd == null ? Color.black : Color.black;
         
         // Color temp5 = new Color(50, Random.Range(1f, 255f), 50, 255);
         // temp5 = sd.speciesColor + temp5;

@@ -6,9 +6,9 @@
       "$id": "3",
       "biome": {
         "$id": "4",
-        "temp": 70.77184,
-        "humidity": 48.9991531,
-        "windSpeed": 10.5852413
+        "temp": 70.71186,
+        "humidity": 48.9576263,
+        "windSpeed": 10.5762711
       },
       "isActive": false,
       "<name>k__BackingField": "First World",
@@ -226,9 +226,9 @@
       "$id": "13",
       "biome": {
         "$id": "14",
-        "temp": 73.5211258,
-        "humidity": 46.4788742,
-        "windSpeed": 9.084507
+        "temp": 73.46939,
+        "humidity": 46.4461632,
+        "windSpeed": 9.078114
       },
       "isActive": false,
       "<name>k__BackingField": "Super Secret World",
@@ -381,9 +381,9 @@
       "$id": "22",
       "biome": {
         "$id": "23",
-        "temp": 70.8092,
-        "humidity": 49.1908,
-        "windSpeed": 10.5706987
+        "temp": 70.74894,
+        "humidity": 49.1489372,
+        "windSpeed": 10.5617018
       },
       "isActive": false,
       "<name>k__BackingField": "W",
@@ -589,9 +589,9 @@
       "$id": "32",
       "biome": {
         "$id": "33",
-        "temp": 70.73254,
-        "humidity": 49.03748,
-        "windSpeed": 10.6090288
+        "temp": 70.67234,
+        "humidity": 48.9957428,
+        "windSpeed": 10.6
       },
       "isActive": false,
       "<name>k__BackingField": "Super Cool World 14",
@@ -809,9 +809,9 @@
       "$id": "42",
       "biome": {
         "$id": "43",
-        "temp": 70.0,
-        "humidity": 50.0,
-        "windSpeed": 10.0
+        "temp": 69.93007,
+        "humidity": 49.95005,
+        "windSpeed": 9.99001
       },
       "isActive": false,
       "<name>k__BackingField": "Milkweed Only",
@@ -872,12 +872,12 @@
   },
   "spendablePaper": {
     "$id": "49",
-    "green": 2849,
+    "green": 2870,
     "yellow": 0,
     "red": 0,
-    "brown": 1238,
+    "brown": 1248,
     "blue": 0,
-    "orange": 909,
+    "orange": 915,
     "white": 0
   },
   "progressionSystem": {
@@ -888,12 +888,20 @@
       "Monarch Butterfly",
       "Oak",
       "Eagle",
-      "Oriole"
+      "Oriole",
+      "Aphid",
+      "Cow",
+      "Ladybug",
+      "Pig",
+      "Rabbit"
     ],
     "otherUnlocks": []
   },
   "isOwned": {
     "$id": "51",
-    "Milkweed": true
+    "Milkweed": true,
+    "Monarch Butterfly": true,
+    "Oak": true,
+    "Eagle": true
   }
 }
