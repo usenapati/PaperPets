@@ -62,6 +62,10 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(ManageClip(track1, 0));
         StartCoroutine(ManageClip(track2, 1));
         StartCoroutine(ManageClip(track3, 2));
+    }
+
+    void Start()
+    {
         StartCoroutine(ManagePlayingStems());
     }
 
