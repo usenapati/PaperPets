@@ -82,7 +82,9 @@ public class SystemViewCameraControls : MonoBehaviour
             camWidth = Camera.main.orthographicSize * Screen.width / Screen.height;
             camHeight = Camera.main.orthographicSize;
             moveSpeed = initMoveSpeed * cam.orthographicSize / initZoom;
+            
         }
+        GameManager.Instance.setUIZoom(targetZoom);
     }
 
     public void OnUD(InputAction.CallbackContext context)
