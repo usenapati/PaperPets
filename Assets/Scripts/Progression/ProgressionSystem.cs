@@ -297,6 +297,9 @@ public class ProgressionSystem
         {
             unlockedSpecies.Add(s.SpeciesName);
         }
+        foreach (PaperType p in Resources.LoadAll<PaperType>("Paper")) {
+            GameManager.Instance.GetSpendablePaper()[p] += 10000;
+        }
     }
 
 }
