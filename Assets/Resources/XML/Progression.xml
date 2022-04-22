@@ -13,7 +13,7 @@
     </children>
     
     <task type="PaperTask">
-      <name name="GreenPaperTask" />
+      <name name="Earn 100 Green Paper!" />
       <color color="green" />
       <amount amount="100" />
     </task>
@@ -36,7 +36,7 @@
     </children>
     
     <task type="PaperTask">
-      <name name="OrangePaperTask" />
+      <name name="Earn 100 Orange Paper!" />
       <color color="orange" />
       <amount amount="100" />
     </task>
@@ -54,7 +54,7 @@
     <children />
     
     <task type="PaperTask">
-      <name name="BrownPaperTask" />
+      <name name="Earn 100 Brown Paper!" />
       <color color="brown" />
       <amount amount="100" />
     </task>
@@ -72,13 +72,13 @@
     <children />
     
     <task type="PaperTask">
-      <name name="BrownPaperTask" />
+      <name name="Earn 100 Brown Paper!" />
       <color color="brown" />
       <amount amount="100" />
     </task>
     
     <task type="PaperTask">
-      <name name="GreenPaperTask" />
+      <name name="Earn 1000 Green Paper!" />
       <color color="green" />
       <amount amount="1000" />
     </task>
@@ -96,7 +96,7 @@
     <children />
     
     <task type="PaperTask">
-      <name name="BrownPaperTask" />
+      <name name="Earn 50 Brown Paper!" />
       <color color="brown" />
       <amount amount="50" />
     </task>
@@ -114,9 +114,24 @@
     <children />
     
     <task type="PaperTask">
-      <name name="BrownPaperTask" />
+      <name name="Earn 20 Brown Paper!" />
       <color color="brown" />
       <amount amount="20" />
+    </task>
+    
+  </unlock>
+  
+  <unlock id="6">
+
+    <unlockdata type="SPECIES" value="Ladybug" />
+    
+    <parents />
+
+    <children />
+    
+    <task type="SpeciesTask">
+      <name name="Acquire an Aphid!" />
+      <species species="Aphid" />
     </task>
     
   </unlock>
