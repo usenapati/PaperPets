@@ -34,7 +34,9 @@ public class SystemViewCircleData : MonoBehaviour, IPointerEnterHandler, IPointe
     public void OnPointerEnter(PointerEventData p)
     {
         infoBox.SetActive(true);
-        infoBox.transform.localScale = new Vector3(GameManager.Instance.getUIZoom()/100, GameManager.Instance.getUIZoom()/100, 1);
+        infoBox.transform.localScale = new Vector3(GameManager.Instance.getUIZoom()/170, GameManager.Instance.getUIZoom()/170, 1);
+        //infoBox.transform.position = new Vector3(0, GameManager.Instance.getUIZoom()/10, 0);
+  
         print("enter");
     }
 

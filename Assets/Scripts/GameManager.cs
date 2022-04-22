@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
         terrariums = new Dictionary<string, WorldSim>();
         mainWorld = nextID++.ToString();
         terrariums.Add(mainWorld, new WorldSim("First World"));
+        test = 100;
     }
 
     public void LoadGame(string filename)
@@ -251,7 +252,17 @@ public class GameManager : MonoBehaviour
 
     public void setUIZoom(float zoom)
     {
-        test = zoom;
+        if(zoom > 190)
+        {
+            test = 190;
+        } else if(zoom < 100)
+        {
+            test = 100;
+        }
+        else
+        {
+            test = zoom;
+        }
     }
 
 }

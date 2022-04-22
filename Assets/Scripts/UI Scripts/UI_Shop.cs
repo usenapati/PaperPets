@@ -87,6 +87,7 @@ public class UI_Shop : MonoBehaviour
         container = transform.Find("Shop Title Background").Find("Container");
         ItemTemplate = container.Find("ItemTemplate");
         ItemTemplate.gameObject.SetActive(active);
+        GameManager.Instance.setUIZoom(100f);
 
         //taskContainer = transform.Find("taskContainer");
         //taskTemplate = taskContainer.Find("taskTemplate");

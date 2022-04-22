@@ -31,6 +31,7 @@ public class SystemViewCameraControls : MonoBehaviour
         initZoom = Camera.main.orthographicSize;
         moveSpeed = initMoveSpeed;
         Debug.Log(camWidth + " " + camHeight);
+        GameManager.Instance.setUIZoom(100f);
     }
 
     private void FixedUpdate()
@@ -84,6 +85,7 @@ public class SystemViewCameraControls : MonoBehaviour
             moveSpeed = initMoveSpeed * cam.orthographicSize / initZoom;
             
         }
+        print(targetZoom);
         GameManager.Instance.setUIZoom(targetZoom);
     }
 
