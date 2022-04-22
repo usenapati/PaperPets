@@ -67,15 +67,15 @@ public class GameManager : MonoBehaviour
         // Prepare the dictionary for the paper currencies
         spendablePaper = new Dictionary<PaperType, float>();
 
-        // Prepare progression system
-        progressionSystem = new ProgressionSystem();
-        progressionSystem.setup();
-
         // load the paper dictionary
         foreach (PaperType p in Resources.FindObjectsOfTypeAll(typeof(PaperType)) as PaperType[])
         {
             spendablePaper.Add(p, 0);
         }
+
+        // Prepare progression system
+        progressionSystem = new ProgressionSystem();
+        progressionSystem.setup();
 
         // Prepare the dictionary for terrariums
         terrariums = new Dictionary<string, WorldSim>();

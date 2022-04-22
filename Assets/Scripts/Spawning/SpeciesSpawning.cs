@@ -89,6 +89,7 @@ public class SpeciesSpawning : MonoBehaviour
                         organismsInScene[speciesName].Remove(gameObject);
                         deathSound.PlayOneShot(deathSounds[Random.Range(0, deathSounds.Length)]);
                         Destroy(gameObject);
+                        //deathParticles.transform.localScale = gameObject.transform.localScale * 100;
                         Instantiate(deathParticles, gameObject.transform.position, gameObject.transform.rotation);
                     }
                     /*if (speciesPopulation[i].population == 0)
