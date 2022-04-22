@@ -84,7 +84,7 @@ public class UI_Shop : MonoBehaviour
 
     private void Start()
     {
-        container = transform.Find("Container");
+        container = transform.Find("Shop Title Background").Find("Container");
         ItemTemplate = container.Find("ItemTemplate");
         ItemTemplate.gameObject.SetActive(active);
 
@@ -361,6 +361,10 @@ public class UI_Shop : MonoBehaviour
             count++;
 
         }*/
+        foreach (GameObject g in GameObject.FindGameObjectsWithTag("clone"))
+        {
+            Destroy(g);
+        }
         foreach (string s in GameManager.Instance.getProgression().getUnlockedSpecies())
         {
             SpeciesType p = Resources.Load("Species/" + s) as SpeciesType;
@@ -378,10 +382,11 @@ public class UI_Shop : MonoBehaviour
     //creates the shop buttons, eventually add Sprite to varaibles
     private void CreateItemButton(SpeciesType species, int cost, int index, PaperType paper){
         Transform shop = Instantiate(ItemTemplate, container);
+        shop.gameObject.SetActive(active);
         RectTransform shopTranform = shop.GetComponent<RectTransform>();
 
-        float height = spacing;
-        shopTranform.anchoredPosition = new Vector2(0, -height * index);
+/*        float height = spacing;
+        shopTranform.localPosition = new Vector2(0, -height * index + ItemTemplate.transform.position.y);*/
 
         shopTranform.Find("name").GetComponent<TextMeshProUGUI>().SetText(species.SpeciesName);
         //print(species.SpeciesName);
@@ -683,7 +688,7 @@ public class UI_Shop : MonoBehaviour
                 g.GetComponent<RawImage>().enabled = true;
             }
 
-            ItemTemplate.gameObject.SetActive(active);
+            //ItemTemplate.gameObject.SetActive(active);
             GenerateShopValues();
 
             temp = GameObject.FindGameObjectsWithTag("shop4");
