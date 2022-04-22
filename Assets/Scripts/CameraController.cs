@@ -66,7 +66,7 @@ public class CameraController : MonoBehaviour
 
     private float zoom1D;
 
-    private float tempZoom;
+    //private float tempZoom;
 
     // Camera Movement
     [Header("Camera Values")]
@@ -95,10 +95,7 @@ public class CameraController : MonoBehaviour
         dollyCart = FindObjectOfType<CinemachineDollyCart>().gameObject;
         dollyTrack = FindObjectOfType<CinemachineSmoothPath>().gameObject;
         target = GameObject.FindGameObjectWithTag("target");
-        panValue = 0.6599998f;
-        tiltValue = 7.600001f;
-        zoomValue = 20.4f;
-        cameraYValue = 0.8800008f;
+        //tempZoom = zoomValue;
     }
 
     private void FixedUpdate()
@@ -150,16 +147,16 @@ public class CameraController : MonoBehaviour
 
     void IncrementPan()
     {
-        tempPan += pan1D * Time.deltaTime * cameraSpeed;
-        panValue = Mathf.Clamp(tempPan, panMinValue, panMaxValue);
-        tempPan = Mathf.Clamp(tempPan, -1, 1);
+        //tempPan += pan1D * Time.deltaTime * cameraSpeed;
+        panValue = Mathf.Clamp(panValue + pan1D * Time.deltaTime * cameraSpeed, panMinValue, panMaxValue);
+        //tempPan = Mathf.Clamp(tempPan, -1, 1);
     }
     
     void DecrementPan()
     {
-        tempPan += pan1D * Time.deltaTime * cameraSpeed;
-        panValue = Mathf.Clamp(tempPan, panMinValue, panMaxValue);
-        tempPan = Mathf.Clamp(tempPan, -1, 1);
+        //tempPan += pan1D * Time.deltaTime * cameraSpeed;
+        panValue = Mathf.Clamp(panValue + pan1D * Time.deltaTime * cameraSpeed, panMinValue, panMaxValue);
+        //tempPan = Mathf.Clamp(tempPan, -1, 1);
     }
     #endregion
 
@@ -211,16 +208,17 @@ public class CameraController : MonoBehaviour
     void IncrementZoom()
     {
         //tempZoom += zoom1D * Time.deltaTime * zoomSpeed * cameraSpeed;
-        tempZoom += 1 * Time.deltaTime * zoomSpeed * cameraSpeed;
-        zoomValue = Mathf.Clamp(tempZoom, zoomMinValue, zoomMaxValue);
-        tempZoom = Mathf.Clamp(tempZoom, -60, 60);
+        //tempZoom = Mathf.Clamp(tempZoom + 1 * Time.deltaTime * zoomSpeed * cameraSpeed, zoomMinValue, zoomMaxValue);
+        zoomValue = Mathf.Clamp(zoomValue + 1 * Time.deltaTime * zoomSpeed * cameraSpeed, zoomMinValue, zoomMaxValue);
+        //tempZoom = Mathf.Clamp(tempZoom, -60, 60);
     }
 
     void DecrementZoom()
     {
-        tempZoom += -1 * Time.deltaTime * zoomSpeed * cameraSpeed;
-        zoomValue = Mathf.Clamp(tempZoom, zoomMinValue, zoomMaxValue);
-        tempZoom = Mathf.Clamp(tempZoom, -60, 60);
+        //tempZoom += -1 * Time.deltaTime * zoomSpeed * cameraSpeed;
+        //zoomValue = Mathf.Clamp(tempZoom, zoomMinValue, zoomMaxValue);
+        zoomValue = Mathf.Clamp(zoomValue - 1 * Time.deltaTime * zoomSpeed * cameraSpeed, zoomMinValue, zoomMaxValue);
+        //tempZoom = Mathf.Clamp(tempZoom, -60, 60);
     }
     #endregion
     
@@ -241,16 +239,16 @@ public class CameraController : MonoBehaviour
 
     void IncrementYPosition()
     {
-        tempCameraY += cameraY1D * Time.deltaTime * cameraSpeed;
-        cameraYValue = Mathf.Clamp(tempCameraY, cameraMinYValue, cameraMaxYValue);
-        tempCameraY = Mathf.Clamp(tempCameraY, 0, 3);
+        //tempCameraY += cameraY1D * Time.deltaTime * cameraSpeed;
+        cameraYValue = Mathf.Clamp(cameraYValue + cameraY1D * Time.deltaTime * cameraSpeed, cameraMinYValue, cameraMaxYValue);
+        //tempCameraY = Mathf.Clamp(tempCameraY, 0, 3);
     }
 
     void DecrementYPosition()
     {
-        tempCameraY += cameraY1D * Time.deltaTime  * cameraSpeed;
-        cameraYValue = Mathf.Clamp(tempCameraY, cameraMinYValue, cameraMaxYValue);
-        tempCameraY = Mathf.Clamp(tempCameraY, 0, 3);
+        //tempCameraY += cameraY1D * Time.deltaTime  * cameraSpeed;
+        cameraYValue = Mathf.Clamp(cameraYValue + cameraY1D * Time.deltaTime * cameraSpeed, cameraMinYValue, cameraMaxYValue);
+        //tempCameraY = Mathf.Clamp(tempCameraY, 0, 3);
     }
     #endregion
 
