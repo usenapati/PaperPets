@@ -28,3 +28,7 @@ MonoBehaviour:
   speciesLimit: 10
   conversionValue: 1
   speciesColor: {r: 1, g: 0.78823537, b: 0.81568635, a: 1}
+  sounds:
+  - {fileID: 8300000, guid: fb9edf5c5d3146e45b173b7fec0031c7, type: 3}
+  minSpawnAudioTime: 0
+  maxSpawnAudioTime: 0

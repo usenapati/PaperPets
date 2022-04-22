@@ -29,6 +29,11 @@ public class SpeciesVisualData : ScriptableObject
     public int conversionValue;
 
     public Color speciesColor;
+
+    public AudioClip[] sounds;
+    public float minSpawnAudioTime;
+    public float maxSpawnAudioTime;
+    [Range(0f,1f)] public float volume;
 }
 
 public enum SpeciesPathType
