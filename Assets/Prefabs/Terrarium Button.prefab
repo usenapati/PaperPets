@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 2814271981444135991}
   - component: {fileID: 4140501713606691761}
   - component: {fileID: 2075721689621827229}
+  - component: {fileID: -4995065381643625469}
   m_Layer: 5
   m_Name: Terrarium Button
   m_TagString: Untagged
@@ -282,6 +283,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrariumNameField: {fileID: 3740050351076286019}
+--- !u!114 &-4995065381643625469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5844501106520883804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: 680
+  m_MinHeight: 570
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &5970862458856158189
 GameObject:
   m_ObjectHideFlags: 0

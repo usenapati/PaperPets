@@ -21,6 +21,9 @@ public class SystemView : MonoBehaviour
     Dictionary<string, Species> organisms;
     Dictionary<string, GameObject> circles;
 
+    public TMP_Text lightText;
+    public TMP_Text waterText;
+
     private void Start()
     {
         organisms = new Dictionary<string, Species>();
@@ -38,6 +41,9 @@ public class SystemView : MonoBehaviour
 
         pop.SetText(totalPop.ToString());
         print("test");
+
+        lightText.text = "Light: \n" + GameManager.Instance.getCurrentWorld().getLightLevel().ToString();
+        waterText.text = "Water: \n" + GameManager.Instance.getCurrentWorld().getWaterLevel().ToString();
     }
 
     private void drawClique(string mainSpecies, HashSet<string> closed, HashSet<string> remaining, float posX, float posY, int depth)

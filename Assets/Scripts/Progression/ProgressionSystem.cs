@@ -86,8 +86,9 @@ public class ProgressionSystem
             }
 
         }
-        //unlockedSpecies.Add("Milkweed");
-        unlockAll();
+        unlockedSpecies.Add("Milkweed");
+        unlockedSpecies.Add("Aphid");
+        //unlockAll();
     }
 
     public HashSet<string> getUnlocks()
@@ -195,6 +196,15 @@ public class ProgressionSystem
                     reader.Read();
                     float amount = float.Parse(reader.GetAttribute("amount"));
                     task = new PaperTask(name, Resources.Load("Paper/" + color) as PaperType, amount);
+                    break;
+                case "SpeciesTask":
+                    reader.Read();
+                    reader.Read();
+                    string sName = reader.GetAttribute("name");
+                    reader.Read();
+                    reader.Read();
+                    string speciesType = reader.GetAttribute("species");
+                    task = new SpeciesTask(sName, speciesType);
                     break;
                 default:
                     Debug.LogWarning("Task type not found of type: " + reader.GetAttribute("type"));

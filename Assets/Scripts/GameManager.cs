@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     private float accumulator = 0f;
     private uint tick = 0;
     private bool paused = false;
+    private float test;
 
     private Dictionary<string, bool> isOwned = new Dictionary<string, bool>();
 
@@ -241,6 +242,16 @@ public class GameManager : MonoBehaviour
     public void pause()
     {
         paused = true;
+    }
+
+    public float getUIZoom()
+    {
+        return test;
+    }
+
+    public void setUIZoom(float zoom)
+    {
+        test = zoom;
     }
 
 }

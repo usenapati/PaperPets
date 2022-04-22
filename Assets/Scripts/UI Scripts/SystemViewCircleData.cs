@@ -14,6 +14,7 @@ public class SystemViewCircleData : MonoBehaviour, IPointerEnterHandler, IPointe
     [SerializeField] TextMeshPro water;
     [SerializeField] TextMeshPro paper;
 
+    SystemViewCameraControls test;
     Species species;
 
     public void setSpecies(Species s)
@@ -33,6 +34,7 @@ public class SystemViewCircleData : MonoBehaviour, IPointerEnterHandler, IPointe
     public void OnPointerEnter(PointerEventData p)
     {
         infoBox.SetActive(true);
+        infoBox.transform.localScale = new Vector3(GameManager.Instance.getUIZoom()/100, GameManager.Instance.getUIZoom()/100, 1);
         print("enter");
     }
 
