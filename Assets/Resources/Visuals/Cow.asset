@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3558473aa1060eb478fb2029690c95d3, type: 3}
   m_Name: Cow
   m_EditorClassIdentifier: 
-  speciesName: 
-  sprite: {fileID: 0}
-  sprite2: {fileID: 0}
-  animationTime: 0
-  pathType: 0
-  pathTimeSeconds: 0
-  radius: 0
-  pathRandomnessX: 0
+  speciesName: Cow
+  sprite: {fileID: 21300000, guid: f52ead1217e08fe41ab1b36ed94cde9f, type: 3}
+  sprite2: {fileID: 21300000, guid: 2c7ee17488fe8db4191fbdfaf0bf3118, type: 3}
+  animationTime: 0.8
+  pathType: 100
+  pathTimeSeconds: 2
+  radius: 0.01
+  pathRandomnessX: 0.01
   pathRandomnessY: 0
-  pathRandomnessZ: 0
-  scale: {x: 0, y: 0, z: 0}
+  pathRandomnessZ: 0.01
+  scale: {x: 0.03, y: 0.03, z: 0.03}
   layerHeight: 0
-  height: 0
-  speciesLimit: 0
-  conversionValue: 0
-  speciesColor: {r: 0, g: 0, b: 0, a: 0}
+  height: -0.28
+  speciesLimit: 8
+  conversionValue: 2
+  speciesColor: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
