@@ -23,7 +23,7 @@ public class UI_Shop : MonoBehaviour
     private int count;
     private int tempCount = 1;
 
-    private Dictionary<PaperType, int> paperamounts;
+    private Dictionary<PaperType, float> paperamounts;
     Dictionary<string, Species> organisms;
     Dictionary<string, GameObject> unlockIndex;
 
@@ -169,34 +169,34 @@ public class UI_Shop : MonoBehaviour
         }
         
        
-        foreach (KeyValuePair<PaperType, int> kv in GameManager.Instance.GetSpendablePaper())
+        foreach (KeyValuePair<PaperType, float> kv in GameManager.Instance.GetSpendablePaper())
         {
             if(kv.Key.name == "green"){
-                greentext = kv.Value;
+                greentext = (int) kv.Value;
                 gr = kv.Key;
             }
             if(kv.Key.name == "blue"){
-                bluetext = kv.Value;
+                bluetext = (int) kv.Value;
                 b = kv.Key;
             }
             if(kv.Key.name == "yellow"){
-                yellowtext = kv.Value;
+                yellowtext = (int) kv.Value;
                 y = kv.Key;
             }
             if(kv.Key.name == "orange"){
-                orangetext = kv.Value;
+                orangetext = (int) kv.Value;
                 o = kv.Key;
             }
             if(kv.Key.name == "brown"){
-                browntext = kv.Value;
+                browntext = (int) kv.Value;
                 br = kv.Key;
             }
             if(kv.Key.name == "white"){
-                whitetext = kv.Value;
+                whitetext = (int) kv.Value;
                 w = kv.Key;
             }
             if(kv.Key.name == "red"){
-                redtext = kv.Value;
+                redtext = (int) kv.Value;
                 r = kv.Key;
             }
         }

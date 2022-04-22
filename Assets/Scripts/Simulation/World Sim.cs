@@ -274,7 +274,7 @@ public class WorldSim
             // update the paper amounts
             foreach (PaperValue p in s.producedPaper())
             {
-                GameManager.Instance.GetSpendablePaper()[p.PaperColor] += (int) p.PaperAmount;
+                GameManager.Instance.GetSpendablePaper()[p.PaperColor] += p.PaperAmount;
             }
             (float, float, float, float) speciesInfluence = recalculateBiome(s);
             biomeData.Item1 += speciesInfluence.Item1;

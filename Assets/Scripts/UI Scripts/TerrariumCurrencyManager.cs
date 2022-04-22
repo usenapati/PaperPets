@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TerrariumCurrencyManager : MonoBehaviour
 {
 
-    Dictionary<PaperType, int> paperamounts;
+    Dictionary<PaperType, float> paperamounts;
     [SerializeField] Text green;
     [SerializeField] Text blue;
     [SerializeField] Text yellow;
@@ -20,30 +20,30 @@ public class TerrariumCurrencyManager : MonoBehaviour
     {
         GameManager.Instance.pause();
         paperamounts = GameManager.Instance.GetSpendablePaper();
-        foreach (KeyValuePair<PaperType, int> kv in paperamounts)
+        foreach (KeyValuePair<PaperType, float> kv in paperamounts)
         {
             switch (kv.Key.PaperName)
             {
                 case "green":
-                    green.text = kv.Value.ToString();
+                    green.text = ((int)kv.Value).ToString();
                     break;
                 case "blue":
-                    blue.text = kv.Value.ToString();
+                    blue.text = ((int)kv.Value).ToString();
                     break;
                 case "yellow":
-                    yellow.text = kv.Value.ToString();
+                    yellow.text = ((int)kv.Value).ToString();
                     break;
                 case "orange":
-                    orange.text = kv.Value.ToString();
+                    orange.text = ((int)kv.Value).ToString();
                     break;
                 case "brown":
-                    brown.text = kv.Value.ToString();
+                    brown.text = ((int)kv.Value).ToString();
                     break;
                 case "white":
-                    white.text = kv.Value.ToString();
+                    white.text = ((int)kv.Value).ToString();
                     break;
                 case "red":
-                    red.text = kv.Value.ToString();
+                    red.text = ((int)kv.Value).ToString();
                     break;
             }
         }

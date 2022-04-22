@@ -54,7 +54,7 @@ namespace SaveSystem {
         [JsonProperty]
         private Dictionary<string, WorldSim> terrariums;
         [JsonProperty]
-        private Dictionary<string, int> spendablePaper;
+        private Dictionary<string, float> spendablePaper;
         [JsonProperty]
         private ProgressionSystem progressionSystem;
         [JsonProperty]
@@ -62,12 +62,12 @@ namespace SaveSystem {
 
         public SaveData() {}
 
-        public SaveData(Dictionary<string, WorldSim> terrariums, Dictionary<PaperType, int> spendablePaper, ProgressionSystem progressionSystem, Dictionary<string, bool> isOwned)
+        public SaveData(Dictionary<string, WorldSim> terrariums, Dictionary<PaperType, float> spendablePaper, ProgressionSystem progressionSystem, Dictionary<string, bool> isOwned)
         {
             this.terrariums = terrariums;
             
-            this.spendablePaper = new Dictionary<string, int>();
-            foreach (KeyValuePair<PaperType, int> kv in spendablePaper)
+            this.spendablePaper = new Dictionary<string, float>();
+            foreach (KeyValuePair<PaperType, float> kv in spendablePaper)
             {
                 this.spendablePaper[kv.Key.PaperName] = kv.Value;
             }
@@ -76,10 +76,10 @@ namespace SaveSystem {
             this.isOwned = isOwned;
         }
 
-        public Dictionary<PaperType, int> GetSpendablePaper()
+        public Dictionary<PaperType, float> GetSpendablePaper()
         {
-            Dictionary<PaperType, int> reloadedSpendable = new Dictionary<PaperType, int>();
-            foreach (KeyValuePair<string, int> kv in spendablePaper)
+            Dictionary<PaperType, float> reloadedSpendable = new Dictionary<PaperType, float>();
+            foreach (KeyValuePair<string, float> kv in spendablePaper)
             {
                 reloadedSpendable[Resources.Load("Paper/" + kv.Key) as PaperType] = kv.Value;
             }
