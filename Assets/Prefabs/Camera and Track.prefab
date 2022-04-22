@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 1318870692573113906}
   - component: {fileID: 1318870692573113907}
   - component: {fileID: 1318870692573113908}
+  - component: {fileID: 4932862299397352850}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -86,10 +87,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318870692573113904}
-  m_LocalRotation: {x: 0.000000072756315, y: 0.9987255, z: -0.05047285, w: 0.0000014396569}
+  m_LocalRotation: {x: 0.0000000046122506, y: 0.9999949, z: -0.0031999317, w: 0.0000014413515}
   m_LocalPosition: {x: -38.300117, y: 18.998793, z: -16.862488}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1318870692666559299}
   m_Father: {fileID: 1318870693472932830}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -178,6 +180,39 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4932862299397352850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318870692573113904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1318870692666559297
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,12 +238,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318870692666559297}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -72.3195, y: 5.0958176, z: -13.250969}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1318870693472932830}
-  m_RootOrder: 4
+  m_Father: {fileID: 1318870692573113909}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1318870692666559296
 MonoBehaviour:
@@ -225,12 +260,22 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   dollyCart: {fileID: 0}
   dollyTrack: {fileID: 0}
+  target: {fileID: 0}
   cameraSpeed: 1
   tiltSpeed: 40
   zoomSpeed: 20
+  panMinValue: 0
+  panMaxValue: 1
   panValue: 0.5
+  tiltMinValue: -10
+  tiltMaxValue: 30
   tiltValue: 0
+  zoomMinValue: 10
+  zoomMaxValue: 60
   zoomValue: 20
+  cameraMinYValue: 0
+  cameraMaxYValue: 3
+  cameraYValue: 0
   targetIndex: 0
 --- !u!114 &1318870692666559298
 MonoBehaviour:
@@ -333,6 +378,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e0601f77-82de-47db-8dda-ced42f08e0a0
     m_ActionName: Camera Controls/Change Target[/Keyboard/q,/Keyboard/anyKey]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 241bcf7f-9e6d-4698-b011-332d41940f6f
+    m_ActionName: Camera Controls/Tilt No Follow[/Keyboard/1,/Keyboard/2]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 01c5ef41-cf1b-4bd3-8611-66d7ac0f0fda
+    m_ActionName: Testing/Spawn Random Animal[/Keyboard/z]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: abf8dd69-6486-4f8c-a180-3cb4add24451
+    m_ActionName: Testing/Move Light[/Keyboard/downArrow,/Keyboard/upArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Camera Controls
@@ -578,7 +635,6 @@ Transform:
   - {fileID: 1318870693005612081}
   - {fileID: 1318870692514867809}
   - {fileID: 1318870693214377491}
-  - {fileID: 1318870692666559299}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
