@@ -27,4 +27,9 @@ MonoBehaviour:
   height: -0.28
   speciesLimit: 8
   conversionValue: 2
-  speciesColor: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
+  speciesColor: {r: 0.2627451, g: 0.2627451, b: 0.2627451, a: 1}
+  sounds:
+  - {fileID: 8300000, guid: 1af8bc51d8be1974aa6ef6d472ccfaa5, type: 3}
+  minSpawnAudioTime: 15
+  maxSpawnAudioTime: 120
+  volume: 0.1
