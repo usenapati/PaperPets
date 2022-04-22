@@ -16,7 +16,7 @@ public class TestSave : MonoBehaviour
     WorldSim temp4;
 
     Dictionary<string, WorldSim> terrariums = new Dictionary<string, WorldSim>();
-    Dictionary<PaperType, int> papermoney = new Dictionary<PaperType, int>();
+    Dictionary<PaperType, float> papermoney = new Dictionary<PaperType, float>();
 
     ProgressionSystem p;
 

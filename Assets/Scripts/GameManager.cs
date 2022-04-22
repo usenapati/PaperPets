@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     // Information being kept
     // The paper the player has available to spend
     // Look through specific file path to find all types of paper
-    private Dictionary<PaperType, int> spendablePaper;
+    private Dictionary<PaperType, float> spendablePaper;
     private ProgressionSystem progressionSystem;
     private string filename;
 
@@ -66,17 +66,17 @@ public class GameManager : MonoBehaviour
         m_TickEvents = new Dictionary<string, UnityEvent<float>>();
 
         // Prepare the dictionary for the paper currencies
-        spendablePaper = new Dictionary<PaperType, int>();
-
-        // Prepare progression system
-        progressionSystem = new ProgressionSystem();
-        progressionSystem.setup();
+        spendablePaper = new Dictionary<PaperType, float>();
 
         // load the paper dictionary
         foreach (PaperType p in Resources.FindObjectsOfTypeAll(typeof(PaperType)) as PaperType[])
         {
             spendablePaper.Add(p, 0);
         }
+
+        // Prepare progression system
+        progressionSystem = new ProgressionSystem();
+        progressionSystem.setup();
 
         // Prepare the dictionary for terrariums
         terrariums = new Dictionary<string, WorldSim>();
@@ -107,12 +107,12 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public Dictionary<PaperType, int> GetSpendablePaper()
+    public Dictionary<PaperType, float> GetSpendablePaper()
     {
         return spendablePaper;
     }
 
-    public void SetSpendablePaper(Dictionary<PaperType, int> s)
+    public void SetSpendablePaper(Dictionary<PaperType, float> s)
     {
         spendablePaper = s;
     }

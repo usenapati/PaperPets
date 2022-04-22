@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3558473aa1060eb478fb2029690c95d3, type: 3}
+  m_Name: Aphid
+  m_EditorClassIdentifier: 
+  speciesName: Aphid
+  sprite: {fileID: 21300000, guid: 893c246a655a809459b78d8230579dc9, type: 3}
+  sprite2: {fileID: 21300000, guid: 4ae8b91f2ca1b684597a5a6b9fd18235, type: 3}
+  animationTime: 0.05
+  pathType: 100
+  pathTimeSeconds: 0.1
+  radius: 0.02
+  pathRandomnessX: 0.05
+  pathRandomnessY: 0
+  pathRandomnessZ: 0.05
+  scale: {x: 0.005, y: 0.005, z: 0.005}
+  layerHeight: 0
+  height: -0.4
+  speciesLimit: 100
+  conversionValue: 3
+  speciesColor: {r: 0.22075468, g: 1, b: 0.23584074, a: 1}
