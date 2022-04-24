@@ -834,11 +834,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1318870692573113909, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0000014413515
+      value: 0.0000014069363
       objectReference: {fileID: 0}
     - target: {fileID: 1318870692573113909, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0000000046122506
+      value: 0.000000004502151
       objectReference: {fileID: 0}
     - target: {fileID: 1318870692573113909, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: m_LocalRotation.y
@@ -846,7 +846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1318870692573113909, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0031999317
+      value: -0.0031999515
       objectReference: {fileID: 0}
     - target: {fileID: 1318870692666559296, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: target
@@ -1030,11 +1030,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1318870693005612081, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0000014413515
+      value: 0.0000014069363
       objectReference: {fileID: 0}
     - target: {fileID: 1318870693005612081, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0000000046122506
+      value: 0.000000004502151
       objectReference: {fileID: 0}
     - target: {fileID: 1318870693005612081, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1042,7 +1042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1318870693005612081, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0031999317
+      value: -0.0031999515
       objectReference: {fileID: 0}
     - target: {fileID: 1318870693214377491, guid: 35f1fad5cc5c70a4abd11fd11c520849, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1535,6 +1535,18 @@ PrefabInstance:
     - target: {fileID: 2229122610097622188, guid: d487af926bacb0349957404fbb484fb7, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436658985040191499, guid: d487af926bacb0349957404fbb484fb7, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436658985040191499, guid: d487af926bacb0349957404fbb484fb7, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436658985040191499, guid: d487af926bacb0349957404fbb484fb7, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 8681249836127760151, guid: d487af926bacb0349957404fbb484fb7, type: 3}
       propertyPath: birthEffect

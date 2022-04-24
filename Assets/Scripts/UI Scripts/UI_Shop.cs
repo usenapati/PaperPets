@@ -568,7 +568,7 @@ public class UI_Shop : MonoBehaviour
             paperHad = yellowtext;  
         }
 
-        if(paperHad >= paperNeeded){
+        if(paperHad >= paperNeeded && !GameManager.Instance.getCurrentWorld().hasSpecies(s.SpeciesName)){
             GameManager.Instance.addSpecies(s);
             birthEffect.Play(true);
 
