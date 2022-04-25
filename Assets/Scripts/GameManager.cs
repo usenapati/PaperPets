@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     // Look through specific file path to find all types of paper
     private Dictionary<PaperType, float> spendablePaper;
     private ProgressionSystem progressionSystem;
+    private InvasivesManager invasivesManager;
     private string filename;
 
     // The simulation time tick default
@@ -77,6 +78,9 @@ public class GameManager : MonoBehaviour
         // Prepare progression system
         progressionSystem = new ProgressionSystem();
         progressionSystem.setup();
+
+        // Prepare invasives manager
+        invasivesManager = new InvasivesManager();
 
         // Prepare the dictionary for terrariums
         terrariums = new Dictionary<string, WorldSim>();
@@ -193,6 +197,7 @@ public class GameManager : MonoBehaviour
 
             // check progression
             progressionSystem.checkUnlocks();
+            invasivesManager.Update();
             m_TickEvents[DayNightCycle.tickEventName].Invoke(dt);
 
             // A new tick has passed

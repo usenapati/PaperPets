@@ -136,4 +136,19 @@
     
   </unlock>
 
+  <unlock id="7">
+
+    <unlockdata type="SPECIES" value="Aphid" />
+
+    <parents />
+
+    <children />
+
+    <task type="SpeciesTask">
+      <name name="Acquire an Aphid!" />
+      <species species="Aphid" />
+    </task>
+
+  </unlock>
+
 </progression>
