@@ -5,8 +5,16 @@ using UnityEngine;
 public class InvasivesManager
 {
 
-    float accumulator = 0;
     bool check = false;
+    HashSet<Invasive> invasivesWaiting;
+    HashSet<Invasive> toRemove;
+
+    public InvasivesManager()
+    {
+        invasivesWaiting = new HashSet<Invasive>();
+        invasivesWaiting.Add(new AphidInvasive());
+        toRemove = new HashSet<Invasive>();
+    }
 
     private void AddInvasive(string s)
     {
@@ -22,13 +30,17 @@ public class InvasivesManager
     {
         if (check) return;
 
-        //accumulator += Time.deltaTime;
-        if (GameManager.Instance.getCurrentWorld().hasSpecies("Monarch Butterfly"))
+        foreach (Invasive i in invasivesWaiting)
         {
-            check = true;
-            AddInvasive("Aphid");
+            if (i.CheckProgress())
+            {
+                toRemove.Add(i);
+                AddInvasive(i.GetSpecies());
+            }
         }
 
+        invasivesWaiting.ExceptWith(toRemove);
+        toRemove.Clear();
     }
 
 }
