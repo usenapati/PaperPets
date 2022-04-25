@@ -58,6 +58,7 @@ public class SpeciesTask : Task
     {
         this.name = name;
         this.speciesName = speciesName;
+        visible = false;
     }
 
     public override void checkCompletion()
