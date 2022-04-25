@@ -245,6 +245,16 @@ public class GameManager : MonoBehaviour
         paused = true;
     }
 
+    public void unpause()
+    {
+        paused = false;
+    }
+
+    public void togglePause()
+    {
+        paused = !paused;
+    }
+
     public float getUIZoom()
     {
         return test;
