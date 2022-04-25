@@ -348,6 +348,7 @@ public class UnlockData
 public class Unlock
 {
     string id;
+    bool visible = true;
     UnlockData value;
     ProgressionSystem progression;
 
@@ -388,11 +389,17 @@ public class Unlock
     public void addTask(Task t)
     {
         tasks.Add(t);
+        visible &= t.isVisible();
     }
 
     public string getID()
     {
         return id;
+    }
+
+    public bool getVisible()
+    {
+        return visible;
     }
 
     public UnlockData getValue()

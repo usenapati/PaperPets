@@ -254,13 +254,6 @@ public class UI_Shop : MonoBehaviour
                 }
                 
             }
-            /*foreach(Task t2 in t.getTasks())
-            {
-                taskCount++;
-                percent = t2.progress();
-                CreateTaskList(t, t2.getName(), percent);
-                
-            }*/
 
             CreateTaskList(t, "", 0);
             
@@ -304,50 +297,6 @@ public class UI_Shop : MonoBehaviour
             unlockIndex.Remove(s);
         }
 
-        //print("0");
-        // task.text = returningText;
-
-        // GameObject[] temp2;
-        // temp2 = GameObject.FindGameObjectsWithTag("progress");
-        // foreach(GameObject g in temp2)
-        // {      
-        //     g.GetComponent<RectTransform>().sizeDelta = new Vector2(percent * 348f, 28f);
-        //     if(percent >= 1)
-        //     {
-        //         GameObject[] temp3;
-        //         temp3 = GameObject.FindGameObjectsWithTag("alert");
-        //         foreach(GameObject g1 in temp3)
-        //         {      
-        //             g1.GetComponent<TextMeshProUGUI>().SetText("!");
-        //         }
-        //         temp3 = GameObject.FindGameObjectsWithTag("speciesunlockedtext");
-        //         foreach(GameObject g1 in temp3)
-        //         {
-        //             g1.GetComponent<TextMeshProUGUI>().enabled = true;
-        //         }
-        //         temp3 = GameObject.FindGameObjectsWithTag("speciesunlockedimage");
-        //         foreach(GameObject g1 in temp3)
-        //         {
-        //             g1.GetComponent<Image>().enabled = true;
-        //             on = true;
-        //         }
-                
-        //     }
-            // GameObject[] colorchange = GameObject.FindGameObjectsWithTag("speciesunlockedimage");
-            // if(on)
-            // {
-            //     foreach(GameObject g1 in colorchange)
-            //     {
-            //         g1.GetComponent<Image>().color = new Color32((byte)Random.Range(0, 255),(byte)Random.Range(0, 255),(byte)Random.Range(0, 255),255);
-            //     }
-                
-            // }            
-            
-            // g.GetComponent<RectTransform>().localPosition = new Vector3(
-            // g.GetComponent<RectTransform>().localPosition.x + (count * 38.4f), g.GetComponent<RectTransform>().localPosition.y, 0f);
-        //}
-       
-        //GameManager.Instance.getWaterCost().ToString() + "\n" + GameManager.Instance.getLightCost().ToString() + "\n" 
     }
 
     private void GenerateShopValues()
@@ -447,26 +396,12 @@ public class UI_Shop : MonoBehaviour
     }
 
     private void CreateTaskList(Unlock u, string taskText, float percent){
-        
+
+        if (!u.getVisible()) return;
+
         GameObject[] temp2;
         temp2 = GameObject.FindGameObjectsWithTag("task");
-        //print(taskCount);
-        /*if(temp2.Length < taskCount || reset)
-        {
-            
-            Transform task1 = Instantiate(taskTemplate, taskContainer);
-            RectTransform taskTransform = task1.GetComponent<RectTransform>();
-            unlockIndex.Add(taskTransform, taskCount);
-            taskTransform.tag = "task";
-
-            float height = 100;
-            taskTransform.anchoredPosition = new Vector2(0, -height * (taskCount - 1));
-
-            taskTransform.Find("TaskText").GetComponent<TextMeshProUGUI>().SetText(taskText);
-            reset = false;
-            
-            
-        }*/
+        
         if (!unlockIndex.ContainsKey(u.getID()))
         {
             GameObject newUnlock = Instantiate(unlockTemplate, taskContainer);
@@ -484,54 +419,11 @@ public class UI_Shop : MonoBehaviour
             }
         }
 
-        /*foreach (KeyValuePair<RectTransform, int> kv in unlockIndex)
-        {
-            if(kv.Value == taskCount)
-            {
-                tempTransform = kv.Key;
-                if(tempTransform != null)
-                { 
-                    tempTransform.Find("Progressbar").GetComponent<RectTransform>().sizeDelta = new Vector2(percent * 348f, 28f);
-                }
-            }
-        }*/
         GameObject unlock = unlockIndex[u.getID()];
         for (int i = 0; i < u.getTasks().Count; i++)
         {
             unlock.transform.GetChild(i + 1).Find("Progressbar").GetComponent<RectTransform>().sizeDelta = new Vector2(u.getTasks()[i].progress() * 348f, 28f);
         }
-        
-        
-        
-        /*if(percent >= 1)
-        {
-            unlockIndex.Remove(tempTransform);
-            GameObject[] temp3;
-            temp3 = GameObject.FindGameObjectsWithTag("alert");
-            foreach(GameObject g1 in temp3)
-            {      
-                g1.GetComponent<TextMeshProUGUI>().SetText("!");
-            }
-            temp3 = GameObject.FindGameObjectsWithTag("speciesunlockedtext");
-            foreach(GameObject g1 in temp3)
-            {
-                g1.GetComponent<TextMeshProUGUI>().enabled = true;
-            }
-            temp3 = GameObject.FindGameObjectsWithTag("speciesunlockedimage");
-            foreach(GameObject g1 in temp3)
-            {
-                g1.GetComponent<Image>().enabled = true;
-                on = true;
-            }
-            foreach(GameObject g in temp2)
-            {
-                Destroy(g);
-            }
-            
-            reset = true;
-                
-        }*/
-        //if (u.checkCompletion)
     
     }
 
