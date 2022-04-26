@@ -17,7 +17,7 @@ MonoBehaviour:
   sprite2: {fileID: 21300000, guid: 4ae8b91f2ca1b684597a5a6b9fd18235, type: 3}
   animationTime: 0.05
   pathType: 100
-  pathTimeSeconds: 0.1
+  pathTimeSeconds: 1
   radius: 0.02
   pathRandomnessX: 0.05
   pathRandomnessY: 0
@@ -28,3 +28,7 @@ MonoBehaviour:
   speciesLimit: 100
   conversionValue: 3
   speciesColor: {r: 0.22075468, g: 1, b: 0.23584074, a: 1}
+  sounds: []
+  minSpawnAudioTime: 0
+  maxSpawnAudioTime: 0
+  volume: 0

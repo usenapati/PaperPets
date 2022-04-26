@@ -147,9 +147,13 @@ Material:
     - Vector2_c730fc01a1e44d74a44eb2e291873723: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
 <<<<<<< HEAD
+<<<<<<< HEAD
     - _CloudOffset: {r: 1.4099989, g: 1.4099989, b: 0, a: 0}
 =======
     - _CloudOffset: {r: 6.500101, g: 6.500101, b: 0, a: 0}
+>>>>>>> dev
+=======
+    - _CloudOffset: {r: 45.61054, g: 45.61054, b: 0, a: 0}
 >>>>>>> dev
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
