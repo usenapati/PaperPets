@@ -9,7 +9,7 @@ namespace SaveSystem {
     public static class SavesManager
     {
         private static string extension = ".sav";
-        private static string savePath = "/Saves/"; // relative to streaming assets path
+        private static string savePath = "Saves"; // relative to streaming assets path
 
         public static void SaveGame(string fileName, SaveData saveData)
         {
@@ -17,13 +17,13 @@ namespace SaveSystem {
                 new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
 
 #if UNITY_EDITOR
-            string path = Application.streamingAssetsPath + savePath + fileName + extension;
+            string path = Path.Combine(Application.streamingAssetsPath, savePath, fileName + extension);
             var sw = new System.IO.StreamWriter(path);
 #else
-            string path = Application.persistentDataPath + savePath;
+            string path = Path.Combine(Application.persistentDataPath, savePath);
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
-            var sw = new System.IO.StreamWriter(path + fileName + extension);
+            var sw = new System.IO.StreamWriter(Path.Combine(path, fileName + extension));
 #endif
             sw.Write(json);
             sw.Close();
@@ -32,13 +32,13 @@ namespace SaveSystem {
         public static SaveData LoadGame(string fileName)
         {
 #if UNITY_EDITOR
-            string path = Application.streamingAssetsPath + savePath + fileName + extension;
+            string path = Path.Combine(Application.streamingAssetsPath, savePath, fileName + extension);
             var sr = new System.IO.StreamReader(path);
 #else
-            string path = Application.persistentDataPath + savePath;
+            string path = Path.Combine(Application.persistentDataPath, savePath);
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
-            var sr = new System.IO.StreamReader(path + fileName + extension);
+            var sr = new System.IO.StreamReader(Path.Combine(path, fileName + extension));
 #endif
             SaveData saveData = JsonConvert.DeserializeObject<SaveData>(sr.ReadToEnd(),
                 new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
