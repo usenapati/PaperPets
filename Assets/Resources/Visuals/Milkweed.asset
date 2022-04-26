@@ -15,9 +15,20 @@ MonoBehaviour:
   speciesName: Milkweed
   sprite: {fileID: 21300000, guid: dd3972d829af03d49af0730f64b225cc, type: 3}
   sprite2: {fileID: 21300000, guid: dd3972d829af03d49af0730f64b225cc, type: 3}
-  scale: {x: 0.01, y: 0.01, z: 0.01}
+  animationTime: 0
+  pathType: 0
+  pathTimeSeconds: 0
+  radius: 0
+  pathRandomnessX: 0
+  pathRandomnessY: 0
+  pathRandomnessZ: 0
+  scale: {x: 0.02, y: 0.02, z: 0.02}
   layerHeight: 0
   height: -0.36
   speciesLimit: 100
   conversionValue: 1
   speciesColor: {r: 0.75294125, g: 0.2901961, b: 0.4784314, a: 1}
+  sounds: []
+  minSpawnAudioTime: 0
+  maxSpawnAudioTime: 0
+  volume: 0
