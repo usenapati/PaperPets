@@ -1546,9 +1546,21 @@ PrefabInstance:
       propertyPath: m_Viewport
       value: 
       objectReference: {fileID: 1876999939}
+    - target: {fileID: 1929342042810264636, guid: d487af926bacb0349957404fbb484fb7, type: 3}
+      propertyPath: m_Elasticity
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2229122610097622188, guid: d487af926bacb0349957404fbb484fb7, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5608576037063454777, guid: d487af926bacb0349957404fbb484fb7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1564
+      objectReference: {fileID: 0}
+    - target: {fileID: 5608576037063454777, guid: d487af926bacb0349957404fbb484fb7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7436658985040191499, guid: d487af926bacb0349957404fbb484fb7, type: 3}
       propertyPath: m_UiScaleMode
@@ -1654,6 +1666,10 @@ PrefabInstance:
       propertyPath: m_Viewport
       value: 
       objectReference: {fileID: 1658161844}
+    - target: {fileID: 8863383917561350022, guid: d487af926bacb0349957404fbb484fb7, type: 3}
+      propertyPath: m_Elasticity
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d487af926bacb0349957404fbb484fb7, type: 3}
 --- !u!1001 &9052401237977765076
