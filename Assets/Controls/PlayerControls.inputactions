@@ -86,6 +86,39 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "Pan - Mouse",
+                    "id": "6c049ca5-60ed-407c-9106-23011faf86a3",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pan",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Modifier",
+                    "id": "f05b2572-e053-4cd4-b2d7-7ed245549b9a",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pan",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Binding",
+                    "id": "2a23b24e-aa49-4ad0-8b8a-37122ef27159",
+                    "path": "<Mouse>/delta/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pan",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "Tilt - KnM",
                     "id": "bbb19bf9-cd84-48d7-99bb-0c88264e4ccc",
                     "path": "1DAxis",
@@ -111,6 +144,39 @@
                     "name": "positive",
                     "id": "e87d43a0-3081-4345-a3f1-69f758a367ac",
                     "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tilt Follow",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Tilt - Mouse",
+                    "id": "7fd0e00a-d7e4-45fa-91b6-c81a5f201c05",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tilt Follow",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "134b95af-847f-48d6-9f6f-6b28e06510b4",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tilt Follow",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "13f95b26-7068-4a48-b721-33bcda4c7873",
+                    "path": "<Mouse>/delta/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -154,7 +220,7 @@
                 {
                     "name": "negative",
                     "id": "8cbce1d2-215d-45c9-b256-5e38fe9e217c",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -165,7 +231,7 @@
                 {
                     "name": "positive",
                     "id": "b9c05242-7c97-4b76-adc3-2fd271914f16",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
