@@ -79,7 +79,7 @@ public class SpeciesSpawning : MonoBehaviour
             if (organisms[speciesName] != null)
             {
                 int difference = organismsInScene[speciesName].Count - organisms[speciesName].conversionValue * speciesPopulation[i].population;
-                Debug.Log("difference: " + difference);
+                //Debug.Log("difference: " + difference);
                 // Deleting Organisms
                 if (difference > 0)
                 {
