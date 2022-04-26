@@ -235,7 +235,7 @@ public class UI_Shop : MonoBehaviour
 
         // Transform progress = Instantiate(progressbar);
         // RectTransform progressb = progress.GetComponent<RectTransform>();
-        print(unlockIndex.Count);
+        //print(unlockIndex.Count);
         foreach(Unlock t in p.inProgress)
         {
 
