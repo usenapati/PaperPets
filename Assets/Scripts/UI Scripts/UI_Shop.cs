@@ -238,22 +238,6 @@ public class UI_Shop : MonoBehaviour
         print(unlockIndex.Count);
         foreach(Unlock t in p.inProgress)
         {
-            string te = t.getTaskProgress();
-            
-            foreach (char c in te)
-            {
-                if(c.ToString() == "["||
-                c.ToString() == "]" ||
-                c.ToString() == "-"||
-                c.ToString() == "#")
-                {
-                    continue;
-                } 
-                else{
-                    returningText += c;
-                }
-                
-            }
 
             CreateTaskList(t, "", 0);
             

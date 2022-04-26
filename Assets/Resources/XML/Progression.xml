@@ -93,7 +93,9 @@
       <parent id="1" />
     </parents>
 
-    <children />
+    <children>
+      <child id="8" />
+    </children>
     
     <task type="PaperTask">
       <name name="Earn 50 Brown Paper!" />
@@ -149,6 +151,22 @@
       <species species="Aphid" />
     </task>
 
+  </unlock>
+
+  <unlock id="8">
+    <unlockdata type="SPECIES" value="Cow" />
+
+    <parents>
+      <parent id="4" />
+    </parents>
+
+    <children />
+
+    <task type="PaperTask">
+      <name name="Acquire 100 Red Paper!" />
+      <color color="red" />
+      <amount amount="100" />
+    </task>
   </unlock>
 
 </progression>

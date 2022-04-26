@@ -69,11 +69,15 @@ public class GameManager : MonoBehaviour
         // Prepare the dictionary for the paper currencies
         spendablePaper = new Dictionary<PaperType, float>();
 
+        string debug = "";
         // load the paper dictionary
-        foreach (PaperType p in Resources.FindObjectsOfTypeAll(typeof(PaperType)) as PaperType[])
+        foreach (PaperType p in Resources.LoadAll<PaperType>("Paper/"))
         {
             spendablePaper.Add(p, 0);
+            debug += p.PaperName + " ";
+
         }
+        Debug.Log(debug);
 
         // Prepare progression system
         progressionSystem = new ProgressionSystem();

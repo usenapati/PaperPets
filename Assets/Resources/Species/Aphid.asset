@@ -32,7 +32,7 @@ MonoBehaviour:
   - plant
   speciesCost:
   - paperColor: {fileID: 11400000, guid: 4251dc4ca9f9c8e4ea93289881f8ca52, type: 2}
-    paperValue: 0
+    paperValue: 500
   speciesProduce:
   - paperColor: {fileID: 11400000, guid: f7c9c4b7fec90ea42b1ef9c913bcf3dc, type: 2}
     paperValue: 0.005

@@ -30,8 +30,8 @@ MonoBehaviour:
   foods:
   - flowering
   speciesCost:
-  - paperColor: {fileID: 11400000, guid: 4251dc4ca9f9c8e4ea93289881f8ca52, type: 2}
-    paperValue: 0
+  - paperColor: {fileID: 11400000, guid: 47d75d2dda4dc3e41aa45d245153cf71, type: 2}
+    paperValue: 100
   speciesProduce:
   - paperColor: {fileID: 11400000, guid: a1f420661ebcec944931b9554ab3598c, type: 2}
     paperValue: 1
