@@ -6,14 +6,33 @@
       "$id": "3",
       "biome": {
         "$id": "4",
+<<<<<<< HEAD
+        "temp": 0.0,
+        "humidity": 0.0,
+        "windSpeed": 0.0
+=======
         "temp": 70.31994,
         "humidity": 49.4329834,
         "windSpeed": 10.7493792
+>>>>>>> dev
       },
       "isActive": false,
       "<name>k__BackingField": "First World",
       "<id>k__BackingField": null,
       "organisms": {
+<<<<<<< HEAD
+        "$id": "5"
+      },
+      "speciesByTag": {
+        "$id": "6"
+      },
+      "tagSubscribers": {
+        "$id": "7"
+      },
+      "toBeRemoved": [],
+      "files": {
+        "$id": "8"
+=======
         "$id": "5",
         "Eagle": {
           "$id": "6",
@@ -1166,6 +1185,7 @@
       "toBeRemoved": [],
       "files": {
         "$id": "42"
+>>>>>>> dev
       },
       "lightUpgradeLevel": 1,
       "baseLight": 50.0,
@@ -1174,6 +1194,23 @@
     }
   },
   "spendablePaper": {
+<<<<<<< HEAD
+    "$id": "9",
+    "green": 0.0,
+    "orange": 0.0,
+    "brown": 0.0,
+    "blue": 0.0,
+    "red": 0.0,
+    "white": 0.0,
+    "yellow": 0.0
+  },
+  "progressionSystem": {
+    "$id": "10",
+    "nextID": 0,
+    "unlockedSpecies": [
+      "Milkweed",
+      "Aphid"
+=======
     "$id": "43",
     "green": 53327.7578,
     "orange": 11394.0371,
@@ -1196,10 +1233,14 @@
       "Pig",
       "Eagle",
       "Oriole"
+>>>>>>> dev
     ],
     "otherUnlocks": []
   },
   "isOwned": {
+<<<<<<< HEAD
+    "$id": "11"
+=======
     "$id": "45",
     "Eagle": true,
     "Monarch Butterfly": true,
@@ -1210,5 +1251,6 @@
     "Aphid": true,
     "Ladybug": true,
     "Pig": true
+>>>>>>> dev
   }
 }
