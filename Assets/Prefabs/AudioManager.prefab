@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseAudioPlayer: {fileID: 1814483440730704095}
-  baseTrack: {fileID: 8300000, guid: a07dc660c4e87c743baa3ad97c365535, type: 3}
-  loopStem1: {fileID: 8300000, guid: da5a21454c037934391e86ce1e52ccd1, type: 3}
-  loopStem2: {fileID: 8300000, guid: 376f2ab332884d4488d2de1a8a14ea79, type: 3}
-  loopStem3: {fileID: 8300000, guid: b51646c0bab63a74680a8bc4dcd7d0f6, type: 3}
-  loopTimeSec: 64.142
+  baseTrack: {fileID: 8300000, guid: 960d61eb2b35a5a43b403795c1ff97b7, type: 3}
+  loopStem1: {fileID: 8300000, guid: ebe6661f06562c44cb1ce865d2d70400, type: 3}
+  loopStem2: {fileID: 8300000, guid: 7a0a62048c9363e428086ea53abc17de, type: 3}
+  loopStem3: {fileID: 8300000, guid: f96e236e627913c4d97650469a808d5c, type: 3}
+  loopTimeSec: 67.085
   stemInterval: 8.969
   stemsCanPlay: 1
   stemsPlaying: 000000
