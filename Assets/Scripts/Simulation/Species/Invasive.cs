@@ -34,7 +34,7 @@ public class AphidInvasive : Invasive
 
         if (GameManager.Instance.getCurrentWorld().hasSpecies("Oak"))
         {
-            if (Random.Range(0, 1) < unlockPercent)
+            if (Random.Range(0f, 1) < unlockPercent)
             {
                 unlocked = true;
                 Debug.Log("Adding Aphid Invasion!");
