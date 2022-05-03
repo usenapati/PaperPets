@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+
+<progression>
+
+  <unlock id="0">
+    
+    <unlockdata type="SPECIES" value="Monarch Butterfly" />
+
+    <parents />
+
+    <children>
+      <child id="1" />
+    </children>
+    
+    <task type="PaperTask">
+      <name name="Earn 100 Green Paper!" />
+      <color color="green" />
+      <amount amount="100" />
+    </task>
+    
+  </unlock>
+
+  <unlock id="1">
+
+    <unlockdata type="SPECIES" value="Oak" />
+    
+    <parents>
+      <parent id="0" />
+    </parents>
+
+    <children>
+      <child id="2" />
+      <child id="3" />
+      <child id="4" />
+      <child id="5" />
+    </children>
+    
+    <task type="PaperTask">
+      <name name="Earn 100 Orange Paper!" />
+      <color color="orange" />
+      <amount amount="100" />
+    </task>
+    
+  </unlock>
+  
+  <unlock id="2">
+
+    <unlockdata type="SPECIES" value="Eagle" />
+    
+    <parents>
+      <parent id="1" />
+    </parents>
+
+    <children />
+    
+    <task type="PaperTask">
+      <name name="Earn 100 Brown Paper!" />
+      <color color="brown" />
+      <amount amount="100" />
+    </task>
+    
+  </unlock>
+  
+  <unlock id="3">
+
+    <unlockdata type="SPECIES" value="Oriole" />
+    
+    <parents>
+      <parent id="1" />
+    </parents>
+
+    <children />
+    
+    <task type="PaperTask">
+      <name name="Earn 100 Brown Paper!" />
+      <color color="brown" />
+      <amount amount="100" />
+    </task>
+    
+    <task type="PaperTask">
+      <name name="Earn 1000 Green Paper!" />
+      <color color="green" />
+      <amount amount="1000" />
+    </task>
+    
+  </unlock>
+  
+  <unlock id="4">
+
+    <unlockdata type="SPECIES" value="Pig" />
+    
+    <parents>
+      <parent id="1" />
+    </parents>
+
+    <children>
+      <child id="8" />
+    </children>
+    
+    <task type="PaperTask">
+      <name name="Earn 50 Brown Paper!" />
+      <color color="brown" />
+      <amount amount="50" />
+    </task>
+    
+  </unlock>
+    
+  <unlock id="5">
+
+    <unlockdata type="SPECIES" value="Rabbit" />
+    
+    <parents>
+      <parent id="1" />
+    </parents>
+
+    <children />
+    
+    <task type="PaperTask">
+      <name name="Earn 20 Brown Paper!" />
+      <color color="brown" />
+      <amount amount="20" />
+    </task>
+    
+  </unlock>
+  
+  <unlock id="6">
+
+    <unlockdata type="SPECIES" value="Ladybug" />
+    
+    <parents />
+
+    <children />
+    
+    <task type="SpeciesTask">
+      <name name="Acquire an Aphid!" />
+      <species species="Aphid" />
+    </task>
+    
+  </unlock>
+
+  <unlock id="7">
+
+    <unlockdata type="SPECIES" value="Aphid" />
+
+    <parents />
+
+    <children />
+
+    <task type="SpeciesTask">
+      <name name="Acquire an Aphid!" />
+      <species species="Aphid" />
+    </task>
+
+  </unlock>
+
+  <unlock id="8">
+    <unlockdata type="SPECIES" value="Cow" />
+
+    <parents>
+      <parent id="4" />
+    </parents>
+
+    <children />
+
+    <task type="PaperTask">
+      <name name="Acquire 100 Red Paper!" />
+      <color color="red" />
+      <amount amount="100" />
+    </task>
+  </unlock>
+
+</progression>

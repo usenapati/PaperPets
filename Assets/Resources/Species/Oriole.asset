@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ab7ded98bed374591bfdb08f1d0bdd, type: 3}
+  m_Name: Oriole
+  m_EditorClassIdentifier: 
+  speciesName: Oriole
+  foodRequirements: 1
+  foodValue: 3
+  excessFoodRequired: 1
+  waterRequirements: 1
+  lightRequirements: 0
+  reproductionChance: 0.2
+  maxReproduction: 2
+  tags:
+  - animal
+  - flying
+  - bird
+  requiresHabitat: 1
+  habitats:
+  - tree
+  requiresFood: 1
+  foods:
+  - insect
+  speciesCost:
+  - paperColor: {fileID: 11400000, guid: 4251dc4ca9f9c8e4ea93289881f8ca52, type: 2}
+    paperValue: 1000
+  speciesProduce: []
+  idealTemperature: 70
+  idealHumidity: 50
+  idealWindSpeed: 15
+  biomeWeight: 1
+  tempRange:
+  - 30
+  - 100
+  humidityRange:
+  - 5
+  - 90

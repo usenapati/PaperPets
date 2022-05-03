@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3558473aa1060eb478fb2029690c95d3, type: 3}
+  m_Name: Cow
+  m_EditorClassIdentifier: 
+  speciesName: Cow
+  sprite: {fileID: 21300000, guid: f52ead1217e08fe41ab1b36ed94cde9f, type: 3}
+  sprite2: {fileID: 21300000, guid: 2c7ee17488fe8db4191fbdfaf0bf3118, type: 3}
+  animationTime: 0.8
+  pathType: 100
+  pathTimeSeconds: 2
+  radius: 0.01
+  pathRandomnessX: 0.01
+  pathRandomnessY: 0
+  pathRandomnessZ: 0.01
+  scale: {x: 0.03, y: 0.03, z: 0.03}
+  layerHeight: 0
+  height: -0.28
+  speciesLimit: 8
+  conversionValue: 2
+  speciesColor: {r: 0.2627451, g: 0.2627451, b: 0.2627451, a: 1}
+  sounds:
+  - {fileID: 8300000, guid: 1af8bc51d8be1974aa6ef6d472ccfaa5, type: 3}
+  minSpawnAudioTime: 15
+  maxSpawnAudioTime: 120
+  volume: 0.1

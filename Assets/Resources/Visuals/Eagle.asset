@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3558473aa1060eb478fb2029690c95d3, type: 3}
+  m_Name: Eagle
+  m_EditorClassIdentifier: 
+  speciesName: Eagle
+  sprite: {fileID: 21300000, guid: c61215ae398e31d41854b636fa0cc4ce, type: 3}
+  sprite2: {fileID: 21300000, guid: feec311138ded4040aeb9295459df429, type: 3}
+  animationTime: 0.5
+  pathType: 100
+  pathTimeSeconds: 3
+  radius: 0.5
+  pathRandomnessX: 0.1
+  pathRandomnessY: 0
+  pathRandomnessZ: 0.1
+  scale: {x: 0.1, y: 0.1, z: 0.1}
+  layerHeight: 0
+  height: 0.2
+  speciesLimit: 10
+  conversionValue: 1
+  speciesColor: {r: 0.2830189, g: 0.1479174, b: 0.1479174, a: 1}
+  sounds:
+  - {fileID: 8300000, guid: 8c34eb7272e4be242b820ae9d288e140, type: 3}
+  minSpawnAudioTime: 1
+  maxSpawnAudioTime: 10

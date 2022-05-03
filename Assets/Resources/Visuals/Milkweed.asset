@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3558473aa1060eb478fb2029690c95d3, type: 3}
+  m_Name: Milkweed
+  m_EditorClassIdentifier: 
+  speciesName: Milkweed
+  sprite: {fileID: 21300000, guid: dd3972d829af03d49af0730f64b225cc, type: 3}
+  sprite2: {fileID: 21300000, guid: dd3972d829af03d49af0730f64b225cc, type: 3}
+  animationTime: 0
+  pathType: 0
+  pathTimeSeconds: 0
+  radius: 0
+  pathRandomnessX: 0
+  pathRandomnessY: 0
+  pathRandomnessZ: 0
+  scale: {x: 0.02, y: 0.02, z: 0.02}
+  layerHeight: 0
+  height: -0.36
+  speciesLimit: 100
+  conversionValue: 1
+  speciesColor: {r: 0.75294125, g: 0.2901961, b: 0.4784314, a: 1}
+  sounds: []
+  minSpawnAudioTime: 0
+  maxSpawnAudioTime: 0
+  volume: 0

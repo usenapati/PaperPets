@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3558473aa1060eb478fb2029690c95d3, type: 3}
+  m_Name: Ladybug
+  m_EditorClassIdentifier: 
+  speciesName: Ladybug
+  sprite: {fileID: 21300000, guid: 98e6c0efec8bf4347a6ffa2e04e69665, type: 3}
+  sprite2: {fileID: 21300000, guid: f41815d81fdce55428e89eac392cc88d, type: 3}
+  animationTime: 0.05
+  pathType: 200
+  pathTimeSeconds: 0.3
+  radius: 0.1
+  pathRandomnessX: 0.1
+  pathRandomnessY: 0.75
+  pathRandomnessZ: 0.1
+  scale: {x: 0.005, y: 0.005, z: 0.005}
+  layerHeight: 0
+  height: 0.3
+  speciesLimit: 50
+  conversionValue: 2
+  speciesColor: {r: 0.8301887, g: 0, b: 0, a: 1}

@@ -3,7 +3,28 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - shop
+  - shop2
+  - pause
+  - pause2
+  - shop3
+  - shop4
+  - Light
+  - Water
+  - light&water
+  - exit
+  - progress
+  - alert
+  - infoimage
+  - infotext
+  - infoimage2
+  - speciesunlockedimage
+  - speciesunlockedtext
+  - clone
+  - target
+  - task
+  - task2
   layers:
   - Default
   - TransparentFX

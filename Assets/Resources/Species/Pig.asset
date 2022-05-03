@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ab7ded98bed374591bfdb08f1d0bdd, type: 3}
+  m_Name: Pig
+  m_EditorClassIdentifier: 
+  speciesName: Pig
+  foodRequirements: 2
+  foodValue: 5
+  excessFoodRequired: 1.2
+  waterRequirements: 1
+  lightRequirements: 0
+  reproductionChance: 0.2
+  maxReproduction: 10
+  tags:
+  - animal
+  - mammal
+  - ground
+  requiresHabitat: 0
+  habitats: []
+  requiresFood: 1
+  foods:
+  - plant
+  speciesCost:
+  - paperColor: {fileID: 11400000, guid: b2166dd1b6743d4429202d2fb4111205, type: 2}
+    paperValue: 50
+  speciesProduce:
+  - paperColor: {fileID: 11400000, guid: 47d75d2dda4dc3e41aa45d245153cf71, type: 2}
+    paperValue: 1
+  idealTemperature: 60
+  idealHumidity: 0.4
+  idealWindSpeed: 5
+  biomeWeight: 1
+  tempRange:
+  - 20
+  - 90
+  humidityRange:
+  - 0
+  - 100

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ab7ded98bed374591bfdb08f1d0bdd, type: 3}
+  m_Name: Oak
+  m_EditorClassIdentifier: 
+  speciesName: Oak
+  foodRequirements: 0
+  foodValue: 5
+  excessFoodRequired: 0
+  waterRequirements: 2
+  lightRequirements: 5
+  reproductionChance: 0.5
+  maxReproduction: 0
+  tags:
+  - plant
+  - tree
+  - tall tree
+  requiresHabitat: 0
+  habitats: []
+  requiresFood: 0
+  foods: []
+  speciesCost:
+  - paperColor: {fileID: 11400000, guid: 5406fc71471241d40851e07608158a00, type: 2}
+    paperValue: 100
+  speciesProduce:
+  - paperColor: {fileID: 11400000, guid: b2166dd1b6743d4429202d2fb4111205, type: 2}
+    paperValue: 0.1
+  idealTemperature: 70
+  idealHumidity: 50
+  idealWindSpeed: 20
+  biomeWeight: 10
+  tempRange:
+  - -20
+  - 110
+  humidityRange:
+  - 30
+  - 70
+  speciesSprite: {fileID: 21300000, guid: 75b56f438d4514b439b62ab42aa51bb6, type: 3}
